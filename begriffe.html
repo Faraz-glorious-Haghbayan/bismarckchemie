@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemische Begriffe</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #7400a6;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: #43025f;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #7400a6;
+            color: white;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .card h2 {
+                font-size: 1.3rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chemische Begriffe</h1>
+        <p>Entdecke die wichtigsten Konzepte der Chemie!</p>
+    </header>
+
+    <main>
+        <div class="card-container">
+            <!-- Karte 1 -->
+            <div class="card">
+                <h2>London-Kräfte</h2>
+                <p>Schwache intermolekulare Anziehungskräfte, die durch temporäre Dipole in Molekülen entstehen.</p>
+            </div>
+
+            <!-- Karte 2 -->
+            <div class="card">
+                <h2>Dipol</h2>
+                <p>Ein Molekül mit zwei Polen aufgrund einer ungleichmäßigen Elektronenverteilung.</p>
+            </div>
+
+            <!-- Karte 3 -->
+            <div class="card">
+                <h2>Ionisch geladen</h2>
+                <p>Atome oder Moleküle, die durch den Verlust oder Gewinn von Elektronen eine elektrische Ladung tragen.</p>
+            </div>
+
+            <!-- Karte 4 -->
+            <div class="card">
+                <h2>Van-der-Waals-Kräfte</h2>
+                <p>Intermolekulare Kräfte, die aus London-Kräften und Dipol-Dipol-Wechselwirkungen bestehen.</p>
+            </div>
+
+            <!-- Karte 5 -->
+            <div class="card">
+                <h2>Kovalente Bindung</h2>
+                <p>Eine chemische Bindung, bei der Atome Elektronen teilen, um eine stabile Konfiguration zu erreichen.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Chemie Entdecken | Alle Rechte vorbehalten</p>
+    </footer>
+</body>
+</html>

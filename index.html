@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bismarckchemie</title>
+    <style>
+        *{
+            scroll-behavior: smooth;
+        }
+          body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            max-width: 100%; /* Verhindert Überbreite */
+            overflow-x: hidden; /* Entfernt horizontales Scrollen */
+        }
+
+        header {
+            background-color: #7400a6;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #43025f;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 10px;
+            font-size: 1.2rem;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #8f00ff;
+        }
+
+        main {
+            padding: 10px 20px; /* Weniger Abstand auf mobilen Geräten */
+        }
+
+        .section {
+            margin: 15px auto;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%; /* Passt sich der Bildschirmbreite an */
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #43025f;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .section a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #7400a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .section a:hover {
+            background-color: #8f00ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #7400a6;
+            color: white;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 1rem;
+                padding: 5px 10px;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .section p {
+                font-size: 0.95rem;
+            }
+
+            .section a {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+                margin: 5px 8px;
+                padding: 5px 8px;
+            }
+
+            .section {
+                padding: 10px;
+                max-width: 100%; /* Verhindert Überbreite */
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+            }
+
+            .section p {
+                font-size: 0.85rem;
+            }
+
+            .section a {
+                padding: 6px 8px;
+                font-size: 0.8rem;
+            }
+
+            footer {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bismarckchemie</h1>
+        <p>Dein Portal für chemisches Wissen</p>
+    </header>
+
+    <nav>
+        <a href="#begriffe">Chemische Begriffe</a>
+        <a href="#elektronegativitaet">Elektronegativität</a>
+        <a href="#periodensystem">Periodensystem</a>
+    </nav>
+
+    <main>
+        <section class="section" id="begriffe">
+            <h2>Chemische Begriffe</h2>
+            <p>Entdecke die Grundlagen der Chemie durch wichtige Begriffe wie London-Kräfte, Dipole und mehr.</p>
+            <a href="begriffe.html">Zu den Begriffen</a>
+        </section>
+
+        <section class="section" id="elektronegativitaet">
+            <h2>Elektronegativität</h2>
+            <p>Lerne, wie Elektronegativität die chemischen Bindungen und Molekülstrukturen beeinflusst.</p>
+            <a href="elektronegativität.html">Zur Elektronegativität</a>
+        </section>
+
+        <section class="section" id="periodensystem">
+            <h2>Periodensystem</h2>
+            <p>Erkunde das Periodensystem der Elemente und entdecke die Eigenschaften jedes Elements.</p>
+            <a href="periodensystem.html">Zum Periodensystem</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Chemie Entdecken | Alle Rechte vorbehalten</p>
+    </footer>
+</body>
+</html>

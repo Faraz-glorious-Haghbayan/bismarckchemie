@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktive Suche - Elektronegativität</title>
+    <link rel="stylesheet" href="elektronegativität.css">
+</head>
+<body>
+
+    
+
+    <h1>Elektronegativität und Elektronegativitätsdifferenz</h1>
+    <div id="label">
+        <label for="search">Element suchen: </label>
+        <input type="text" id="search" oninput="filterElements()" placeholder="Gib ein Element ein...">
+    </div>
+
+    <ul id="elementList">
+        <!-- Listenelemente werden hier durch JavaScript dynamisch eingefügt -->
+    </ul>
+
+    <div id="result"></div>
+    <div id="compareResult"></div>
+
+    <a href="#" onclick="resetComparison()" title="Vergleich zurücksetzen">
+        <img src="reset.png" alt="Reset Button">
+    </a>
+    
+    
+    
+
+<script src="elektronegativität.js"></script>
+</body>
+</html>
