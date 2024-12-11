@@ -22,6 +22,10 @@
     box-sizing: border-box;
 }
 
+h4{
+    text-align: center;
+    
+}
 .element {
     display: flex;
     flex-direction: column;
@@ -89,6 +93,25 @@
         padding: 8px;
     }
 }
+@media (max-width: 950px){
+    .legende{
+        position: fixed !important;
+        left: 2%;
+        top: 20% !important;
+        font-size: 1rem;
+    }
+    .periodic-table{
+        margin-left: 30%;
+        margin-top: 0%;
+    }
+    #element-details{
+        max-width: 30vw;
+        max-height: 50vh;
+        max-width: fit-content;
+  margin-left: auto !important;
+  margin-right: auto;
+    }
+}
 
 @media (max-width: 768px) {
     .periodic-table {
@@ -112,6 +135,108 @@
     }
 }
 
+.period {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+.period h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+
+
+#element-details {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.details-box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.details-box h2 {
+    margin: 0;
+    color: #333;
+}
+
+.details-box p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.legende {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    width: 200px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.legende h4 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.legende ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.legende li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+}
+
+.group-metal { background-color: #ffc0c0; } /* Example colors */
+.group-nonmetal { background-color: #c0ffc0; }
+.group-metalloid { background-color: #ffffc0; }
+.group-noble { background-color: #c0e0ff; }
+.group-halogen { background-color: #ffc0ff; }
+.group-transition { background-color: #e0e0ff; }
+.group-actinoid { background-color: #ffe0c0; }
+.group-radioactive { background-color: #d9a3ff; }
+
+main {
+    position: relative;
+}
+
+header{
+    text-align: center;
+}
+
+
     </style>
 </head>
 <body>
@@ -120,149 +245,496 @@
         <p>Erforsche die Elemente und ihre Eigenschaften!</p>
     </header>
 
+    <!-- Container to display element details -->
+<div id="element-details" style="display: none;">
+    <div class="details-box">
+        <h2 id="element-name"></h2>
+        <p><strong>Symbol:</strong> <span id="element-symbol"></span></p>
+        <p><strong>Ordnungszahl:</strong> <span id="element-atomic-number"></span></p>
+        <p><strong>Atommasse:</strong> <span id="element-atomic-mass"></span></p>
+        <p><strong>Gruppe:</strong> <span id="element-group"></span></p>
+        <p><strong>Vorkommen:</strong> <span id="element-occurrence"></span></p>
+        <p><strong>Verwendungen:</strong> <span id="element-uses"></span></p>
+    </div>
+</div>
+
+
     <main>
         <div class="periodic-table">
             <!-- Period 1 -->
-            <div class="element group-nonmetal"><div class="atomic-number">1</div><div class="symbol">H</div><div class="name">Wasserstoff</div></div>
-            <div class="element group-noble" style="grid-column: 18;"><div class="atomic-number">2</div><div class="symbol">He</div><div class="name">Helium</div></div>
+            <div class="period" id="period-1">
+                <h4>Period 1</h4>
+                <div class="element group-nonmetal" onclick="showElementDetails('H', 1, 1.008, 'Nichtmetall', 'Universum, Sterne', 'Brennstoff, Ammoniak-Herstellung')">
+                    <div class="atomic-number">1</div>
+                    <div class="symbol">H</div>
+                    <div class="name">Wasserstoff</div>
+                </div>
+                <div class="element group-noble" style="grid-column: 18;" onclick="showElementDetails('He', 2, 4.0026, 'Edelgas', 'Sterne, Erdgas', 'Kühlmittel, Ballonfüllung')">
+                    <div class="atomic-number">2</div>
+                    <div class="symbol">He</div>
+                    <div class="name">Helium</div>
+                </div>
+            </div>
         
             <!-- Period 2 -->
-            <div class="element group-metal" style="grid-column: 1;"><div class="atomic-number">3</div><div class="symbol">Li</div><div class="name">Lithium</div></div>
-            <div class="element group-metal"><div class="atomic-number">4</div><div class="symbol">Be</div><div class="name">Beryllium</div></div>
-            <div class="element group-metalloid" style="grid-column: 13;"><div class="atomic-number">5</div><div class="symbol">B</div><div class="name">Bor</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">6</div><div class="symbol">C</div><div class="name">Kohlenstoff</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">7</div><div class="symbol">N</div><div class="name">Stickstoff</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">8</div><div class="symbol">O</div><div class="name">Sauerstoff</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">9</div><div class="symbol">F</div><div class="name">Fluor</div></div>
-            <div class="element group-noble"><div class="atomic-number">10</div><div class="symbol">Ne</div><div class="name">Neon</div></div>
-        
-            <!-- Period 3 -->
-            <div class="element group-metal" style="grid-column: 1;"><div class="atomic-number">11</div><div class="symbol">Na</div><div class="name">Natrium</div></div>
-            <div class="element group-metal"><div class="atomic-number">12</div><div class="symbol">Mg</div><div class="name">Magnesium</div></div>
-            <div class="element group-metalloid" style="grid-column: 13;"><div class="atomic-number">13</div><div class="symbol">Al</div><div class="name">Aluminium</div></div>
-            <div class="element group-metalloid"><div class="atomic-number">14</div><div class="symbol">Si</div><div class="name">Silicium</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">15</div><div class="symbol">P</div><div class="name">Phosphor</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">16</div><div class="symbol">S</div><div class="name">Schwefel</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">17</div><div class="symbol">Cl</div><div class="name">Chlor</div></div>
-            <div class="element group-noble"><div class="atomic-number">18</div><div class="symbol">Ar</div><div class="name">Argon</div></div>
-        
-            <!-- Period 4 -->
-            <div class="element group-metal" style="grid-column: 1;"><div class="atomic-number">19</div><div class="symbol">K</div><div class="name">Kalium</div></div>
-            <div class="element group-metal"><div class="atomic-number">20</div><div class="symbol">Ca</div><div class="name">Calcium</div></div>
-            <div class="element group-transition"><div class="atomic-number">21</div><div class="symbol">Sc</div><div class="name">Scandium</div></div>
-            <div class="element group-transition"><div class="atomic-number">22</div><div class="symbol">Ti</div><div class="name">Titan</div></div>
-            <div class="element group-transition"><div class="atomic-number">23</div><div class="symbol">V</div><div class="name">Vanadium</div></div>
-            <div class="element group-transition"><div class="atomic-number">24</div><div class="symbol">Cr</div><div class="name">Chrom</div></div>
-            <div class="element group-transition"><div class="atomic-number">25</div><div class="symbol">Mn</div><div class="name">Mangan</div></div>
-            <div class="element group-transition"><div class="atomic-number">26</div><div class="symbol">Fe</div><div class="name">Eisen</div></div>
-            <div class="element group-transition"><div class="atomic-number">27</div><div class="symbol">Co</div><div class="name">Cobalt</div></div>
-            <div class="element group-transition"><div class="atomic-number">28</div><div class="symbol">Ni</div><div class="name">Nickel</div></div>
-            <div class="element group-transition"><div class="atomic-number">29</div><div class="symbol">Cu</div><div class="name">Kupfer</div></div>
-            <div class="element group-transition"><div class="atomic-number">30</div><div class="symbol">Zn</div><div class="name">Zink</div></div>
-            <div class="element group-metalloid" style="grid-column: 13;"><div class="atomic-number">31</div><div class="symbol">Ga</div><div class="name">Gallium</div></div>
-            <div class="element group-metalloid"><div class="atomic-number">32</div><div class="symbol">Ge</div><div class="name">Germanium</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">33</div><div class="symbol">As</div><div class="name">Arsen</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">34</div><div class="symbol">Se</div><div class="name">Selen</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">35</div><div class="symbol">Br</div><div class="name">Brom</div></div>
-            <div class="element group-noble"><div class="atomic-number">36</div><div class="symbol">Kr</div><div class="name">Krypton</div></div>
-        
-            <!-- Period 5 -->
-            <div class="element group-metal" style="grid-column: 1;"><div class="atomic-number">37</div><div class="symbol">Rb</div><div class="name">Rubidium</div></div>
-            <div class="element group-metal"><div class="atomic-number">38</div><div class="symbol">Sr</div><div class="name">Strontium</div></div>
-            <div class="element group-transition"><div class="atomic-number">39</div><div class="symbol">Y</div><div class="name">Yttrium</div></div>
-            <div class="element group-transition"><div class="atomic-number">40</div><div class="symbol">Zr</div><div class="name">Zirconium</div></div>
-            <div class="element group-transition"><div class="atomic-number">41</div><div class="symbol">Nb</div><div class="name">Niob</div></div>
-            <div class="element group-transition"><div class="atomic-number">42</div><div class="symbol">Mo</div><div class="name">Molybdän</div></div>
-            <div class="element group-transition"><div class="atomic-number">43</div><div class="symbol">Tc</div><div class="name">Technetium</div></div>
-            <div class="element group-transition"><div class="atomic-number">44</div><div class="symbol">Ru</div><div class="name">Ruthenium</div></div>
-            <div class="element group-transition"><div class="atomic-number">45</div><div class="symbol">Rh</div><div class="name">Rhodium</div></div>
-            <div class="element group-transition"><div class="atomic-number">46</div><div class="symbol">Pd</div><div class="name">Palladium</div></div>
-            <div class="element group-transition"><div class="atomic-number">47</div><div class="symbol">Ag</div><div class="name">Silber</div></div>
-            <div class="element group-transition"><div class="atomic-number">48</div><div class="symbol">Cd</div><div class="name">Cadmium</div></div>
-            <div class="element group-metalloid" style="grid-column: 13;"><div class="atomic-number">49</div><div class="symbol">In</div><div class="name">Indium</div></div>
-            <div class="element group-metalloid"><div class="atomic-number">50</div><div class="symbol">Sn</div><div class="name">Zinn</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">51</div><div class="symbol">Sb</div><div class="name">Antimon</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">52</div><div class="symbol">Te</div><div class="name">Tellur</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">53</div><div class="symbol">I</div><div class="name">Iod</div></div>
-            <div class="element group-noble"><div class="atomic-number">54</div><div class="symbol">Xe</div><div class="name">Xenon</div></div>
-        
-            <!-- Period 6 -->
-            <div class="element group-metal" style="grid-column: 1;"><div class="atomic-number">55</div><div class="symbol">Cs</div><div class="name">Caesium</div></div>
-            <div class="element group-metal"><div class="atomic-number">56</div><div class="symbol">Ba</div><div class="name">Barium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">57</div><div class="symbol">La</div><div class="name">Lanthan</div></div>
-            <div class="element group-transition"><div class="atomic-number">72</div><div class="symbol">Hf</div><div class="name">Hafnium</div></div>
-            <div class="element group-transition"><div class="atomic-number">73</div><div class="symbol">Ta</div><div class="name">Tantal</div></div>
-            <div class="element group-transition"><div class="atomic-number">74</div><div class="symbol">W</div><div class="name">Wolfram</div></div>
-            <div class="element group-transition"><div class="atomic-number">75</div><div class="symbol">Re</div><div class="name">Rhenium</div></div>
-            <div class="element group-transition"><div class="atomic-number">76</div><div class="symbol">Os</div><div class="name">Osmium</div></div>
-            <div class="element group-transition"><div class="atomic-number">77</div><div class="symbol">Ir</div><div class="name">Iridium</div></div>
-            <div class="element group-transition"><div class="atomic-number">78</div><div class="symbol">Pt</div><div class="name">Platin</div></div>
-            <div class="element group-transition"><div class="atomic-number">79</div><div class="symbol">Au</div><div class="name">Gold</div></div>
-            <div class="element group-transition"><div class="atomic-number">80</div><div class="symbol">Hg</div><div class="name">Quecksilber</div></div>
-            <div class="element group-metalloid" style="grid-column: 13;"><div class="atomic-number">81</div><div class="symbol">Tl</div><div class="name">Thallium</div></div>
-            <div class="element group-metalloid"><div class="atomic-number">82</div><div class="symbol">Pb</div><div class="name">Blei</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">83</div><div class="symbol">Bi</div><div class="name">Bismut</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">84</div><div class="symbol">Po</div><div class="name">Polonium</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">85</div><div class="symbol">At</div><div class="name">Astat</div></div>
-            <div class="element group-noble"><div class="atomic-number">86</div><div class="symbol">Rn</div><div class="name">Radon</div></div>
-        
-            <!-- Period 7 -->
-            <div class="element group-metal" style="grid-column: 1;"><div class="atomic-number">87</div><div class="symbol">Fr</div><div class="name">Francium</div></div>
-            <div class="element group-metal"><div class="atomic-number">88</div><div class="symbol">Ra</div><div class="name">Radium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">89</div><div class="symbol">Ac</div><div class="name">Actinium</div></div>
-            <div class="element group-transition"><div class="atomic-number">104</div><div class="symbol">Rf</div><div class="name">Rutherfordium</div></div>
-            <div class="element group-transition"><div class="atomic-number">105</div><div class="symbol">Db</div><div class="name">Dubnium</div></div>
-            <div class="element group-transition"><div class="atomic-number">106</div><div class="symbol">Sg</div><div class="name">Seaborgium</div></div>
-            <div class="element group-transition"><div class="atomic-number">107</div><div class="symbol">Bh</div><div class="name">Bohrium</div></div>
-            <div class="element group-transition"><div class="atomic-number">108</div><div class="symbol">Hs</div><div class="name">Hassium</div></div>
-            <div class="element group-transition"><div class="atomic-number">109</div><div class="symbol">Mt</div><div class="name">Meitnerium</div></div>
-            <div class="element group-transition"><div class="atomic-number">110</div><div class="symbol">Ds</div><div class="name">Darmstadtium</div></div>
-            <div class="element group-transition"><div class="atomic-number">111</div><div class="symbol">Rg</div><div class="name">Roentgenium</div></div>
-            <div class="element group-transition"><div class="atomic-number">112</div><div class="symbol">Cn</div><div class="name">Copernicium</div></div>
-            <div class="element group-metalloid" style="grid-column: 13;"><div class="atomic-number">113</div><div class="symbol">Nh</div><div class="name">Nihonium</div></div>
-            <div class="element group-metalloid"><div class="atomic-number">114</div><div class="symbol">Fl</div><div class="name">Flerovium</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">115</div><div class="symbol">Mc</div><div class="name">Moscovium</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">116</div><div class="symbol">Lv</div><div class="name">Livermorium</div></div>
-            <div class="element group-nonmetal"><div class="atomic-number">117</div><div class="symbol">Ts</div><div class="name">Tenness</div></div>
-            <div class="element group-noble"><div class="atomic-number">118</div><div class="symbol">Og</div><div class="name">Oganesson</div></div>
-        
-            <!-- Lanthanoids -->
-            <div class="element group-lanthanoid" style="grid-column: 4;"><div class="atomic-number">58</div><div class="symbol">Ce</div><div class="name">Cer</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">59</div><div class="symbol">Pr</div><div class="name">Praseodym</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">60</div><div class="symbol">Nd</div><div class="name">Neodym</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">61</div><div class="symbol">Pm</div><div class="name">Promethium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">62</div><div class="symbol">Sm</div><div class="name">Samarium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">63</div><div class="symbol">Eu</div><div class="name">Europium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">64</div><div class="symbol">Gd</div><div class="name">Gadolinium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">65</div><div class="symbol">Tb</div><div class="name">Terbium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">66</div><div class="symbol">Dy</div><div class="name">Dysprosium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">67</div><div class="symbol">Ho</div><div class="name">Holmium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">68</div><div class="symbol">Er</div><div class="name">Erbium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">69</div><div class="symbol">Tm</div><div class="name">Thulium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">70</div><div class="symbol">Yb</div><div class="name">Ytterbium</div></div>
-            <div class="element group-lanthanoid"><div class="atomic-number">71</div><div class="symbol">Lu</div><div class="name">Lutetium</div></div>
-        
-            <!-- Actinoids -->
-            <div class="element group-actinoid" style="grid-column: 4;"><div class="atomic-number">90</div><div class="symbol">Th</div><div class="name">Thorium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">91</div><div class="symbol">Pa</div><div class="name">Protactinium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">92</div><div class="symbol">U</div><div class="name">Uran</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">93</div><div class="symbol">Np</div><div class="name">Neptunium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">94</div><div class="symbol">Pu</div><div class="name">Plutonium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">95</div><div class="symbol">Am</div><div class="name">Americium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">96</div><div class="symbol">Cm</div><div class="name">Curium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">97</div><div class="symbol">Bk</div><div class="name">Berkelium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">98</div><div class="symbol">Cf</div><div class="name">Californium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">99</div><div class="symbol">Es</div><div class="name">Einsteinium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">100</div><div class="symbol">Fm</div><div class="name">Fermium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">101</div><div class="symbol">Md</div><div class="name">Mendelevium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">102</div><div class="symbol">No</div><div class="name">Nobelium</div></div>
-            <div class="element group-actinoid"><div class="atomic-number">103</div><div class="symbol">Lr</div><div class="name">Lawrencium</div></div>
+            <div class="period" id="period-2">
+                <h4>Period 2</h4>
+                <div class="element group-metal" onclick="showElementDetails('Li', 3, 6.94, 'Alkalimetall', 'Mineralien, Salze', 'Batterien, Glasherstellung')">
+                    <div class="atomic-number">3</div>
+                    <div class="symbol">Li</div>
+                    <div class="name">Lithium</div>
+                </div>
+                <div class="element group-metal" onclick="showElementDetails('Be', 4, 9.0122, 'Erdalkalimetall', 'Beryllminerale', 'Raumfahrt, Keramiken')">
+                    <div class="atomic-number">4</div>
+                    <div class="symbol">Be</div>
+                    <div class="name">Beryllium</div>
+                </div>
+                <div class="element group-metalloid" style="grid-column: 13;" onclick="showElementDetails('B', 5, 10.81, 'Metalloid', 'Borax, Kernreaktoren', 'Glasfasern, Waschmittel')">
+                    <div class="atomic-number">5</div>
+                    <div class="symbol">B</div>
+                    <div class="name">Bor</div>
+                </div>
+                <div class="element group-nonmetal" onclick="showElementDetails('C', 6, 12.011, 'Nichtmetall', 'Kohlenstoffverbindungen', 'Brennstoffe, Biologie')">
+                    <div class="atomic-number">6</div>
+                    <div class="symbol">C</div>
+                    <div class="name">Kohlenstoff</div>
+                </div>
+                <div class="element group-nonmetal" onclick="showElementDetails('N', 7, 14.007, 'Nichtmetall', 'Atmosphäre', 'Dünger, Sprengstoffe')">
+                    <div class="atomic-number">7</div>
+                    <div class="symbol">N</div>
+                    <div class="name">Stickstoff</div>
+                </div>
+                <div class="element group-nonmetal" onclick="showElementDetails('O', 8, 15.999, 'Nichtmetall', 'Atmosphäre, Wasser', 'Atmung, Verbrennung')">
+                    <div class="atomic-number">8</div>
+                    <div class="symbol">O</div>
+                    <div class="name">Sauerstoff</div>
+                </div>
+                <div class="element group-nonmetal" onclick="showElementDetails('F', 9, 18.998, 'Halogen', 'Mineralien', 'Zahnpasta, Teflonherstellung')">
+                    <div class="atomic-number">9</div>
+                    <div class="symbol">F</div>
+                    <div class="name">Fluor</div>
+                </div>
+                <div class="element group-noble" onclick="showElementDetails('Ne', 10, 20.180, 'Edelgas', 'Atmosphäre', 'Leuchtreklamen')">
+                    <div class="atomic-number">10</div>
+                    <div class="symbol">Ne</div>
+                    <div class="name">Neon</div>
+                </div>
+            </div>
+           <!-- Period 3 -->
+    <div class="period" id="period-3">
+        <h4>Period 3</h4>
+        <div class="element group-metal" onclick="showElementDetails('Na', 11, 22.990, 'Alkalimetall', 'Salze, Ozeane', 'Kochsalz, Straßenenteisung')">
+            <div class="atomic-number">11</div>
+            <div class="symbol">Na</div>
+            <div class="name">Natrium</div>
         </div>
+        <div class="element group-metal" onclick="showElementDetails('Mg', 12, 24.305, 'Erdalkalimetall', 'Mineralien', 'Legierungen, Medizin')">
+            <div class="atomic-number">12</div>
+            <div class="symbol">Mg</div>
+            <div class="name">Magnesium</div>
+        </div>
+        <div class="element group-metalloid" style="grid-column: 13;" onclick="showElementDetails('Al', 13, 26.982, 'Metalloid', 'Erde, Bauxit', 'Dosen, Flugzeuge')">
+            <div class="atomic-number">13</div>
+            <div class="symbol">Al</div>
+            <div class="name">Aluminium</div>
+        </div>
+        <div class="element group-metalloid" onclick="showElementDetails('Si', 14, 28.085, 'Metalloid', 'Sand, Silikate', 'Elektronik, Glasherstellung')">
+            <div class="atomic-number">14</div>
+            <div class="symbol">Si</div>
+            <div class="name">Silicium</div>
+        </div>
+        <div class="element group-nonmetal" onclick="showElementDetails('P', 15, 30.974, 'Nichtmetall', 'Mineralien, DNA', 'Dünger, Zündhölzer')">
+            <div class="atomic-number">15</div>
+            <div class="symbol">P</div>
+            <div class="name">Phosphor</div>
+        </div>
+        <div class="element group-nonmetal" onclick="showElementDetails('S', 16, 32.06, 'Nichtmetall', 'Vulkane, Sedimente', 'Schwefelsäure, Streichhölzer')">
+            <div class="atomic-number">16</div>
+            <div class="symbol">S</div>
+            <div class="name">Schwefel</div>
+        </div>
+        <div class="element group-nonmetal" onclick="showElementDetails('Cl', 17, 35.45, 'Halogen', 'Meerwasser', 'Desinfektionsmittel, PVC')">
+            <div class="atomic-number">17</div>
+            <div class="symbol">Cl</div>
+            <div class="name">Chlor</div>
+        </div>
+        <div class="element group-noble" onclick="showElementDetails('Ar', 18, 39.948, 'Edelgas', 'Atmosphäre', 'Leuchtstoffröhren, Schutzgas')">
+            <div class="atomic-number">18</div>
+            <div class="symbol">Ar</div>
+            <div class="name">Argon</div>
+        </div>
+    </div>
+           <!-- Period 4 -->
+<div class="period" id="period-4">
+    <h4>Period 4</h4>
+    <div class="element group-metal" onclick="showElementDetails('K', 19, 39.098, 'Alkalimetall', 'In Mineralien wie Sylvin und Carnallit', 'Düngemittel, Glasproduktion, Kaliumverbindungen')">
+        <div class="atomic-number">19</div>
+        <div class="symbol">K</div>
+        <div class="name">Kalium</div>
+    </div>
+    <div class="element group-metal" onclick="showElementDetails('Ca', 20, 40.078, 'Erdalkalimetall', 'In Kalkstein, Gips und Dolomit', 'Zementherstellung, Bauwesen, Nahrungsergänzungsmittel')">
+        <div class="atomic-number">20</div>
+        <div class="symbol">Ca</div>
+        <div class="name">Calcium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Sc', 21, 44.956, 'Übergangsmetall', 'In seltenen Erden und Uranerzen', 'Legierungen, Leichtbau, Halbleitertechnik')">
+        <div class="atomic-number">21</div>
+        <div class="symbol">Sc</div>
+        <div class="name">Scandium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Ti', 22, 47.867, 'Übergangsmetall', 'In Mineralien wie Rutil und Ilmenit', 'Leichtbau, medizinische Implantate, Farben')">
+        <div class="atomic-number">22</div>
+        <div class="symbol">Ti</div>
+        <div class="name">Titan</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('V', 23, 50.942, 'Übergangsmetall', 'In Magnetit-Erzen und Bauxit', 'Stahllegierungen, Katalysatoren, Batterien')">
+        <div class="atomic-number">23</div>
+        <div class="symbol">V</div>
+        <div class="name">Vanadium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Cr', 24, 51.996, 'Übergangsmetall', 'In Chromit-Erzen', 'Rostschutz, Edelstahl, Pigmente')">
+        <div class="atomic-number">24</div>
+        <div class="symbol">Cr</div>
+        <div class="name">Chrom</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Mn', 25, 54.938, 'Übergangsmetall', 'In Manganknollen und Pyrolusit', 'Legierungen, Batterien, chemische Reaktionen')">
+        <div class="atomic-number">25</div>
+        <div class="symbol">Mn</div>
+        <div class="name">Mangan</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Fe', 26, 55.845, 'Übergangsmetall', 'In Hämatit und Magnetit', 'Stahlherstellung, Maschinenbau, Magneten')">
+        <div class="atomic-number">26</div>
+        <div class="symbol">Fe</div>
+        <div class="name">Eisen</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Co', 27, 58.933, 'Übergangsmetall', 'In Erzvorkommen wie Kobaltit', 'Legierungen, Batterien, Magnete')">
+        <div class="atomic-number">27</div>
+        <div class="symbol">Co</div>
+        <div class="name">Cobalt</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Ni', 28, 58.693, 'Übergangsmetall', 'In Laterit- und Sulfid-Erzen', 'Edelstahl, Münzen, Batterien')">
+        <div class="atomic-number">28</div>
+        <div class="symbol">Ni</div>
+        <div class="name">Nickel</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Cu', 29, 63.546, 'Übergangsmetall', 'In Chalkopyrit und Malachit', 'Leitungen, Münzen, Elektronik')">
+        <div class="atomic-number">29</div>
+        <div class="symbol">Cu</div>
+        <div class="name">Kupfer</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Zn', 30, 65.38, 'Übergangsmetall', 'In Sphalerit und Calamin', 'Legierungen wie Messing, Verzinkung, Batterien')">
+        <div class="atomic-number">30</div>
+        <div class="symbol">Zn</div>
+        <div class="name">Zink</div>
+    </div>
+</div>
+
+
+<!-- Period 5 -->
+<div class="period" id="period-5">
+    <h4>Period 5</h4>
+    <div class="element group-metal" onclick="showElementDetails('Rb', 37, 85.468, 'Alkalimetall', 'In Mineralien wie Lepidolith', 'Düngemittel, Glasproduktion, Kaliumverbindungen')">
+        <div class="atomic-number">37</div>
+        <div class="symbol">Rb</div>
+        <div class="name">Rubidium</div>
+    </div>
+    <div class="element group-metal" onclick="showElementDetails('Sr', 38, 87.62, 'Erdalkalimetall', 'In Mineralien wie Celestit und Strontianit', 'Feuerwerkskörper, Magnesit, Radiumverbindungen')">
+        <div class="atomic-number">38</div>
+        <div class="symbol">Sr</div>
+        <div class="name">Strontium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Y', 39, 88.905, 'Übergangsmetall', 'In Yttrium-Erzen', 'Leuchtstoffe, LEDs, Supraleiter')">
+        <div class="atomic-number">39</div>
+        <div class="symbol">Y</div>
+        <div class="name">Yttrium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Zr', 40, 91.224, 'Übergangsmetall', 'In Mineralien wie Zirkon und Baddeleyit', 'Edelstahl, Keramik, Raumfahrt')">
+        <div class="atomic-number">40</div>
+        <div class="symbol">Zr</div>
+        <div class="name">Zirkonium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Nb', 41, 92.906, 'Übergangsmetall', 'In Niobit-Erzen', 'Superlegierungen, Magneten, Batterien')">
+        <div class="atomic-number">41</div>
+        <div class="symbol">Nb</div>
+        <div class="name">Niobium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Mo', 42, 95.95, 'Übergangsmetall', 'In Molybdänit', 'Stahlherstellung, Elektronik, Legierungen')">
+        <div class="atomic-number">42</div>
+        <div class="symbol">Mo</div>
+        <div class="name">Molybdän</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Tc', 43, 98, 'Übergangsmetall', 'In Uranerzen', 'Kernreaktoren, medizinische Isotope')">
+        <div class="atomic-number">43</div>
+        <div class="symbol">Tc</div>
+        <div class="name">Technetium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Ru', 44, 101.07, 'Übergangsmetall', 'In Erzen wie Ruhetit', 'Katalysatoren, Legierungen, Elektroden')">
+        <div class="atomic-number">44</div>
+        <div class="symbol">Ru</div>
+        <div class="name">Ruthenium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Rh', 45, 102.91, 'Übergangsmetall', 'In Erzen wie Rhodinit', 'Legierungen, Katalysatoren, Schmuck')">
+        <div class="atomic-number">45</div>
+        <div class="symbol">Rh</div>
+        <div class="name">Rhodium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Pd', 46, 106.42, 'Übergangsmetall', 'In Platin- und Nickel-Erzen', 'Katalysatoren, Schmuck, Elektronik')">
+        <div class="atomic-number">46</div>
+        <div class="symbol">Pd</div>
+        <div class="name">Palladium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Ag', 47, 107.87, 'Übergangsmetall', 'In Silbererzen', 'Schmuck, Münzen, Elektronik')">
+        <div class="atomic-number">47</div>
+        <div class="symbol">Ag</div>
+        <div class="name">Silber</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Cd', 48, 112.41, 'Übergangsmetall', 'In Zinkerzen', 'Batterien, Galvanisieren, Pigmente')">
+        <div class="atomic-number">48</div>
+        <div class="symbol">Cd</div>
+        <div class="name">Cadmium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('In', 49, 114.82, 'Hauptgruppenelement', 'In Zinkerzen', 'Halbleiter, Elektronik, Galliumverbindungen')">
+        <div class="atomic-number">49</div>
+        <div class="symbol">In</div>
+        <div class="name">Indium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Sn', 50, 118.71, 'Hauptgruppenelement', 'In Zinnerzen', 'Elektronik, Soldern, Legierungen')">
+        <div class="atomic-number">50</div>
+        <div class="symbol">Sn</div>
+        <div class="name">Zinn</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Sb', 51, 121.76, 'Hauptgruppenelement', 'In Antimonit-Erzen', 'Halbleiter, Legierungen, Flammschutzmittel')">
+        <div class="atomic-number">51</div>
+        <div class="symbol">Sb</div>
+        <div class="name">Antimon</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('I', 53, 126.90, 'Hauptgruppenelement', 'In Iodit-Erzen', 'Desinfektionsmittel, Jodsalze')">
+        <div class="atomic-number">53</div>
+        <div class="symbol">I</div>
+        <div class="name">Iod</div>
+    </div>
+    <div class="element group-halogen" onclick="showElementDetails('Te', 52, 127.60, 'Halogen', 'In Teerit und selenhaltigen Mineralien', 'Halbleiter, Solarzellen')">
+        <div class="atomic-number">52</div>
+        <div class="symbol">Te</div>
+        <div class="name">Tellur</div>
+    </div>
+    <div class="element group-noble-gas" onclick="showElementDetails('Xe', 54, 131.29, 'Edelgas', 'In Mineralien wie Xenotim', 'Lampen, Katalysatoren')">
+        <div class="atomic-number">54</div>
+        <div class="symbol">Xe</div>
+        <div class="name">Xenon</div>
+    </div>
+</div>
+
+<!-- Period 6 -->
+<div class="period" id="period-6">
+    <h4>Period 6</h4>
+    <div class="element group-metal" onclick="showElementDetails('Cs', 55, 132.91, 'Alkalimetall', 'In Mineralien wie Lepidolith und Pollucit', 'Batterien, Feuerwerkskörper, Glas')">
+        <div class="atomic-number">55</div>
+        <div class="symbol">Cs</div>
+        <div class="name">Caesium</div>
+    </div>
+    <div class="element group-metal" onclick="showElementDetails('Ba', 56, 137.33, 'Erdalkalimetall', 'In Mineralien wie Baryt und Witherit', 'Feuerwerkskörper, Magnetit, Röntgenstrahlen')">
+        <div class="atomic-number">56</div>
+        <div class="symbol">Ba</div>
+        <div class="name">Barium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('La', 57, 138.91, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Leuchtstoffe, Katalysatoren, Superlegierungen')">
+        <div class="atomic-number">57</div>
+        <div class="symbol">La</div>
+        <div class="name">Lanthan</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Ce', 58, 140.12, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Katalysatoren, Magnetmaterialien')">
+        <div class="atomic-number">58</div>
+        <div class="symbol">Ce</div>
+        <div class="name">Cer</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Pr', 59, 140.91, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Leuchtstoffe, Katalysatoren')">
+        <div class="atomic-number">59</div>
+        <div class="symbol">Pr</div>
+        <div class="name">Praseodym</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Nd', 60, 144.24, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Neodymmagnete, Laser')">
+        <div class="atomic-number">60</div>
+        <div class="symbol">Nd</div>
+        <div class="name">Neodym</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Pm', 61, 145, 'Lanthanoid', 'In Uranerzen', 'Radioaktive Isotope')">
+        <div class="atomic-number">61</div>
+        <div class="symbol">Pm</div>
+        <div class="name">Promethium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Sm', 62, 150.36, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Neodymmagnete, Leuchtstoffe')">
+        <div class="atomic-number">62</div>
+        <div class="symbol">Sm</div>
+        <div class="name">Samarium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Eu', 63, 151.98, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Leuchtstoffe, Katalysatoren')">
+        <div class="atomic-number">63</div>
+        <div class="symbol">Eu</div>
+        <div class="name">Europium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Gd', 64, 157.25, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Magnetmaterialien, Leuchtstoffe')">
+        <div class="atomic-number">64</div>
+        <div class="symbol">Gd</div>
+        <div class="name">Gadolinium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Tb', 65, 158.93, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Leuchtstoffe, Magnetmaterialien')">
+        <div class="atomic-number">65</div>
+        <div class="symbol">Tb</div>
+        <div class="name">Terbium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Dy', 66, 162.50, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Magneten, Laser')">
+        <div class="atomic-number">66</div>
+        <div class="symbol">Dy</div>
+        <div class="name">Dysprosium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Ho', 67, 164.93, 'Lanthanoid', 'In Monazit und Bastnäsite', 'Magneten, Laser')">
+        <div class="atomic-number">67</div>
+        <div class="symbol">Ho</div>
+        <div class="name">Holmium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Er', 68, 167.26, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Magneten, Laser')">
+        <div class="atomic-number">68</div>
+        <div class="symbol">Er</div>
+        <div class="name">Erbium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Tm', 69, 168.93, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Magneten, Laser')">
+        <div class="atomic-number">69</div>
+        <div class="symbol">Tm</div>
+        <div class="name">Thulium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Yb', 70, 173.04, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Magnetmaterialien, Leuchtstoffe')">
+        <div class="atomic-number">70</div>
+        <div class="symbol">Yb</div>
+        <div class="name">Ytterbium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Lu', 71, 175.00, 'Lanthanoid', 'In Mineralien wie Monazit und Bastnäsite', 'Magnetmaterialien')">
+        <div class="atomic-number">71</div>
+        <div class="symbol">Lu</div>
+        <div class="name">Lutetium</div>
+    </div>
+</div>
+
+
+
+<div class="period" id="period-7">
+    <h4>Period 7</h4>
+    <div class="element group-metal" onclick="showElementDetails('Fr', 87, 223, 'Alkalimetall, Radioaktiv')">
+        <div class="atomic-number">87</div>
+        <div class="symbol">Fr</div>
+        <div class="name">Francium</div>
+    </div>
+    <div class="element group-metal" onclick="showElementDetails('Ra', 88, 226, 'Erdalkalimetall, Radioaktiv')">
+        <div class="atomic-number">88</div>
+        <div class="symbol">Ra</div>
+        <div class="name">Radium</div>
+    </div>
+    <div class="element group-actinoid" onclick="showElementDetails('Ac', 89, 227, 'Actinoid')">
+        <div class="atomic-number">89</div>
+        <div class="symbol">Ac</div>
+        <div class="name">Actinium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Rf', 104, 267, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">104</div>
+        <div class="symbol">Rf</div>
+        <div class="name">Rutherfordium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Db', 105, 270, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">105</div>
+        <div class="symbol">Db</div>
+        <div class="name">Dubnium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Sg', 106, 271, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">106</div>
+        <div class="symbol">Sg</div>
+        <div class="name">Seaborgium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Bh', 107, 270, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">107</div>
+        <div class="symbol">Bh</div>
+        <div class="name">Bohrium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Hs', 108, 277, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">108</div>
+        <div class="symbol">Hs</div>
+        <div class="name">Hassium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Mt', 109, 278, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">109</div>
+        <div class="symbol">Mt</div>
+        <div class="name">Meitnerium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Ds', 110, 281, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">110</div>
+        <div class="symbol">Ds</div>
+        <div class="name">Darmstadtium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Rg', 111, 282, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">111</div>
+        <div class="symbol">Rg</div>
+        <div class="name">Roentgenium</div>
+    </div>
+    <div class="element group-transition" onclick="showElementDetails('Cn', 112, 285, 'Übergangsmetall, Radioaktiv')">
+        <div class="atomic-number">112</div>
+        <div class="symbol">Cn</div>
+        <div class="name">Copernicium</div>
+    </div>
+    <div class="element group-metalloid" onclick="showElementDetails('Nh', 113, 286, 'Metall, Radioaktiv')">
+        <div class="atomic-number">113</div>
+        <div class="symbol">Nh</div>
+        <div class="name">Nihonium</div>
+    </div>
+    <div class="element group-metalloid" onclick="showElementDetails('Fl', 114, 289, 'Metall, Radioaktiv')">
+        <div class="atomic-number">114</div>
+        <div class="symbol">Fl</div>
+        <div class="name">Flerovium</div>
+    </div>
+    <div class="element group-nonmetal" onclick="showElementDetails('Mc', 115, 290, 'Metall, Radioaktiv')">
+        <div class="atomic-number">115</div>
+        <div class="symbol">Mc</div>
+        <div class="name">Moscovium</div>
+    </div>
+    <div class="element group-nonmetal" onclick="showElementDetails('Lv', 116, 293, 'Metall, Radioaktiv')">
+        <div class="atomic-number">116</div>
+        <div class="symbol">Lv</div>
+        <div class="name">Livermorium</div>
+    </div>
+    <div class="element group-nonmetal" onclick="showElementDetails('Ts', 117, 294, 'Halogen, Radioaktiv')">
+        <div class="atomic-number">117</div>
+        <div class="symbol">Ts</div>
+        <div class="name">Tennessine</div>
+    </div>
+    <div class="element group-noble" onclick="showElementDetails('Og', 118, 294, 'Edelgas, Radioaktiv')">
+        <div class="atomic-number">118</div>
+        <div class="symbol">Og</div>
+        <div class="name">Oganesson</div>
+    </div>
+</div>
+
+
+        </div>
+        
+        <div class="legende">
+            <h4>Legende</h4>
+            <ul>
+                <li><span class="legend-box group-metal"></span> Metalle</li>
+                <li><span class="legend-box group-nonmetal"></span> Nichtmetalle</li>
+                <li><span class="legend-box group-metalloid"></span> Halbmetalle</li>
+                <li><span class="legend-box group-noble"></span> Edelgase</li>
+                <li><span class="legend-box group-halogen"></span> Halogene</li>
+                <li><span class="legend-box group-transition"></span> Übergangsmetalle</li>
+                <li><span class="legend-box group-actinoid"></span> Actinoide</li>
+                <li><span class="legend-box group-radioactive"></span> Radioaktive Elemente</li>
+            </ul>
+        </div>
+        
+        
               
     </main>
 
     <footer>
         <p>&copy; 2024 Chemie Entdecken | Alle Rechte vorbehalten</p>
     </footer>
+    <script src="periodensystem.js"></script>
 </body>
 </html>
