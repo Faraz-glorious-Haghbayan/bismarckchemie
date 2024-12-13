@@ -1,122 +1,111 @@
-*{
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     scroll-behavior: smooth;
 }
+
 body {
     font-family: 'Arial', sans-serif;
+    background-color: #7f06dc;
+    color: #333;
     margin: 20px;
-    background-color: #f4e7ff;
-}
-
-#label {
-    text-align: center;
+    line-height: 1.6;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+#label {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 #search {
-    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto 20px auto;
     padding: 10px;
     font-size: 16px;
-    width: 250px;
+    width: 60%;
     border: 2px solid #ccc;
     border-radius: 5px;
-}
-.element {
-opacity: 0;
-transform: translateY(-10px);
-animation: fadeIn 0.5s forwards;
+    transition: border-color 0.3s ease;
 }
 
-@keyframes fadeIn {
-to {
-opacity: 1;
-transform: translateY(0);
-}
+#search:focus {
+    border-color: #8f00ff;
+    outline: none;
 }
 
 #elementList {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    margin: 20px auto;
+    width: 80%;
     text-align: center;
-    position: absolute;
-    width: 25%;
-    margin: 0 auto;
 }
 
 #elementList li {
-padding: 10px;
-border: 1px solid #ddd;
-margin: 5px 0;
-font-weight: bold;
-background-color: #ac42ff;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.5s ease, transform 0.3s ease;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    background-color: #ac42ff;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    color: #fff;
 }
 
 #elementList li:hover {
-background-color: #8f00ff;
-color: white;
-transform: scale(1.05); /* Slight zoom-in effect on hover */
+    background-color: #8f00ff;
+    transform: scale(1.05);
 }
 
-#result {
-display: flex;
-justify-content: space-around;
-background-color: #fff;
-border: 1px solid #ddd;
-border-radius: 5px;
-padding: 10px;
-position: absolute;
-right: 2%;
-width: 50%;
-top: 20%;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-opacity: 0;
-transition: opacity 0.5s ease, transform 0.5s ease;
-}
-#result h2{
-color: rgb(23, 23, 23) !important;
+/* Result Boxes */
+#result, #compareResult {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
 }
 
-#result.active {
-opacity: 1;
-transform: translateY(0);
-}
-#compareResult {
-background-color: #fff;
-border: 1px solid #ddd;
-border-radius: 5px;
-position: absolute;
-width: 50%;
-right: 2%;
-top: 50%;
-padding: 10px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-opacity: 0;
-transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-#compareResult.active {
-opacity: 1;
-transform: translateY(0);
+#result.active, #compareResult.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #result h2, #compareResult h3 {
     color: #333;
-    font-size: 1rem ;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
+/* Buttons */
 button {
+    display: block;
     background-color: #7400a6;
-    color: white;
-    padding: 8px 16px;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem;
+    margin: 20px auto;
     transition: background-color 0.3s ease;
 }
 
@@ -124,168 +113,91 @@ button:hover {
     background-color: #43025f;
 }
 
-div.element {
-    text-align: center;
-    margin: 10px;
-}
-
+/* Image Links */
 a img {
-transition: transform 0.5s ease;
-position: absolute;
-bottom: 5%;
-width: 5%;
-padding: 1%;
-border-radius: 50%;
-right: 5%;
-background-color: transparent;
+    transition: transform 0.5s ease;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
 }
 
 a:hover img {
-transform: rotate(360deg); /* Optional spinning effect */
+    transform: rotate(360deg);
 }
 
+/* Animations */
+.element {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 0.5s forwards;
+}
 
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
 @media (max-width: 950px) {
-body{
-margin: 0%;
-padding: 0%;
-}
-#result{
-width: 90%;
-text-align: center;
-font-size: 1rem !important;
-margin: 0% 5% 0% 5%;
-padding: 0% 2%;
-position: static;
-max-width: fit-content;
-margin-left: auto;
-margin-right: auto;
-}
-#compareResult{
-margin: 1% 5%;
-position: static;
-padding: 0% 5%;
-width: 100%;
-max-width: fit-content;
-margin-left: auto;
-margin-right: auto;
-}
-#compareResult h3{
-font-size: 1.1rem;
-}
-#search {
-width: 70%;
-font-size: 14px;
-margin: 0 auto;
-display: block;
-}
-
-.element{
-font-size: 1rem;
-}
-
-h1 {
-font-size: 1.3rem;
-color: #8f00ff;
-margin-bottom: 10px;
-}
-
-#label {
-font-size: 1rem;
-font-weight: bold;
-margin: 0% 0;
-text-align: center;
-}
-
-#elementList {
-width: 80%;
-margin: 0% 10%;
-padding: 0;
-position: static;
-}
-
-#elementList li {
-font-size: 0.9rem;
-}
-
-button {
-width: 100%;
-margin: 10px auto;
-}
-
-
-a img {
-width: 30px;
-margin: 3%;
-position: static;
-height: 30px;
-}
-}
-
-@media (min-width: 900px) and (max-width: 1370px) {
     body {
         margin: 0;
+        padding: 0;
+    }
+
+    #result, #compareResult {
+        width: 90%;
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    #search {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    #elementList li {
+        font-size: 0.9rem;
         padding: 10px;
     }
 
     h1 {
-        font-size: 2rem;
-    }
-    #label{
-
-        font-size: 2rem;
-        font-weight: bold;
-    }
-
-    #result, #compareResult {
-        width: 78%;
-        margin: 20px auto;
-        position: static;
-        padding: 10px 15px;
-        max-width: 90%;
-    }
-    #compareResult{
-        font-size: 1.6rem;
-    }
-    #result h2{
-        font-size: 2rem;
-    }
-
-    #search {
-        width: 70%;
-        font-size:2rem;
-        font-weight: bold;
-        margin: 20px auto;
-        display: block;
-    }
-
-    #elementList {
-        width: 80%;
-        margin: 10px auto;
-        padding: 0;
-        position: static;
-    }
-
-    #elementList li {
-        font-size: 1.5rem;
-        padding: 8px;
-    }
-
-    #compareResult h3 {
-        font-size: 2rem;
-    }
-
-    button {
-        width: 10%;
-        padding: 10px 20px;
-    }
-
-    div.element {
         font-size: 1.5rem;
     }
 
     a img {
-        width: 5%;
-        position: static;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1370px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #result, #compareResult {
+        width: 75%;
+        padding: 20px;
+    }
+
+    #search {
+        width: 70%;
+        font-size: 1.2rem;
+    }
+
+    #elementList li {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+
+    button {
+        width: 20%;
+        padding: 10px;
     }
 }
