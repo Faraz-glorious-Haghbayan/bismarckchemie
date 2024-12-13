@@ -4,101 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bismarckchemie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        *{
-            scroll-behavior: smooth;
-        }
-          body {
-            font-family: 'Arial', sans-serif;
+        /* General Reset and Styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            max-width: 100%; /* Verhindert Überbreite */
-            overflow-x: hidden; /* Entfernt horizontales Scrollen */
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
         }
 
         header {
-            background-color: #7400a6;
+            background: linear-gradient(135deg, #5e00a8, #8f00ff);
             color: white;
-            padding: 10px 20px;
             text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 5px;
         }
 
         nav {
-            background-color: #43025f;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 10px;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #43025f;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 5px 10px;
-            font-size: 1.2rem;
-            padding: 5px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
 
-        nav a:hover {
-            background-color: #8f00ff;
-        }
+nav a:hover {
+    background-color: #5e00a8;
+    color: #ffd700;
+    box-shadow: 0px 4px 15px rgba(94, 0, 168, 0.5);
+}
+
+nav a.active {
+    background-color: #ffd700;
+    color: #43025f;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.6);
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0%;
+    height: 3px;
+    background-color: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
 
         main {
-            padding: 10px 20px; /* Weniger Abstand auf mobilen Geräten */
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section {
-            margin: 15px auto;
-            padding: 15px;
-            background-color: white;
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 100%; /* Passt sich der Bildschirmbreite an */
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
         }
 
         .section h2 {
-            font-size: 1.8rem;
-            color: #43025f;
+            font-size: 2rem;
             margin-bottom: 15px;
+            color: #5e00a8;
         }
 
         .section p {
             font-size: 1rem;
-            line-height: 1.5;
-            color: #333;
+            margin-bottom: 15px;
         }
 
         .section a {
             display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #7400a6;
+            background: linear-gradient(135deg, #5e00a8, #8f00ff);
             color: white;
             text-decoration: none;
+            padding: 10px 15px;
             border-radius: 5px;
             font-size: 1rem;
-            transition: background-color 0.3s;
+            transition-duration: 1s;
         }
 
         .section a:hover {
-            background-color: #8f00ff;
+            background: linear-gradient(135deg, #8f00ff, #5e00a8);
         }
 
         footer {
             text-align: center;
-            padding: 10px;
-            background-color: #7400a6;
+            background: linear-gradient(135deg, #5e00a8, #8f00ff);
             color: white;
+            padding: 15px;
+            font-size: 1rem;
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
             nav a {
-                font-size: 1rem;
-                padding: 5px 10px;
+                font-size: 0.95rem;
+                margin: 5px;
             }
 
             .section h2 {
@@ -117,18 +171,17 @@
 
         @media (max-width: 480px) {
             header h1 {
-                font-size: 1.4rem;
+                font-size: 1.8rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
             }
 
             nav a {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 margin: 5px 8px;
-                padding: 5px 8px;
-            }
-
-            .section {
-                padding: 10px;
-                max-width: 100%; /* Verhindert Überbreite */
+                padding: 5px 10px;
             }
 
             .section h2 {
@@ -139,14 +192,8 @@
                 font-size: 0.85rem;
             }
 
-            .section a {
-                padding: 6px 8px;
-                font-size: 0.8rem;
-            }
-
             footer {
                 font-size: 0.85rem;
-                padding: 8px;
             }
         }
     </style>
@@ -158,10 +205,12 @@
     </header>
 
     <nav>
-        <a href="#begriffe">Chemische Begriffe</a>
+        <a href="#begriffe" class="active">Chemische Begriffe</a>
         <a href="#elektronegativitaet">Elektronegativität</a>
         <a href="#periodensystem">Periodensystem</a>
-    </nav>
+        <a href="#faq">Faq</a>
+       <a href="#about-us">Über uns</a>
+    </nav>    
 
     <main>
         <section class="section" id="begriffe">
@@ -181,10 +230,57 @@
             <p>Erkunde das Periodensystem der Elemente und entdecke die Eigenschaften jedes Elements.</p>
             <a href="periodensystem.html">Zum Periodensystem</a>
         </section>
+
+        <section class="section" id="faq">
+            <h2>Häufige Fragen</h2>
+            <details>
+                <summary>Was ist Elektronegativität?</summary>
+                <p>Die Elektronegativität beschreibt, wie stark ein Atom Elektronen in einer chemischen Bindung anzieht.</p>
+            </details>
+            <details>
+                <summary>Wie lese ich das Periodensystem?</summary>
+                <p>Das Periodensystem ist nach steigender Ordnungszahl organisiert. Gruppen geben ähnliche chemische Eigenschaften an.</p>
+            </details>
+            <details>
+                <summary>Was ist ein Dipol?</summary>
+                <p>Ein Dipol ist ein Molekül, das eine positive und eine negative Ladung hat. Bla Bla Bla...ich muss es noch später berabeiten XD </p>
+            </details>
+        </section>
+
+        <section class="section" id="quiz">
+            <h2>Chemie-Quiz</h2>
+            <p>Teste dein Wissen über chemische Begriffe und Konzepte.</p>
+            <button onclick="startQuiz()" style="padding: 10px; border: none; border-radius: 5px; background-color: #8f00ff; color: white;">Quiz starten</button>
+        </section>
+
+        <section class="section" id="about-us">
+            <h2>Über uns</h2>
+            <p>Willst du mehr über uns erfahren?</p>
+            <a href="faraz.html">Über uns</a>
+        </section>
+        
+        <button onclick="scrollToTop()" style="position: fixed; bottom: 30px; right: 30px; padding: 20px 25px; background-color: #8f00ff; color: white; font-size: 1.5rem; border: none; border-radius: 50%; cursor: pointer;">
+            ↑
+        </button>
+        
+        
+           
+        
+
     </main>
 
     <footer>
         <p>&copy; 2024 Chemie Entdecken | Alle Rechte vorbehalten</p>
     </footer>
+
+    <script>
+        function startQuiz() {
+            alert("Das Quiz wird bald hinzugefügt! Bleib dran!");
+        }
+
+        function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+    </script>
 </body>
 </html>
