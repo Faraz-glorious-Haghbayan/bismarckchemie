@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodensystem der Elemente</title>
     <style>
-       body {
-    font-family: Arial, sans-serif;
+       /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #1E1E2F;
+    color: #FFFFFF;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #2C2C3A;
+    border-bottom: 2px solid #00E5FF;
 }
 
 .periodic-table {
     display: grid;
-    grid-template-columns: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr); /* 18 Spalten für 18 Gruppen */
     gap: 5px;
     max-width: 100%;
     margin: 20px auto;
@@ -22,18 +31,16 @@
     box-sizing: border-box;
 }
 
-h4{
-    text-align: center;
-    
-}
+/* Style für die Elemente */
 .element {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #690707;
+    border: 1px solid #ffffff;
+    margin-top: 5%;
     border-radius: 4px;
     padding: 10px;
     font-size: 12px;
@@ -41,162 +48,97 @@ h4{
 }
 
 .element:hover {
-    transform: scale(1.1);
-    background-color: #f0f8ff;
-}
-
-.group-nonmetal {
-    background-color: #d1f0d1;
-}
-
-.group-metal {
-    background-color: #f0d1d1;
-}
-
-.group-transition {
-    background-color: #d1d1f0;
-}
-
-.group-lanthanoid,
-.group-actinoid {
-    background-color: #f0e1d1;
-}
-
-.group-noble {
-    background-color: #d1f0f0;
+    transform: translateY(-5px);
+    background-color: #00E5FF;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .atomic-number {
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-bottom: 5px;
+    color: #FFD700;
 }
 
 .symbol {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .name {
-    font-size: 0.8rem;
-    color: #333;
+    font-size: 0.9rem;
+    color: #E0E0E0;
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 1200px) {
-    .periodic-table {
-        grid-template-columns: repeat(12, 1fr);
-    }
-
-    .element {
-        font-size: 11px;
-        padding: 8px;
-    }
-}
-@media (max-width: 950px){
-    .legende{
-        position: fixed !important;
-        left: 2%;
-        top: 20% !important;
-        font-size: 1rem;
-    }
-    .periodic-table{
-        margin-left: 30%;
-        margin-top: 0%;
-    }
-    #element-details{
-        max-width: 30vw;
-        max-height: 50vh;
-        max-width: fit-content;
-  margin-left: auto !important;
-  margin-right: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .periodic-table {
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    .element {
-        font-size: 10px;
-        padding: 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    .periodic-table {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .element {
-        font-size: 8px;
-        padding: 4px;
-    }
-}
-
-.period {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-.period h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #333;
-}
+.group-metal { background-color: #e57373; }        /* Metall - Dunkles Rot */
+.group-nonmetal { background-color: #81c784; }     /* Nichtmetall - Dunkles Grün */
+.group-metalloid { background-color: #ffb74d; }    /* Halbmetall - Dunkles Orange */
+.group-noble { background-color: #64b5f6; }        /* Edelgas - Dunkles Blau */
+.group-halogen { background-color: #ba68c8; }      /* Halogen - Dunkles Lila */
+.group-transition { background-color: #4fc3f7; }   /* Übergangsmetall - Kräftiges Cyan */
+.group-actinoid { background-color: #f06292; }     /* Actinoid - Dunkles Pink */
+.group-lanthanoid { background-color: #ff8a65; }   /* Lanthanoid - Dunkles Korall */
+.group-radioactive { background-color: #9575cd; }  /* Radioaktiv - Dunkles Violett */
 
 
-
-#element-details {
-    width: 100%;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0%;
+/* Search Bar */
+.search-container {
+    margin: 20px auto;
     text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
 }
 
-.details-box {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 10px;
+#search-bar {
+    width: 60%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2C2C3A;
+    color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    outline: none;
+    transition: box-shadow 0.3s ease;
 }
 
-.details-box h2 {
-    margin: 0;
-    color: #333;
+#search-bar:focus {
+    box-shadow: 0 4px 8px rgba(0, 229, 255, 0.5);
 }
 
-.details-box p {
-    margin: 5px 0;
+#toggle-legend {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 14px;
+    z-index: 1000;
 }
 
 .legende {
-    position: absolute;
-    top: 100px;
-    right: 20px;
-    width: 200px;
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    position: fixed;
+    color: black;
+    top: 20%;
+    left: 5%;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 15px;
-    font-family: Arial, sans-serif;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+    z-index: 1000;
 }
+
+
 
 .legende h4 {
     text-align: center;
     font-size: 18px;
     margin-bottom: 10px;
-    color: #333;
+    color: #FFD700;
 }
 
 .legende ul {
@@ -207,7 +149,7 @@ h4{
 .legende li {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .legend-box {
@@ -216,26 +158,68 @@ h4{
     height: 20px;
     margin-right: 10px;
     border-radius: 4px;
-    border: 1px solid #aaa;
+    border: 1px solid #FFFFFF;
 }
 
-.group-metal { background-color: #ffc0c0; } /* Example colors */
-.group-nonmetal { background-color: #c0ffc0; }
-.group-metalloid { background-color: #ffffc0; }
-.group-noble { background-color: #c0e0ff; }
-.group-halogen { background-color: #ffc0ff; }
-.group-transition { background-color: #e0e0ff; }
-.group-actinoid { background-color: #ffe0c0; }
-.group-radioactive { background-color: #d9a3ff; }
-
-main {
-    position: relative;
-}
-
-header{
+footer{
     text-align: center;
+    font-weight: bold;
 }
 
+
+@media (max-width: 950px) {
+    .periodic-table {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px; /* Add more spacing between elements */
+        margin: 20px auto; /* Center the table */
+        padding: 10px;
+    }
+
+    .element {
+        font-size: 2rem; /* Adjust text size for readability */
+        padding: 8px; /* Increase padding for touch-friendly design */
+        border: 1px solid #ccc; /* Slightly thicker border for clarity */
+    }
+
+    #element-details {
+        max-width: 90%; /* Ensure details box doesn't take up too much space */
+        margin: 10px auto; /* Center the details box */
+        padding: 15px;
+        position: sticky;
+        top: 1px;
+        background-color: #2C2C3A;
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .legende {
+        position: fixed; /* Make it sticky */
+        color:#333 ;
+        font-weight: bold;
+        left: 5%; /* Move to the side */
+        top: 20%; /* Keep it visible */
+        font-size: 12px; /* Smaller text size */
+        max-width: 200px; /* Adjust width */
+        z-index: 1000; /* Ensure it stays on top */
+        background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .periodic-table {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .legende {
+        top: 10%;
+    }
+
+    .element {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
 
     </style>
 </head>
@@ -260,10 +244,15 @@ header{
 
 
     <main>
+
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Element suchen..." oninput="searchElement()">
+        </div>
+
         <div class="periodic-table">
             <!-- Period 1 -->
             <div class="period" id="period-1">
-                <h4>Periode 1</h4>
+                <h4>Period 1</h4>
                 <div class="element group-nonmetal" onclick="showElementDetails('H', 1, 1.008, 'Nichtmetall', 'Universum, Sterne', 'Brennstoff, Ammoniak-Herstellung')">
                     <div class="atomic-number">1</div>
                     <div class="symbol">H</div>
@@ -278,7 +267,7 @@ header{
         
             <!-- Period 2 -->
             <div class="period" id="period-2">
-                <h4>Periode 2</h4>
+                <h4>Period 2</h4>
                 <div class="element group-metal" onclick="showElementDetails('Li', 3, 6.94, 'Alkalimetall', 'Mineralien, Salze', 'Batterien, Glasherstellung')">
                     <div class="atomic-number">3</div>
                     <div class="symbol">Li</div>
@@ -322,7 +311,7 @@ header{
             </div>
            <!-- Period 3 -->
     <div class="period" id="period-3">
-        <h4>Periode 3</h4>
+        <h4>Period 3</h4>
         <div class="element group-metal" onclick="showElementDetails('Na', 11, 22.990, 'Alkalimetall', 'Salze, Ozeane', 'Kochsalz, Straßenenteisung')">
             <div class="atomic-number">11</div>
             <div class="symbol">Na</div>
@@ -366,7 +355,7 @@ header{
     </div>
            <!-- Period 4 -->
 <div class="period" id="period-4">
-    <h4>Periode 4</h4>
+    <h4>Period 4</h4>
     <div class="element group-metal" onclick="showElementDetails('K', 19, 39.098, 'Alkalimetall', 'In Mineralien wie Sylvin und Carnallit', 'Düngemittel, Glasproduktion, Kaliumverbindungen')">
         <div class="atomic-number">19</div>
         <div class="symbol">K</div>
@@ -432,7 +421,7 @@ header{
 
 <!-- Period 5 -->
 <div class="period" id="period-5">
-    <h4>Periode 5</h4>
+    <h4>Period 5</h4>
     <div class="element group-metal" onclick="showElementDetails('Rb', 37, 85.468, 'Alkalimetall', 'In Mineralien wie Lepidolith', 'Düngemittel, Glasproduktion, Kaliumverbindungen')">
         <div class="atomic-number">37</div>
         <div class="symbol">Rb</div>
@@ -518,16 +507,18 @@ header{
         <div class="symbol">Te</div>
         <div class="name">Tellur</div>
     </div>
-    <div class="element group-noble-gas" onclick="showElementDetails('Xe', 54, 131.29, 'Edelgas', 'In Mineralien wie Xenotim', 'Lampen, Katalysatoren')">
-        <div class="atomic-number">54</div>
-        <div class="symbol">Xe</div>
-        <div class="name">Xenon</div>
-    </div>
+    <div class="element group-noble" 
+     onclick="showElementDetails('Xe', 54, 131.29, 'Edelgas', 'Kommt in Spuren in der Erdatmosphäre vor', 'Verwendung in Beleuchtung und medizinischen Anwendungen')">
+    <div class="atomic-number">54</div>
+    <div class="symbol">Xe</div>
+    <div class="name">Xenon</div>
+</div>
+
 </div>
 
 <!-- Period 6 -->
 <div class="period" id="period-6">
-    <h4>Periode 6</h4>
+    <h4>Period 6</h4>
     <div class="element group-metal" onclick="showElementDetails('Cs', 55, 132.91, 'Alkalimetall', 'In Mineralien wie Lepidolith und Pollucit', 'Batterien, Feuerwerkskörper, Glas')">
         <div class="atomic-number">55</div>
         <div class="symbol">Cs</div>
@@ -615,96 +606,114 @@ header{
     </div>
 </div>
 
-
+<!-- Period 7 -->
 
 <div class="period" id="period-7">
-    <h4>Periode 7</h4>
-    <div class="element group-metal" onclick="showElementDetails('Fr', 87, 223, 'Alkalimetall, Radioaktiv')">
+    <h4>Period 7</h4>
+    <div class="element group-metal" 
+         onclick="showElementDetails('Fr', 87, 223, 'Alkalimetall, Radioaktiv', 'Sehr selten in Uran- und Thoriummineralen', 'Wissenschaftliche Studien, kaum praktische Anwendungen')">
         <div class="atomic-number">87</div>
         <div class="symbol">Fr</div>
         <div class="name">Francium</div>
     </div>
-    <div class="element group-metal" onclick="showElementDetails('Ra', 88, 226, 'Erdalkalimetall, Radioaktiv')">
+    <div class="element group-metal" 
+         onclick="showElementDetails('Ra', 88, 226, 'Erdalkalimetall, Radioaktiv', 'In kleinen Mengen in Uran- und Thoriumerzen', 'Früher in Leuchtfarben und medizinischer Forschung, heute kaum genutzt')">
         <div class="atomic-number">88</div>
         <div class="symbol">Ra</div>
         <div class="name">Radium</div>
     </div>
-    <div class="element group-actinoid" onclick="showElementDetails('Ac', 89, 227, 'Actinoid')">
+    <div class="element group-actinoid" 
+         onclick="showElementDetails('Ac', 89, 227, 'Actinoid', 'Spurenweise in Uranerz', 'Strahlentherapie und wissenschaftliche Forschung')">
         <div class="atomic-number">89</div>
         <div class="symbol">Ac</div>
         <div class="name">Actinium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Rf', 104, 267, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Rf', 104, 267, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">104</div>
         <div class="symbol">Rf</div>
         <div class="name">Rutherfordium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Db', 105, 270, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Db', 105, 270, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">105</div>
         <div class="symbol">Db</div>
         <div class="name">Dubnium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Sg', 106, 271, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Sg', 106, 271, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">106</div>
         <div class="symbol">Sg</div>
         <div class="name">Seaborgium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Bh', 107, 270, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Bh', 107, 270, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">107</div>
         <div class="symbol">Bh</div>
         <div class="name">Bohrium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Hs', 108, 277, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Hs', 108, 277, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">108</div>
         <div class="symbol">Hs</div>
         <div class="name">Hassium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Mt', 109, 278, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Mt', 109, 278, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">109</div>
         <div class="symbol">Mt</div>
         <div class="name">Meitnerium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Ds', 110, 281, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Ds', 110, 281, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">110</div>
         <div class="symbol">Ds</div>
         <div class="name">Darmstadtium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Rg', 111, 282, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Rg', 111, 282, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">111</div>
         <div class="symbol">Rg</div>
         <div class="name">Roentgenium</div>
     </div>
-    <div class="element group-transition" onclick="showElementDetails('Cn', 112, 285, 'Übergangsmetall, Radioaktiv')">
+    <div class="element group-transition" 
+         onclick="showElementDetails('Cn', 112, 285, 'Übergangsmetall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">112</div>
         <div class="symbol">Cn</div>
         <div class="name">Copernicium</div>
     </div>
-    <div class="element group-metalloid" onclick="showElementDetails('Nh', 113, 286, 'Metall, Radioaktiv')">
+    <div class="element group-metalloid" 
+         onclick="showElementDetails('Nh', 113, 286, 'Metall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">113</div>
         <div class="symbol">Nh</div>
         <div class="name">Nihonium</div>
     </div>
-    <div class="element group-metalloid" onclick="showElementDetails('Fl', 114, 289, 'Metall, Radioaktiv')">
+    <div class="element group-metalloid" 
+         onclick="showElementDetails('Fl', 114, 289, 'Metall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">114</div>
         <div class="symbol">Fl</div>
         <div class="name">Flerovium</div>
     </div>
-    <div class="element group-nonmetal" onclick="showElementDetails('Mc', 115, 290, 'Metall, Radioaktiv')">
+    <div class="element group-nonmetal" 
+         onclick="showElementDetails('Mc', 115, 290, 'Metall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">115</div>
         <div class="symbol">Mc</div>
         <div class="name">Moscovium</div>
     </div>
-    <div class="element group-nonmetal" onclick="showElementDetails('Lv', 116, 293, 'Metall, Radioaktiv')">
+    <div class="element group-nonmetal" 
+         onclick="showElementDetails('Lv', 116, 293, 'Metall, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">116</div>
         <div class="symbol">Lv</div>
         <div class="name">Livermorium</div>
     </div>
-    <div class="element group-nonmetal" onclick="showElementDetails('Ts', 117, 294, 'Halogen, Radioaktiv')">
+    <div class="element group-nonmetal" 
+         onclick="showElementDetails('Ts', 117, 294, 'Halogen, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">117</div>
         <div class="symbol">Ts</div>
         <div class="name">Tennessine</div>
     </div>
-    <div class="element group-noble" onclick="showElementDetails('Og', 118, 294, 'Edelgas, Radioaktiv')">
+    <div class="element group-noble" 
+         onclick="showElementDetails('Og', 118, 294, 'Edelgas, Radioaktiv', 'Künstlich erzeugt', 'Nur wissenschaftliche Forschung')">
         <div class="atomic-number">118</div>
         <div class="symbol">Og</div>
         <div class="name">Oganesson</div>
@@ -712,9 +721,10 @@ header{
 </div>
 
 
+
         </div>
-        
-        <div class="legende">
+        <button id="toggle-legend">Legende</button>
+        <div class="legende" id="legend" style="display: none;">
             <h4>Legende</h4>
             <ul>
                 <li><span class="legend-box group-metal"></span> Metalle</li>
@@ -738,3 +748,4 @@ header{
     <script src="periodensystem.js"></script>
 </body>
 </html>
+
