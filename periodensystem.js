@@ -42,3 +42,4 @@ document.getElementById("toggle-legend").addEventListener("click", function () {
         legend.style.display = "none"; // Hide the legend
     }
 });
+
