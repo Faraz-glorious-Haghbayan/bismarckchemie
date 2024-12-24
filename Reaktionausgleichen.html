@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reaktionsberechner</title>
+  <style>
+    body {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin: 20px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    img {
+      max-width: 300px;
+      margin-top: 10px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px #333;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reaktionsprodukt berechnen</h1>
+  <form id="reaction-form">
+    <label for="educt">Edukt eingeben:</label>
+    <input type="text" id="educt" name="educt" placeholder="z.B. H2O, NaCl" required>
+    <button type="submit">Berechnen</button>
+  </form>
+  <div id="result">
+    <h2>Ergebnis:</h2>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("reaction-form");
+      const input = document.getElementById("educt");
+      const output = document.getElementById("output");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Verhindert das Standardverhalten des Formulars
+        const educts = input.value.trim();
+        if (!educts) {
+          output.innerHTML = "<p class='error'>Bitte geben Sie die Edukte ein.</p>";
+          return;
+        }
+
+        output.innerHTML = "<p>Verarbeite...</p>";
+
+        try {
+          // API-Aufruf
+          const response = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${encodeURIComponent(educts)}/JSON`);
+          if (!response.ok) throw new Error("Fehler bei der API-Anfrage.");
+          const data = await response.json();
+
+          // Daten extrahieren
+          const compound = data.PC_Compounds[0];
+          const formula = compound.props.find(prop => prop.urn.label === "Molecular Formula")?.value?.sval || "Nicht verfügbar";
+          const molarMass = compound.props.find(prop => prop.urn.label === "Molecular Weight")?.value?.fval || "Nicht verfügbar";
+          const iupacName = compound.props.find(prop => prop.urn.label === "IUPAC Name")?.value?.sval || "Nicht verfügbar";
+          const density = compound.props.find(prop => prop.urn.label === "Density")?.value?.sval || "Nicht verfügbar";
+          const boilingPoint = compound.props.find(prop => prop.urn.label === "Boiling Point")?.value?.sval || "Nicht verfügbar";
+
+          // Struktur-Bild
+          const cid = compound.id.id.cid;
+          const structureImage = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/PNG`;
+
+          // Ausgabe formatieren
+          output.innerHTML = `
+            <table>
+              <tr>
+                <th>Eigenschaft</th>
+                <th>Wert</th>
+              </tr>
+              <tr>
+                <td>Summenformel</td>
+                <td>${formula}</td>
+              </tr>
+              <tr>
+                <td>Molmasse</td>
+                <td>${molarMass} g/mol</td>
+              </tr>
+              <tr>
+                <td>Chemischer Name</td>
+                <td>${iupacName}</td>
+              </tr>
+              <tr>
+                <td>Dichte</td>
+                <td>${density}</td>
+              </tr>
+              <tr>
+                <td>Siedepunkt</td>
+                <td>${boilingPoint}</td>
+              </tr>
+              <tr>
+                <td>Struktur</td>
+                <td><img src="${structureImage}" alt="Struktur von ${educts}" onerror="this.src='https://via.placeholder.com/300?text=Struktur+nicht+verfügbar';"></td>
+              </tr>
+            </table>
+          `;
+        } catch (error) {
+          output.innerHTML = `<p class='error'>Fehler: ${error.message}</p>`;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
