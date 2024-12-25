@@ -218,3 +218,10 @@ function resetComparison() {
     document.getElementById('compareResult').classList.remove('active');
 }
 
+window.onload = () => {
+    setTimeout(() => {
+        const tutorial = document.getElementById('tutorial');
+        tutorial.style.opacity = '0';
+        setTimeout(() => tutorial.style.display = 'none', 1000);
+    }, 6000); // Nach 6 Sekunden ausblenden
+};
