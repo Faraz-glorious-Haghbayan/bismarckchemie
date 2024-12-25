@@ -64,17 +64,29 @@ periodensystem metalle, stoffe chemie, wertigkeiten chemie, chemieingenieurwesen
             line-height: 1.6;
         }
 
+
+        img {
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+
         header {
             background: linear-gradient(135deg, #5e00a8, #8f00ff);
             color: white;
+            font-weight: bold;
             text-align: center;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 2.5rem;
-        }
+    text-shadow: 0 0 10px #2b2b2b;
+}
+
 
         header p {
             font-size: 1.2rem;
@@ -97,6 +109,9 @@ nav a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
+    background: none;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
     font-size: 1.1rem;
     font-weight: bold;
     padding: 10px 20px;
@@ -108,6 +123,7 @@ nav a {
 nav a:hover {
     background-color: #5e00a8;
     color: #ffd700;
+    border-color: #ffd700;
     box-shadow: 0px 4px 15px rgba(94, 0, 168, 0.5);
 }
 
@@ -147,11 +163,17 @@ nav a:hover::before {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
-            animation: fadeIn 1s ease-in-out;
+            opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-in-out forwards;
         }
+      
+
         @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
         .section:hover {
@@ -171,22 +193,58 @@ nav a:hover::before {
 
         .section a {
             display: inline-block;
-            background: linear-gradient(135deg, #5e00a8, #8f00ff);
+            background: linear-gradient(135deg, #43025f, #8f00ff);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             color: white;
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 5px;
             font-size: 1rem;
-            transition-duration: 1s;
+            font-weight: bold;
+            transition-duration: 0.3s;
         }
 
+        .section:nth-child(odd) {
+    background-color: #f4f4f4;
+}
+
+.section:nth-child(even) {
+    background-color: #ffffff;
+}
+
+
         .section a:hover {
-            background: linear-gradient(135deg, #8f00ff, #5e00a8);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
         }
+
+
+        details {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+
+details summary {
+    font-weight: bold;
+    color: #5e00a8;
+}
+
+details p {
+    margin-top: 10px;
+    color: #333;
+}
+
 
         footer {
             text-align: center;
-            background: linear-gradient(135deg, #5e00a8, #8f00ff);
+            background: linear-gradient(135deg, #43025f, #5e00a8);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
             color: white;
             padding: 15px;
             font-size: 1rem;
@@ -387,4 +445,3 @@ nav a:hover::before {
     </script>
 </body>
 </html>
-
