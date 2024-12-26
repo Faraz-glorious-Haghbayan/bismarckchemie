@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nachweise</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #5e00a8, #8f00ff);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            text-shadow: 2px 2px 2px #464646;
+        }
+        .search-bar {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .section p {
+            margin: 10px 0;
+        }
+        .section img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 950px) {
+            body {
+                background-color: #cccccc; 
+            }
+            .section {
+                margin: 10px 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nachweise</h1>
+        <p>Hier findest du eine Übersicht der Nachweise für verschiedene Stoffe.</p>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Nachweis suchen..." onkeyup="searchSections()">
+    </div>
+
+    <section class="section" id="halogenidion">
+        <h2>Nachweis von Halogenidionen</h2>
+        <p>Halogenidionen können mit Silbernitratlösung (AgNO₃) nachgewiesen werden:</p>
+        <ul>
+            <li>Cl⁻ + Ag⁺ → AgCl (weiß)</li>
+            <li>Br⁻ + Ag⁺ → AgBr (hellgelb)</li>
+            <li>I⁻ + Ag⁺ → AgI (gelb)</li>
+        </ul>
+        <p>Die Fällung kann durch Ammoniaklösung unterschieden werden: AgCl löst sich in NH₃, AgBr teilweise, AgI nicht.</p>
+        <img src="hqdefault.jpg" alt="Silbernitrat-Nachweis für Halogenidionen" title="Silbernitrat-Nachweis für Halogenidionen">
+    </section>
+
+    <section class="section" id="wasser">
+        <h2>Nachweis von Wasser</h2>
+        <p>Wasser kann mit Watesmo-Papier nachgewiesen werden:</p>
+        <ul>
+            <li>Watesmo-Papier ist ein spezielles Indikatorpapier.</li>
+            <li>Es färbt sich bei Kontakt mit Wasser von weiß zu blau.</li>
+        </ul>
+        <p>Dieser Nachweis ist besonders praktisch, da er einfach und schnell durchzuführen ist.</p>
+        <img src="watesmo_1_web.jpg" alt="Watesmo-Papier für Wasser-Nachweis" title="Watesmo-Papier für Wasser-Nachweis" style="width: 50%;">
+    </section>
+    
+
+    <section class="section" id="oel">
+        <h2>Nachweis von Öl</h2>
+        <p>Öl kann durch den Fettflecktest nachgewiesen werden:</p>
+        <ul>
+            <li>Ein Tropfen Öl auf Papier hinterlässt einen durchscheinenden Fleck, der nicht verschwindet.</li>
+        </ul>
+        <p>Dieser Test unterscheidet Öl von anderen Flüssigkeiten wie Wasser, das keinen bleibenden Fleck hinterlässt.</p>
+        <img src="Wasser Speiseöl.jpg" alt="Fettflecktest für Öl" title="Fettflecktest für Öl">
+    </section>
+
+    <section class="section" id="sauerstoff">
+        <h2>Nachweis von Sauerstoff</h2>
+        <p>Sauerstoff kann mit einem glimmenden Holzspan nachgewiesen werden:</p>
+        <ul>
+            <li>Der glimmende Holzspan entzündet sich in Anwesenheit von Sauerstoff erneut.</li>
+        </ul>
+        <img src="download (6).jpg" alt="Glimmender Holzspan für Sauerstoff" title="Glimmender Holzspan für Sauerstoff" style="width: 60%;">
+    </section>
+
+    <section class="section" id="kohlenstoffdioxid">
+        <h2>Nachweis von Kohlenstoffdioxid</h2>
+        <p>Kohlenstoffdioxid kann mit Kalkwasser (Ca(OH)₂) nachgewiesen werden:</p>
+        <ul>
+            <li>CO₂ + Ca(OH)₂ → CaCO₃↓ (weißer Niederschlag)</li>
+        </ul>
+        <p>Das Kalkwasser trübt sich, wenn Kohlenstoffdioxid hindurchgeleitet wird.</p>
+        <img src="download.png" alt="Kalkwasser-Nachweis für CO₂" title="Kalkwasser-Nachweis für CO₂" style="width: 60%;">
+    </section>
+
+    <section class="section" id="schwefelsaeure">
+        <h2>Nachweis von Schwefelsäure</h2>
+        <p>Schwefelsäure kann mit Bariumchlorid (BaCl₂) nachgewiesen werden:</p>
+        <ul>
+            <li>SO₄²⁻ + Ba²⁺ → BaSO₄ (weißer Niederschlag)</li>
+        </ul>
+        <p>Der Niederschlag ist unlöslich in verdünnter Salzsäure.</p>
+        <img src="platzhalter.jpg" alt="Platzhalter für Nachweisbild" title="Platzhalter für Nachweisbild">
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Nachweise - Bismarck Chemie</p>
+    </footer>
+
+    <script>
+        function searchSections() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const sections = document.querySelectorAll('.section');
+
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    section.style.display = '';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
