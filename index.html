@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bismarck Chemie - Reaktionsgleichungen leicht gemacht</title>
+<title>BismarckChemie - Reaktionsgleichungen leicht gemacht</title>
 <meta name="description" content="Willkommen bei BismarckChemie! Entdecke intuitive Tools, um Reaktionsgleichungen auszugleichen und Chemie einfach zu verstehen. Perfekt für Schüler und Chemiebegeisterte.">
 <meta name="keywords" content="BismarckChemie, Chemie lernen, Reaktionsgleichung ausgleichen, Chemie Tools, Edukte und Produkte, Schüler Chemiehilfe, Chemie Nachhilfe, periodensystem, chemie, bismarckschule, bismarckschule chemie, biochemie, organische chemie, periodensystem chemie, chemikalien, chemikalie, angewandte chemie, organische, laborgeräte chemie, gefahrensymbole chemie, chemie laborgeräte, chemie studieren, chemiestudium, chemie periodensystem, biochemie studieren, anorganische chemie, chemie stoffe, katalysatoren chemie, metalle im periodensystem, metalle periodensystem, periodensystem metalle, 
 periodensystem metalle, stoffe chemie, wertigkeiten chemie, chemieingenieurwesen, ingenieur chemie, physikalische chemie, elektro chemie, fett chemie, fette chemie, das periodensystem, anorganische stoffe, chemie englisch, nh3 chemie, periodensystem mit echten elementen, chemiebaukasten, molekülbaukasten, chemielabor, click chemie, ch4 chemie, chinon chemie, co chemie, deutscher chemiker, hybridisierung chemie, periodensystem ag, reaktionsmechanismen, chemie für mediziner, mortimer chemie, chemie ingenieur, gefahrenzeichen chemie, chemie grundlagen, chemie labor, wasserglas chemie, dbu chemie, chemie formelsammlung, chemie medizin, formelsammlung chemie, laugen chemie, no2 chemie, chemie laborant, analytische chemie, becherglas chemie, technische chemie, aminosäuren chemie, chemie de, co2 chemie, fluor chemie, mwg chemie, n2 chemie, nbs chemie, sachtleben chemie, so2 chemie, chemiebaukasten für erwachsene, atkins physikalische chemie, dmf chemie, chemiebaukasten erwachsene, physikalische chemie atkins, chemie abitur, chemie gefahrensymbole, abitur chemie, aromaten chemie, ca chemie, chemie metalle, chemieschule, dcc chemie, dcm chemie, ether chemie, h2o2 chemie, hbr chemie, hexen chemie, hno3 chemie, metalle chemie, n2o chemie, proteine chemie ">
@@ -74,14 +74,34 @@ img:hover {
 }
 
 
-        header {
-            background: linear-gradient(135deg, #5e00a8, #8f00ff);
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+header {
+    position: relative;
+    overflow: hidden;
+    height: 85vh; /* Passe die Höhe nach Bedarf an */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(80%); /* Reduziert die Helligkeit für bessere Lesbarkeit */
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
 
         header h1 {
     text-shadow: 0 0 10px #2b2b2b;
@@ -215,7 +235,8 @@ nav a:hover::before {
 
         .section a:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg,  #8f00ff, #43025f );
         }
 
 
@@ -248,6 +269,16 @@ details p {
             color: white;
             padding: 15px;
             font-size: 1rem;
+        }
+
+        @media (max-width: 1400px) {
+            html{
+                font-size: 1.5rem;
+            }
+            .header-content{
+                font-size: 1.5rem;
+            }
+            
         }
 
         /* Responsive Styles */
@@ -306,9 +337,16 @@ details p {
 </head>
 <body>
     <header>
-        <h1>Bismarckchemie</h1>
-        <p>Dein Portal für chemisches Wissen</p>
+        <video autoplay muted loop playsinline class="header-video">
+            <source src="headervid.mp4" type="video/mp4">
+            Dein Browser unterstützt kein HTML5-Video.
+        </video>
+        <div class="header-content">
+            <h1>Bismarckchemie</h1>
+            <p>Dein Portal für chemisches Wissen</p>
+        </div>
     </header>
+    
 
     <nav>
         <a href="#begriffe" class="active">Chemische Begriffe</a>
@@ -343,13 +381,12 @@ details p {
             <a href="Reaktionausgleichen.html">Zur die Elemente</a>
         </section>
 
-         <section class="section" id="Nachweise">
+        <section class="section" id="Nachweise">
             <h2>Die Nchweise der Stuffe</h2>
             <p>Erfahre mehr über die Nachweise jder Stoffe</p>
             <a href="nachweise.html">Zur Nachweise</a>
         </section>
 
-        
         <section class="section" id="faq">
             <h2>Häufige Fragen</h2>
             <details>
@@ -387,10 +424,6 @@ details p {
             <a href="about.html">Über uns</a>
         </section>
         
-       
-        
-        
-           
         
 
     </main>
