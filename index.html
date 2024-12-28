@@ -102,6 +102,55 @@ header {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
+.search-bar {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    padding: 5px 10px;
+    z-index: 10;
+}
+
+.search-bar:hover {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    color: white;
+    padding: 5px 10px;
+    font-size: 1rem;
+    flex-grow: 1;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.search-bar button:hover {
+    color: #ffd700; /* Matches your hover theme */
+}
+
 
         header h1 {
     text-shadow: 0 0 10px #2b2b2b;
@@ -337,6 +386,15 @@ details p {
 </head>
 <body>
     <header>
+
+        <div class="search-bar">
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Suche nach Themen...">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+        
+
         <video autoplay muted loop playsinline class="header-video">
             <source src="headervid.mp4" type="video/mp4">
             Dein Browser unterstützt kein HTML5-Video.
@@ -433,51 +491,86 @@ details p {
     </footer>
 
     <script>
-        $(document).ready(function () {
-  // Funktion zum Ausgleichen der Reaktion
-  function balanceEquation(equation) {
-    try {
-      // Teile die Gleichung in Edukte und Produkte auf
-      const [reactants, products] = equation.split("->").map(side => side.trim().split("+").map(item => item.trim()));
+       document.addEventListener("DOMContentLoaded", function () {
+    // Function to balance the equation
+    function balanceEquation(equation) {
+        try {
+            const [reactants, products] = equation.split("->").map(side =>
+                side.trim().split("+").map(item => item.trim())
+            );
 
-      // Basisprüfung, ob die Eingabe korrekt ist
-      if (!reactants || !products || reactants.length === 0 || products.length === 0) {
-        return "Ungültige Gleichung. Bitte gib eine korrekte chemische Gleichung ein.";
-      }
+            if (!reactants || !products || reactants.length === 0 || products.length === 0) {
+                return "Ungültige Gleichung. Bitte gib eine korrekte chemische Gleichung ein.";
+            }
 
-      // Dummy-Ausgleich (Beispiel: 1:1 für alle Reaktanten/Produkte)
-      // Hier kann ein echter Algorithmus wie Matrixmethoden eingefügt werden
-      const balancedReactants = reactants.map((r, index) => `${index + 1} ${r}`);
-      const balancedProducts = products.map((p, index) => `${index + 1} ${p}`);
+            const balancedReactants = reactants.map((r, index) => `${index + 1} ${r}`);
+            const balancedProducts = products.map((p, index) => `${index + 1} ${p}`);
 
-      // Rückgabe der ausgeglichenen Gleichung
-      return `${balancedReactants.join(" + ")} -> ${balancedProducts.join(" + ")}`;
-    } catch (error) {
-      return "Fehler beim Verarbeiten der Gleichung. Bitte überprüfe die Eingabe.";
-    }
-  }
-
-  // Event-Listener für das Formular
-  $("#chemistry-form").on("submit", function (event) {
-    event.preventDefault();
-
-    // Hole die Eingabe
-    const equation = $("#equation").val().trim();
-
-    // Prüfe, ob die Eingabe leer ist
-    if (!equation) {
-      $("#balanced-equation").text("Bitte gib eine Reaktionsgleichung ein.");
-      $("#result").removeClass("hidden");
-      return;
+            return `${balancedReactants.join(" + ")} -> ${balancedProducts.join(" + ")}`;
+        } catch (error) {
+            return "Fehler beim Verarbeiten der Gleichung. Bitte überprüfe die Eingabe.";
+        }
     }
 
-    // Ausgleichen der Gleichung
-    const balanced = balanceEquation(equation);
+    // Event listener for the chemistry form
+    const chemistryForm = document.getElementById("chemistry-form");
+    if (chemistryForm) {
+        chemistryForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-    // Ergebnis anzeigen
-    $("#balanced-equation").text(balanced);
-    $("#result").removeClass("hidden");
-  });
+            const equation = document.getElementById("equation").value.trim();
+
+            if (!equation) {
+                document.getElementById("balanced-equation").textContent =
+                    "Bitte gib eine Reaktionsgleichung ein.";
+                document.getElementById("result").classList.remove("hidden");
+                return;
+            }
+
+            const balanced = balanceEquation(equation);
+
+            document.getElementById("balanced-equation").textContent = balanced;
+            document.getElementById("result").classList.remove("hidden");
+        });
+    }
+
+    // Event listener for the search form
+    const searchForm = document.getElementById("searchForm");
+    if (searchForm) {
+        searchForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const query = document.getElementById("searchInput").value.toLowerCase().trim();
+            const sections = document.querySelectorAll(".section");
+
+            // Reset any previous highlights
+            sections.forEach(section => {
+                section.style.backgroundColor = ""; // Reset background
+                section.style.border = ""; // Reset border
+            });
+
+            if (query) {
+                let found = false;
+
+                sections.forEach(section => {
+                    if (section.textContent.toLowerCase().includes(query)) {
+                        section.style.backgroundColor = "#ffd700"; // Highlight matching section
+                        section.style.border = "2px solid #5e00a8";
+                        found = true;
+
+                        // Scroll to the first matching section
+                        section.scrollIntoView({ behavior: "smooth", block: "center" });
+                    }
+                });
+
+                if (!found) {
+                    alert("Kein passender Abschnitt gefunden.");
+                }
+            } else {
+                alert("Bitte geben Sie einen Suchbegriff ein.");
+            }
+        });
+    }
 });
 
     </script>
