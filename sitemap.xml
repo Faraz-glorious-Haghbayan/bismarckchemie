@@ -28,7 +28,19 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://bismarckchemie.com/contact</loc>
+        <loc>https://bismarckchemie.com/begriffe</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://bismarckchemie.com/quiz</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://bismarckchemie.com/elektronegativität</loc>
         <lastmod>2024-12-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
