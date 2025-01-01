@@ -3,34 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Berechnen und anzeigen von chemischen Reaktionsgleichungen. Perfekt für Schüler, Chemie-Enthusiasten und Forscher.">
-<meta name="keywords" content="periodensystem, periodensystem der elemente, elemente periodensystem, der elemente periodensystem, periodensystem element, elemente chemie, chemische elemente, chemie elemente, chemisch elemente, elemente der chemie, periodensystem chemie, chemie tabellen, chemie periodensystem, chemie das periodensystem, periodensystem der chemie, chemie periodensystem der elemente, periodensystem der elemente chemie, ordnungszahlen periodensystem, periodensystem ordnungszahlen, chemische symbole, symbole chemie, symbole der chemie, periodensystem für schüler, schul periodensystem, das periodensystem, periodensystem mit echten elementen, periodensystem mit echten elemente, englisches periodensystem, das periodensystem der elemente, magnesium periodensystem, periodensystem mit elektronenkonfiguration, periodensystem pb, mendeleev periodensystem, mendelejew periodensystem, periodensystem mendelejew, periodensystem tafelwerk, tafelwerk periodensystem, periodensystem mit namen, chemisches periodensystem, periodensystem arbeitsblätter, elemente der periodensystem, periodensystem der element, tabellen chem">
-  <meta name="author" content="Faraz Haghbayan">
-  <title>Reaktionsgleichungen Berechnen | Chemie-Tool</title>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Reaktionsgleichungen Berechnen",
-  "description": "Berechnen Sie chemische Reaktionsgleichungen einfach und schnell.",
-  "author": {
-    "@type": "Person",
-    "name": "Faraz Haghbayan"
-  }
-}
-</script>
-
-
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1023172873076347"
-     crossorigin="anonymous"></script>
-  
+  <title>Eigenschaften chemische Stoffen</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f4f4f9;
+      background-color: #e3e3e3;
       color: #333;
       margin: 0;
       padding: 20px;
@@ -90,10 +67,13 @@
       color: #2c3e50;
     }
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow-x: auto;
+  display: block;
+}
+
     th, td {
       border: 1px solid #ddd;
       padding: 12px;
@@ -117,11 +97,11 @@
   </style>
 </head>
 <body>
-  <h1>Reaktionsprodukt berechnen</h1>
+  <h1>Eigenschaften der chemische Stoffe</h1>
   <form id="reaction-form">
-    <label for="educt">Edukt eingeben:</label>
+    <label for="educt">Stoff eingeben:</label>
     <input type="text" id="educt" name="educt" placeholder="z.B. H2O, NaCl" required>
-    <button type="submit">Berechnen</button>
+    <button type="submit">Informationen bekommen</button>
   </form>
   <div id="result">
     <h2>Ergebnis:</h2>
@@ -146,15 +126,15 @@
 
         try {
           const response = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${encodeURIComponent(educts)}/JSON`);
-          if (!response.ok) throw new Error("Fehler bei der API-Anfrage.");
+          if (!response.ok) throw new Error("Kein passender Stoff gefunden. Bitte überprüfen Sie die Eingabe.");
           const data = await response.json();
 
           const compound = data.PC_Compounds[0];
-          const formula = compound.props.find(prop => prop.urn.label === "Molecular Formula")?.value?.sval || "Nicht verfügbar";
-          const molarMass = compound.props.find(prop => prop.urn.label === "Molecular Weight")?.value?.fval || "Nicht verfügbar";
-          const iupacName = compound.props.find(prop => prop.urn.label === "IUPAC Name")?.value?.sval || "Nicht verfügbar";
-          const density = compound.props.find(prop => prop.urn.label === "Density")?.value?.sval || "Nicht verfügbar";
-          const boilingPoint = compound.props.find(prop => prop.urn.label === "Boiling Point")?.value?.sval || "Nicht verfügbar";
+          const formula = compound.props.find(prop => prop.urn.label === "Molecular Formula")?.value?.sval || "Keine Daten verfügbar";
+          const molarMass = compound.props.find(prop => prop.urn.label === "Molecular Weight")?.value?.fval || "Keine Daten verfügbar";
+          const iupacName = compound.props.find(prop => prop.urn.label === "IUPAC Name")?.value?.sval || "Keine Daten verfügbar";
+          const density = compound.props.find(prop => prop.urn.label === "Density")?.value?.sval || "Keine Daten verfügbar";
+          const boilingPoint = compound.props.find(prop => prop.urn.label === "Boiling Point")?.value?.sval || "Keine Daten verfügbar";
 
           const cid = compound.id.id.cid;
           const structureImage = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/PNG`;
@@ -199,4 +179,3 @@
   </script>
 </body>
 </html>
-
