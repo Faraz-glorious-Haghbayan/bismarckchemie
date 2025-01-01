@@ -2,8 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- Homepage -->
     <url>
-    <loc>https://bismarckchemie.com/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bismarckchemie.com/" />
+        <loc>https://bismarckchemie.com/</loc>
         <lastmod>2024-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
@@ -11,43 +10,43 @@
     
     <!-- Beispiel für weitere Seiten -->
     <url>
-        <loc>https://bismarckchemie.com/reaktionsgleichungen</loc>
+        <loc>https://bismarckchemie.com/reaktionsgleichungen.html</loc>
         <lastmod>2024-12-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://bismarckchemie.com/periodensystem</loc>
+        <loc>https://bismarckchemie.com/periodensystem.html</loc>
         <lastmod>2024-12-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://bismarckchemie.com/about</loc>
+        <loc>https://bismarckchemie.com/about.html</loc>
         <lastmod>2024-12-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://bismarckchemie.com/begriffe</loc>
+        <loc>https://bismarckchemie.com/begriffe.html</loc>
         <lastmod>2024-12-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://bismarckchemie.com/quiz</loc>
+        <loc>https://bismarckchemie.com/quiz.html</loc>
         <lastmod>2024-12-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://bismarckchemie.com/elektronegativität</loc>
+        <loc>https://bismarckchemie.com/elektronegativität.html</loc>
         <lastmod>2024-12-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://bismarckchemie.com/nachweise</loc>
+        <loc>https://bismarckchemie.com/nachweise.html</loc>
         <lastmod>2024-12-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
