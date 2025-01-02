@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tägliche Chemie-Fakten</title>
+    <style>
+        /* Allgemeine Stile */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+           font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6200ea, #9c27b0);
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        #fun-facts {
+            background: white;
+            color: #6200ea;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            margin: 30px auto;
+            width: 80%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #fun-facts:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        #fun-facts h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        #fun-facts p {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #555;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: #6200ea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tägliche Chemie-Fakten</h1>
+    </header>
+
+    <section id="fun-facts" class="section">
+        <h2>Wusstest du schon?</h2>
+        <p id="daily-fact">Der heutige Chemie-Fakt wird geladen...</p>
+    </section>
+
+    <footer>
+        &copy; 2024-2025 Chemie Fakten - Bismarckchemie. Alle Rechte vorbehalten. <br>
+    </footer>
+
+    <script>
+        const chemistryFacts = [
+            "Wasser kann gleichzeitig kochen und gefrieren – ein Phänomen, das als Tripelpunkt bezeichnet wird.",
+            "Der menschliche Körper enthält etwa 60 chemische Elemente, darunter Sauerstoff, Kohlenstoff und Eisen.",
+            "Wasserstoff ist das häufigste Element im Universum und macht etwa 75 % seiner Masse aus.",
+            "Der einzige Buchstabe, der nicht im Periodensystem vorkommt, ist 'J'.",
+            "Ein einzelner Blitz erzeugt genug Hitze, um Sand in Glas zu verwandeln.",
+            "Diamanten und Graphit bestehen beide vollständig aus Kohlenstoff, aber ihre Strukturen machen sie grundlegend verschieden.",
+            "Der Geruch von frisch geschnittenem Gras ist eigentlich ein Notsignal der Pflanze.",
+            "Helium ist das einzige Element, das im Weltall entdeckt wurde, bevor man es auf der Erde fand.",
+            "Die stärkste Säure der Welt ist Flusss Antimonsäure, die Glas auflösen kann.",
+            "Gold ist so formbar, dass ein einziges Gramm zu einem Quadratmeter Blattgold geschlagen werden kann."
+        ];
+
+        // Digga
+        function getDailyFact() {
+            const today = new Date();
+            const factIndex = today.getDate() % chemistryFacts.length; // Zyklisch durch die Fakten basierend auf dem Datum
+            return chemistryFacts[factIndex];
+        }
+
+        // Fakten Digga
+        document.addEventListener("DOMContentLoaded", () => {
+            const factElement = document.getElementById("daily-fact");
+            factElement.textContent = getDailyFact();
+        });
+    </script>
+</body>
+</html>
