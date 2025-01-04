@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemie-Quiz Auswahl</title>
+    <style>
+        /* Allgemeine Stile */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #3b0066, #ffcc00);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .quiz-option button {
+            background: linear-gradient(135deg, #ffcc00, #3b0066);
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-option button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .quiz-option button:focus {
+            outline: none;
+            box-shadow: 0 0 10px 3px rgba(255, 204, 0, 0.7);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #ffd700;
+        }
+
+        .back-button {
+            margin-top: 30px;
+        }
+
+        .back-button button {
+            background: linear-gradient(135deg, #3b0066, #ffcc00);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .back-button button:focus {
+            outline: none;
+            box-shadow: 0 0 10px 3px rgba(59, 0, 102, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chemie-Quiz Auswahl</h1>
+        <div class="quiz-options">
+            <div class="quiz-option">
+                <a href="quiz_klasse5.html"><button>✨ 5. Klasse ✨</button></a>
+            </div>
+            <div class="quiz-option">
+                <a href="quiz_klasse6.html"><button>⭐ 6. Klasse ⭐</button></a>
+            </div>
+            <div class="quiz-option">
+                <a href="quiz_klasse7.html"><button>✨ 7. Klasse ✨</button></a>
+            </div>
+            <div class="quiz-option">
+                <a href="quiz_klasse8.html"><button>⭐ 8. Klasse ⭐</button></a>
+            </div>
+            <div class="quiz-option">
+                <a href="quiz_klasse9.html"><button>✨ 9. Klasse ✨</button></a>
+            </div>
+            <div class="quiz-option">
+                <a href="quiz_klasse10.html"><button>⭐ 10. Klasse ⭐</button></a>
+            </div>
+            <div class="quiz-option">
+                <a href="quiz_klasse11.html"><button>✨ 11. Klasse ✨</button></a>
+            </div>
+            <div class="quiz-option">
+                <a href="quiz_klasse12.html"><button>⭐ 12. Klasse ⭐</button></a>
+            </div>
+        </div>
+        <div class="back-button">
+            <button onclick="goBack()">⬅️ Zurück</button>
+        </div>
+        <footer>Wähle deine Klasse und starte das Quiz! 🌟</footer>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
