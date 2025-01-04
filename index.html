@@ -94,7 +94,7 @@ header {
     filter: brightness(80%); /* Reduziert die Helligkeit für bessere Lesbarkeit */
 }
 
-.header-content {
+#header-content {
     position: relative;
     z-index: 1;
     text-align: center;
@@ -125,7 +125,7 @@ header {
     outline: none;
     color: white;
     padding: 10px; /* Adjust padding for input field */
-    font-size: 1.2rem;
+    font-size: 1rem;
     flex-grow: 1; /* Makes input take up all available space */
     font-family: 'Roboto', sans-serif;
 }
@@ -139,7 +139,7 @@ header {
     background: none;
     border: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     position: absolute;
     right: 2%;
@@ -166,63 +166,37 @@ header {
             font-size: 1.2rem;
             margin-top: 5px;
         }
-
-        nav {
+/* Navigation Styling */
+nav {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     background-color: #43025f;
-    padding: 15px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    background: none;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 25px;
-    position: relative;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
 
-nav a:hover {
-    background-color: #5e00a8;
+.logo {
     color: #ffd700;
-    border-color: #ffd700;
-    box-shadow: 0px 4px 15px rgba(94, 0, 168, 0.5);
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
 }
 
-nav a.active {
-    background-color: #ffd700;
-    color: #43025f;
-    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.6);
+#button{
+    background-color: red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 20px;
 }
-
-nav a::before {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 0%;
-    height: 3px;
-    background-color: white;
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-nav a:hover::before {
-    width: 100%;
-    left: 0;
-}
-
 
         main {
             padding: 20px;
@@ -340,16 +314,9 @@ details p {
             header h1 {
                 font-size: 2rem;
             }
-
-            nav a {
-                font-size: 0.95rem;
-                margin: 0px;
+            .search-bar{
+                width: 80% !important;
             }
-
-            nav{
-                padding: 10px 10px;
-            }
-
             .section h2 {
                 font-size: 1.5rem;
             }
@@ -413,7 +380,7 @@ details p {
     <header>
 
         <div class="search-bar">
-            <form id="searchForm">
+            <form id="searchform">
                 <input type="text" id="searchInput" placeholder="Suche nach Themen...">
                 <button type="submit">🔍</button>
             </form>
@@ -424,7 +391,7 @@ details p {
             <source src="headervid.mp4" type="video/mp4">
             Dein Browser unterstützt kein HTML5-Video.
         </video>
-        <div class="header-content">
+        <div id="header-content">
             <h1>Bismarckchemie</h1>
             <p>Dein Portal für chemisches Wissen</p>
         </div>
@@ -432,12 +399,10 @@ details p {
     
 
     <nav>
-        <a href="#begriffe" class="active">Chemische Begriffe</a>
-        <a href="#elektronegativitaet">Elektronegativität</a>
-        <a href="#periodensystem" class="not-there">Periodensystem</a>
-        <a href="#faq" class="not-there">Faq</a>
-       <a href="#about-us">Über uns</a>
-    </nav>    
+        <div class="logo">BismarckChemie</div>
+        <a href="#quiz"><button id="button">⭐Chemie Quiz⭐</button></a>
+    </nav>
+      
 
     <main>
         <section class="section" id="begriffe">
@@ -446,7 +411,7 @@ details p {
             <a href="begriffe.html">Zu den Begriffen</a>
         </section>
 
-        <section class="section" id="elektronegativitaet">
+        <section class="section" id="elektronegativität">
             <h2>Elektronegativität</h2>
             <p>Lerne, wie Elektronegativität die chemischen Bindungen und Molekülstrukturen beeinflusst.</p>
             <a href="elektronegativität.html">Zur Elektronegativität</a>
@@ -502,7 +467,7 @@ details p {
         <section class="section" id="quiz">
             <h2>Chemie-Quiz</h2>
             <p>Teste dein Wissen über chemische Begriffe und Konzepte.</p>
-            <a href="quiz.html">Starte den Quiz</a>
+            <a href="Quizauswahl.html">Starte den Quiz</a>
         </section>
 
         <section class="section" id="trivia">
@@ -524,7 +489,7 @@ details p {
     </main>
 
     <footer>
-        <p>&copy; 2024 - 2024 Bismarckchemie.com | Alle Rechte vorbehalten</p>
+        <p>&copy; 2024 - 2025 Bismarckchemie.com | Alle Rechte vorbehalten</p>
         <p style="font-size: 2px; color: #666;">
             Bismarckchemie ist die inoffizielle Plattform für Chemieinteressierte an der Bismarckschule Hannover.
         </p>
@@ -612,6 +577,25 @@ details p {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const links = navLinks.querySelectorAll('a');
+
+    // Toggle Navigation
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close Navigation on Link Click
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+});
+
 
     </script>
 </body>
