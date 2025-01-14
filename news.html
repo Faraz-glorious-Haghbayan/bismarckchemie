@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamische Chemie-News</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .news-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .news-item {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-title {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .news-title a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+
+    .news-title a:hover {
+      text-decoration: underline;
+    }
+
+    .news-description {
+      color: #555;
+    }
+
+    .news-date {
+      font-size: 0.9em;
+      color: #999;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="news-container">
+    <h1>Chemie-News</h1>
+    <div id="news"></div>
+  </div>
+
+  <script>
+    const apiKey = "0fba978baa6e4330bfa86567d331ddcd";
+    const newsContainer = document.getElementById("news");
+
+    async function fetchNews() {
+      try {
+        const response = await fetch(
+          `https://newsapi.org/v2/everything?q=chemie&language=de&sortBy=publishedAt&apiKey=${apiKey}`
+        );
+        const data = await response.json();
+
+        if (data.articles.length === 0) {
+          newsContainer.innerHTML = "<p>Keine aktuellen Nachrichten gefunden.</p>";
+          return;
+        }
+
+        data.articles.forEach(article => {
+          const newsItem = document.createElement("div");
+          newsItem.classList.add("news-item");
+
+          newsItem.innerHTML = `
+            <h2 class="news-title">
+              <a href="${article.url}" target="_blank">${article.title}</a>
+            </h2>
+            <p class="news-description">${article.description || "Keine Beschreibung verfügbar."}</p>
+            <p class="news-date">Veröffentlicht am: ${new Date(article.publishedAt).toLocaleDateString()}</p>
+          `;
+
+          newsContainer.appendChild(newsItem);
+        });
+      } catch (error) {
+        newsContainer.innerHTML = "<p>Fehler beim Laden der Nachrichten.</p>";
+        console.error("Fehler:", error);
+      }
+    }
+
+    fetchNews();
+  </script>
+</body>
+</html>
