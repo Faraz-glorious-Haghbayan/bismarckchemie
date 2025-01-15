@@ -56,12 +56,14 @@
       margin-top: 10px;
     }
 
-    .blog-footer a {
-      color: #007BFF;
+    .source-link {
+      display: inline-block;
+      margin-top: 5px;
+      color: #1a73e8;
       text-decoration: none;
     }
 
-    .blog-footer a:hover {
+    .source-link:hover {
       text-decoration: underline;
     }
 
@@ -104,10 +106,14 @@
 
           blogPost.innerHTML = `
             <h2 class="blog-title">${article.title}</h2>
-            <p class="blog-content">${article.description || "Keine Beschreibung verfügbar."}</p>
-            <p class="blog-content">${article.content || "Keine weiteren Details verfügbar."}</p>
+            <p class="blog-content">
+              ${article.description || "Keine Beschreibung verfügbar."}
+            </p>
+            <p class="blog-content">
+              ${article.content ? article.content.split("[+")[0] : "Kein zusätzlicher Inhalt verfügbar."}
+            </p>
             <p class="blog-footer">
-              Quelle: <a href="${article.url}" target="_blank">${article.source.name}</a> | 
+              Quelle: <a href="${article.url}" class="source-link" target="_blank">${article.source.name}</a> | 
               Veröffentlicht am: ${new Date(article.publishedAt).toLocaleDateString()}
             </p>
           `;
