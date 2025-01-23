@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermochemie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right,#43025f, #a300e9);
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 10px;
+        }
+
+        #back {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #logo {
+            width: 80px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff0000;
+            font-size: 2rem;
+            -webkit-text-stroke: 1px black;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin: 10px 0;
+        }
+
+        footer {
+            position: relative;
+            text-align: center;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="back-link">
+                <img id="back" src="left-arrow-in-circular-button-black-symbol.png" alt="Zurück zur Startseite">
+            </a>
+            <div class="header-content">
+                <img src="Bismarckchemie-logo.png" alt="Bismarckchemie Logo" id="logo">
+                <h1>Thermochemie</h1>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Was ist Thermochemie?</h2>
+            <p>
+                Die Thermochemie ist ein Teilgebiet der Chemie, das sich mit den Energieänderungen beschäftigt, 
+                die bei chemischen Reaktionen und physikalischen Prozessen auftreten. Sie untersucht, wie Wärme freigesetzt oder aufgenommen wird.
+            </p>
+        </div>
+        
+        <div class="content">
+            <h2>Exotherme und Endotherme Reaktionen</h2>
+            <p>
+                Chemische Reaktionen können in zwei Hauptkategorien eingeteilt werden:
+            </p>
+            <ul>
+                <li><strong>Exotherme Reaktionen:</strong> Energie wird in Form von Wärme freigesetzt. Beispiele: Verbrennung von Holz, Knallgasreaktion.</li>
+                <li><strong>Endotherme Reaktionen:</strong> Energie wird aufgenommen. Beispiele: Schmelzen von Eis, Verdampfen von Wasser.</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Enthalpie</h2>
+            <p>
+                Die Enthalpie (H) ist eine thermodynamische Größe, die die Gesamtenergie eines Systems beschreibt. 
+                Die Änderung der Enthalpie (ΔH) gibt an, ob eine Reaktion exotherm (ΔH < 0) oder endotherm (ΔH > 0) ist.
+            </p>
+        </div>
+        
+        <div class="content">
+            <h2>Hess'scher Satz</h2>
+            <p>
+                Der Hess'sche Satz besagt, dass die Gesamtenthalpieänderung einer Reaktion unabhängig vom Reaktionsweg ist. 
+                Dies ermöglicht die Berechnung von ΔH für komplexe Reaktionen durch Summierung der Enthalpieänderungen von Teilreaktionen.
+            </p>
+        </div>
+        
+        <div class="content">
+            <h2>Anwendungen der Thermochemie</h2>
+            <p>
+                Thermochemie findet Anwendung in:
+            </p>
+            <ul>
+                <li><strong>Industrie:</strong> Optimierung von Prozessen wie der Herstellung von Ammoniak (Haber-Bosch-Verfahren).</li>
+                <li><strong>Energie:</strong> Analyse von Brennstoffen und Batterien.</li>
+                <li><strong>Umwelt:</strong> Untersuchung von Klimaveränderungen durch Verbrennungsprozesse.</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Fazit</h2>
+            <p>
+                Die Thermochemie ist ein entscheidendes Werkzeug zur Untersuchung und Optimierung chemischer Prozesse. 
+                Ihr Verständnis hilft uns, effizientere und nachhaltigere Lösungen für Energie- und Umweltprobleme zu entwickeln.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="video-background">
+            <video autoplay loop muted>
+                <source src="Footervid.mp4" type="video/mp4">
+                Dein Browser unterstützt kein HTML5-Video.
+            </video>
+        </div>
+        <div class="footer-content">
+            <p>&copy; 2024 - 2025 Bismarckchemie. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
