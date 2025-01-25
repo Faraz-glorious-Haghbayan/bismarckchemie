@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodensystem der Elemente</title>
+    <style>
+        /* Das CSS bleibt unverändert */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #43025f, #a300e9);
+            color: #ffd700;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 10px;
+        }
+
+        #back {
+            width: 50px;
+            height: 50px;
+            background-color: #ffc700;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #logo {
+            width: 80px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff0000;
+            font-size: 2rem;
+            -webkit-text-stroke: 1px black;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin: 10px 0;
+        }
+
+        footer {
+        position: relative;
+        text-align: center;
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-weight: bold;
+        overflow: hidden; /* Wichtig, damit das Video den Footer nicht verlässt */
+        height: 200px; /* Festgelegte Höhe für den Footer */
+    }
+
+    .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0; /* Video im Hintergrund */
+    }
+
+    .video-background video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Das Video passt sich dem Container an */
+    }
+
+    .footer-content {
+        position: relative;
+        z-index: 1; /* Inhalt über dem Video */
+        background: rgba(0, 0, 0, 0.5); /* Halbtransparenter Hintergrund für bessere Lesbarkeit */
+        padding: 10px 0;
+        height: 100%; /* Der Text bleibt innerhalb des Footers */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="back-link">
+                <img id="back" src="left-arrow-in-circular-button-black-symbol.png" alt="Zurück zur Startseite">
+            </a>
+            <div class="header-content">
+                <img src="Bismarckchemie-logo.png" alt="Bismarckchemie Logo" id="logo">
+                <h1>Periodensystem der Elemente</h1>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Was ist das Periodensystem?</h2>
+            <p>
+                Das Periodensystem der Elemente ist eine tabellarische Anordnung aller bekannten chemischen Elemente, basierend auf ihren chemischen Eigenschaften. 
+                Es wurde 1869 von Dmitri Mendelejew entwickelt.
+            </p>
+            <p>
+                Die Elemente sind in Gruppen (Spalten) und Perioden (Reihen) angeordnet. Gruppen teilen ähnliche chemische Eigenschaften, während Perioden die Anzahl der Elektronenschalen widerspiegeln.
+            </p>
+        </div>
+        
+        <div class="content">
+            <h2>Gruppen und Perioden</h2>
+            <p>
+                Das Periodensystem besteht aus 18 Gruppen und 7 Perioden:
+            </p>
+            <ul>
+                <li><strong>Gruppe 1:</strong> Alkalimetalle (z. B. Lithium, Natrium)</li>
+                <li><strong>Gruppe 17:</strong> Halogene (z. B. Fluor, Chlor)</li>
+                <li><strong>Gruppe 18:</strong> Edelgase (z. B. Helium, Neon)</li>
+            </ul>
+            <p>
+                Die Perioden geben an, wie viele Elektronenschalen ein Atom hat. Elemente in der gleichen Periode haben die gleiche Anzahl von Schalen.
+            </p>
+        </div>
+        
+        <div class="content">
+            <h2>Metalle, Nichtmetalle und Halbmetalle</h2>
+            <p>
+                Im Periodensystem gibt es drei Hauptkategorien von Elementen:
+            </p>
+            <ul>
+                <li><strong>Metalle:</strong> Leitfähig, glänzend, verformbar (z. B. Eisen, Kupfer)</li>
+                <li><strong>Nichtmetalle:</strong> Schlechte Leiter, oft gasförmig (z. B. Sauerstoff, Stickstoff)</li>
+                <li><strong>Halbmetalle:</strong> Eigenschaften zwischen Metallen und Nichtmetallen (z. B. Silicium, Bor)</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Anwendungen des Periodensystems</h2>
+            <p>
+                Das Periodensystem ist ein unverzichtbares Werkzeug in der Chemie und Technik:
+            </p>
+            <ul>
+                <li><strong>Materialwissenschaft:</strong> Auswahl von Elementen für Legierungen</li>
+                <li><strong>Pharmazeutik:</strong> Entwicklung neuer Medikamente</li>
+                <li><strong>Umweltwissenschaften:</strong> Analyse von Schadstoffen</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Fazit</h2>
+            <p>
+                Das Periodensystem ist ein Grundpfeiler der modernen Chemie. Es hilft Wissenschaftlern, die Eigenschaften und Reaktionen der Elemente zu verstehen und vorherzusagen.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="video-background">
+            <video autoplay loop muted>
+                <source src="Footervid.mp4" type="video/mp4">
+                Dein Browser unterstützt kein HTML5-Video.
+            </video>
+        </div>
+        <div class="footer-content">
+            <p>&copy; 2024 - 2025 Bismarckchemie. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
