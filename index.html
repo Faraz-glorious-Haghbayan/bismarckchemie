@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bismarckchemie – Dein Chemie-Begleiter für die Schule</title>
 <meta name="description" content="Willkommen bei BismarckChemie! Entdecke intuitive Tools, um Reaktionsgleichungen auszugleichen und Chemie einfach zu verstehen. Perfekt für Schüler und Chemiebegeisterte.">
-<meta name="keywords" content="BismarckChemie, chemie leipzig, chemie des todes, bsg chemie, eine frage der chemie, organische chemie,Chemie lernen, Reaktionsgleichung ausgleichen, Chemie Tools, Edukte und Produkte, Schüler Chemiehilfe, Chemie Nachhilfe, periodensystem, chemie, bismarckschule, bismarckschule chemie, bismarckschule hannover schulleitung, iserv bismarckschule hannove, biochemie, organische chemie, periodensystem chemie, chemikalien, chemikalie, angewandte chemie, organische, laborgeräte chemie, gefahrensymbole chemie, chemie laborgeräte, chemie studieren, chemiestudium, chemie periodensystem, biochemie studieren, anorganische chemie, chemie stoffe, katalysatoren chemie, metalle im periodensystem, metalle periodensystem, periodensystem metalle, 
+<meta name="keywords" content="BismarckChemie, Chemie lernen, Reaktionsgleichung ausgleichen, Chemie Tools, Edukte und Produkte, Schüler Chemiehilfe, Chemie Nachhilfe, periodensystem, chemie, bismarckschule, bismarckschule chemie, biochemie, organische chemie, periodensystem chemie, chemikalien, chemikalie, angewandte chemie, organische, laborgeräte chemie, gefahrensymbole chemie, chemie laborgeräte, chemie studieren, chemiestudium, chemie periodensystem, biochemie studieren, anorganische chemie, chemie stoffe, katalysatoren chemie, metalle im periodensystem, metalle periodensystem, periodensystem metalle, 
 periodensystem metalle, stoffe chemie, wertigkeiten chemie, chemieingenieurwesen, ingenieur chemie, physikalische chemie, elektro chemie, fett chemie, fette chemie, das periodensystem, anorganische stoffe, chemie englisch, nh3 chemie, periodensystem mit echten elementen, chemiebaukasten, molekülbaukasten, chemielabor, click chemie, ch4 chemie, chinon chemie, co chemie, deutscher chemiker, hybridisierung chemie, periodensystem ag, reaktionsmechanismen, chemie für mediziner, mortimer chemie, chemie ingenieur, gefahrenzeichen chemie, chemie grundlagen, chemie labor, wasserglas chemie, dbu chemie, chemie formelsammlung, chemie medizin, formelsammlung chemie, laugen chemie, no2 chemie, chemie laborant, analytische chemie, becherglas chemie, technische chemie, aminosäuren chemie, chemie de, co2 chemie, fluor chemie, mwg chemie, n2 chemie, nbs chemie, sachtleben chemie, so2 chemie, chemiebaukasten für erwachsene, atkins physikalische chemie, dmf chemie, chemiebaukasten erwachsene, physikalische chemie atkins, chemie abitur, chemie gefahrensymbole, abitur chemie, aromaten chemie, ca chemie, chemie metalle, chemieschule, dcc chemie, dcm chemie, ether chemie, h2o2 chemie, hbr chemie, hexen chemie, hno3 chemie, metalle chemie, n2o chemie, proteine chemie ">
 <meta name="author" content="Faraz Haghbayan">
 <meta name="robots" content="index, follow">
@@ -48,6 +48,11 @@ periodensystem metalle, stoffe chemie, wertigkeiten chemie, chemieingenieurwesen
      crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">
+
     <style>
         /* General Reset and Styles */
         * {
@@ -74,130 +79,109 @@ img:hover {
 }
 
 
-header {
-    position: relative;
-    overflow: hidden;
-    height: 85vh; /* Passe die Höhe nach Bedarf an */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(80%); /* Reduziert die Helligkeit für bessere Lesbarkeit */
-}
-
-#header-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: white;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-}
-
-.search-bar {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    width: 70%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
-    padding: 0; /* Ensure no internal padding in the container */
-    box-sizing: border-box;
-    z-index: 10;
-    overflow: hidden; /* Ensures no content spills outside */
-}
-
-.search-bar input {
-    border: none;
-    background: transparent;
-    outline: none;
-    color: white;
-    padding: 10px; /* Adjust padding for input field */
-    font-size: 1rem;
-    flex-grow: 1; /* Makes input take up all available space */
-    font-family: 'Roboto', sans-serif;
-}
-
-.search-bar input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-    font-style: italic;
-}
-
-.search-bar button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    position: absolute;
-    right: 2%;
-    padding: 10px; /* Consistent padding for height alignment */
-    margin: 0; /* Remove default margin */
-    transition: color 0.3s ease;
-    flex-shrink: 0; /* Prevent button from shrinking */
-    width: auto; /* Ensure button width adjusts dynamically */
-}
-
-
-
-.search-bar button:hover {
-    color: #ffd700; /* Matches your hover theme */
-}
-
-
-        header h1 {
-    text-shadow: 0 3px 10px #2b2b2b;
-}
-
-
-        header p {
-            font-size: 1.2rem;
-            margin-top: 5px;
+ /* Header Styles */
+ header {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
         }
-/* Navigation Styling */
-nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: #43025f;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-}
 
+        .header-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
 
-.logo {
-    color: #ffd700;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    letter-spacing: 1px;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
 
-#button{
-    background-color: #5e00a8;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border: none;
-    border-radius: 20px;
-}
+        .logo{
+                width: 5%;
+            }
 
+        .web-name {
+            font-size: 2rem;
+            color: #ffd700;
+            font-family: "Pacifico", serif;
+            text-shadow: 2px 2px 2px #8f00ff;
+            font-weight: lighter;
+            text-align: center;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 4px;
+            background: white;
+            transition: transform 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #8f00ff;
+            font-size: 1.2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        #header-content {
+            position: absolute;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        #header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        #header-content p {
+            font-size: 1.5rem;
+        }
+
+        #gelb{
+            color: #ffd700;
+        }
+
+        #lila{
+            color: #8f00ff;
+        }
         main {
             padding: 20px;
             max-width: 1200px;
@@ -252,13 +236,7 @@ nav {
             transition-duration: 0.3s;
         }
 
-        .section:nth-child(odd) {
-    background-color: #f4f4f4;
-}
-
-.section:nth-child(even) {
-    background-color: #ffffff;
-}
+       
 
 
         .section a:hover {
@@ -311,23 +289,51 @@ details p {
 
         /* Responsive Styles */
         @media (max-width: 950px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            .search-bar{
-                width: 80% !important;
-            }
-            .section h2 {
-                font-size: 1.5rem;
+
+            nav{
+                flex-direction: row !important;
+                position: fixed !important;
             }
 
-            .logo{
-                font-size: 1.3rem;
-                text-align: center;
-            }
-
-            #button{
+            .nav-links {
                 display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .logo{
+                width: 15%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+            .hamburger div{
+                background-color: #8f00ff;
+            }
+
+            .web-name {
+                font-size: 1.2rem;
+            }
+
+           
+            #header-content h1 {
+                font-size: 1.8rem;
+            }
+
+            #header-content p {
+                font-size: 1.2rem;
+                margin-top: 2%;
             }
 
             .section p {
@@ -389,31 +395,31 @@ details p {
     </style>
 </head>
 <body>
+   
     <header>
-
-        <div class="search-bar">
-            <form id="searchform">
-                <input type="text" id="searchInput" placeholder="Suche nach Themen...">
-                <button type="submit">🔍</button>
-            </form>
-        </div>
-        
-
         <video autoplay muted loop playsinline class="header-video">
             <source src="headervid.mp4" type="video/mp4">
-            Dein Browser unterstützt kein HTML5-Video.
+            Your browser does not support HTML5 video.
         </video>
+        <nav>
+            <img src="Bismarckchemie-logo.png" alt="bismarckchemie logo" class="logo">
+            <h1 class="web-name">BismarckChemie</h1>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="nav-links">
+                <a href="#elektronegativität">Δ Elektronegativität berechnen</a>
+                <a href="#about-us">Über uns</a>
+                <a href="#quiz">Quiz</a>
+            </div>
+        </nav>
         <div id="header-content">
-            <h1>Bismarckchemie</h1>
-            <p>Dein Portal für chemisches Wissen</p>
+            <h1>Willkommen zu <span id="gelb">Bismarck</span><span id="lila">Chemie</span></h1>
+            <p>Ihr Chemie-Begleiter für die Schulaltag</p>
         </div>
     </header>
-    
-
-    <nav>
-        <div class="logo">BismarckChemie</div>
-        <a href="#quiz"><button id="button">⭐Chemie Quiz⭐</button></a>
-    </nav>
       
 
     <main>
@@ -423,18 +429,22 @@ details p {
             <a href="begriffe.html">Zu den Begriffen</a>
         </section>
 
-        
         <section class="section" id="Infoseite">
             <h2>Chemie Fachbegriffen Erklärung</h2>
             <p>Erfahre Informationen über Säuren und Basen, chemiesche Bindungen und Reaktionen und vieles mehr!</p>
             <a href="Chemie-Infoseiten.html">Zur Infoseite</a>
         </section>
 
-
         <section class="section" id="elektronegativität">
             <h2>Elektronegativität</h2>
             <p>Lerne, wie Elektronegativität die chemischen Bindungen und Molekülstrukturen beeinflusst.</p>
-            <a href="elektronegativität.html">Zur Elektronegativität</a>
+            <a href="elektronegativität-berechnen.html">Zur Elektronegativität</a>
+        </section>
+
+        <section class="section" id="news">
+            <h2>Nachrichten</h2>
+            <p>Erfahre über die aktuellsten Chemie Nachrichten.</p>
+            <a href="news.html">Zum Nachrichten</a>
         </section>
 
         <section class="section" id="periodensystem">
@@ -588,24 +598,10 @@ details p {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const links = navLinks.querySelectorAll('a');
-
-    // Toggle Navigation
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close Navigation on Link Click
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
-});
-
+function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
 
     </script>
 </body>
