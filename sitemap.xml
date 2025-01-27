@@ -7,20 +7,6 @@
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
-
-    <url>
-        <loc>https://bismarckchemie.com/quizauswahl.html</loc>
-        <lastmod>2024-12-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://bismarckchemie.com/reaktionsgleichungen.html</loc>
-        <lastmod>2024-12-23</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-    </url>
     <url>
         <loc>https://bismarckchemie.com/periodensystem.html</loc>
         <lastmod>2024-12-22</lastmod>
@@ -33,11 +19,67 @@
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
+
+ <url>
+        <loc>https://bismarckchemie.com/quizauswahl.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://bismarckchemie.com/quizauswahl.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://bismarckchemie.com/organischechemie.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://bismarckchemie.com/periodensystem-der-elemente.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://bismarckchemie.com/organische-chemie.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://bismarckchemie.com/halogenidionen.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://bismarckchemie.com/elektronnegativität.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <url>
         <loc>https://bismarckchemie.com/begriffe.html</loc>
         <lastmod>2024-12-21</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bismarckchemie.com/elektronegativität.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
     </url>
     <url>
         <loc>https://bismarckchemie.com/quiz_klasse5.html</loc>
@@ -93,18 +135,5 @@
         <lastmod>2024-12-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://bismarckchemie.com/elektronegativität.html</loc>
-        <lastmod>2024-12-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://bismarckchemie.com/nachweise.html</loc>
-        <lastmod>2024-12-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
     </url>
 </urlset>
