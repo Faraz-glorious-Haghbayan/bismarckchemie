@@ -41,6 +41,14 @@
         <priority>0.8</priority>
     </url>
 
+     <url>
+        <loc>https://bismarckchemie.com/thermochemie.html</loc>
+        <lastmod>2024-12-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    
     <url>
         <loc>https://bismarckchemie.com/periodensystem-der-elemente.html</loc>
         <lastmod>2024-12-21</lastmod>
