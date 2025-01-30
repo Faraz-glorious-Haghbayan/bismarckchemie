@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redoxreaktionen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #43025f, #a300e9);
+            color: #ffd700;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 10px;
+        }
+
+        #back {
+            width: 50px;
+            height: 50px;
+            background-color: #ffc700;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #logo {
+            width: 80px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff0000;
+            font-size: 2rem;
+            -webkit-text-stroke: 1px black;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin: 10px 0;
+        }
+
+        footer {
+            position: relative;
+            text-align: center;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="back-link">
+                <img id="back" src="left-arrow-in-circular-button-black-symbol.png" alt="Zurück zur Startseite">
+            </a>
+            <div class="header-content">
+                <img src="Bismarckchemie-logo.png" alt="Bismarckchemie Logo" id="logo">
+                <h1>Redoxreaktionen</h1>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Was sind Redoxreaktionen?</h2>
+            <p>
+                Redoxreaktionen sind chemische Reaktionen, bei denen Elektronen zwischen Reaktanten übertragen werden. 
+                Dabei finden zwei Teilreaktionen statt:
+            </p>
+            <ul>
+                <li><strong>Oxidation:</strong> Abgabe von Elektronen.</li>
+                <li><strong>Reduktion:</strong> Aufnahme von Elektronen.</li>
+            </ul>
+            <p>
+                Der Begriff "Redox" setzt sich aus den Wörtern "Reduktion" und "Oxidation" zusammen.
+            </p>
+        </div>
+        
+        <div class="content">
+            <h2>Beispiele für Redoxreaktionen</h2>
+            <p>
+                Redoxreaktionen spielen eine wichtige Rolle in der Chemie und in alltäglichen Prozessen. Beispiele sind:
+            </p>
+            <ul>
+                <li><strong>Verbrennung:</strong> C + O₂ → CO₂</li>
+                <li><strong>Korrosion:</strong> Fe + O₂ + H₂O → Fe₂O₃·xH₂O (Rostbildung)</li>
+                <li><strong>Elektrochemische Reaktionen:</strong> Zn + Cu²⁺ → Zn²⁺ + Cu (Galvanisches Element)</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Oxidationszahlen</h2>
+            <p>
+                Oxidationszahlen helfen, die Elektronenverschiebungen in Redoxreaktionen nachzuvollziehen. 
+                Regeln zur Bestimmung von Oxidationszahlen:
+            </p>
+            <ul>
+                <li>Elemente im elementaren Zustand haben die Oxidationszahl 0 (z. B. O₂, H₂).</li>
+                <li>In Verbindungen hat Wasserstoff meist die Oxidationszahl +1, Sauerstoff -2.</li>
+                <li>Die Summe der Oxidationszahlen in einer neutralen Verbindung ist 0.</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Galvanische Zellen</h2>
+            <p>
+                Eine galvanische Zelle wandelt chemische Energie in elektrische Energie um. 
+                Sie besteht aus zwei Halbzellen, in denen Redoxreaktionen stattfinden. Beispiele:
+            </p>
+            <ul>
+                <li><strong>Zink-Kupfer-Zelle:</strong> Zn → Zn²⁺ + 2e⁻ (Oxidation), Cu²⁺ + 2e⁻ → Cu (Reduktion).</li>
+                <li><strong>Batterien:</strong> Beruhen auf Redoxreaktionen zur Energieerzeugung.</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Bedeutung von Redoxreaktionen</h2>
+            <p>
+                Redoxreaktionen sind in vielen Bereichen unverzichtbar, darunter:
+            </p>
+            <ul>
+                <li><strong>Energiegewinnung:</strong> Verbrennungsprozesse und Batterien.</li>
+                <li><strong>Umweltschutz:</strong> Abbau von Schadstoffen.</li>
+                <li><strong>Biochemie:</strong> Zellatmung und Photosynthese.</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div class="video-background">
+            <video autoplay loop muted>
+                <source src="Footervid.mp4" type="video/mp4">
+                Dein Browser unterstützt kein HTML5-Video.
+            </video>
+        </div>
+        <div class="footer-content">
+            <p>&copy; 2024 - 2025 Bismarckchemie. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>

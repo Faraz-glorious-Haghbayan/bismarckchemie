@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organische Chemie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #43025f, #a300e9);
+            color: #ffd700;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 10px;
+        }
+
+        #back {
+            width: 50px;
+            height: 50px;
+            background-color: #ffc700;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #logo {
+            width: 80px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff0000;
+            font-size: 2rem;
+            -webkit-text-stroke: 1px black;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin: 10px 0;
+        }
+
+        footer {
+            position: relative;
+            text-align: center;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="back-link">
+                <img id="back" src="left-arrow-in-circular-button-black-symbol.png" alt="Zurück zur Startseite">
+            </a>
+            <div class="header-content">
+                <img src="Bismarckchemie-logo.png" alt="Bismarckchemie Logo" id="logo">
+                <h1>Organische Chemie</h1>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Was ist organische Chemie?</h2>
+            <p>
+                Die organische Chemie ist der Zweig der Chemie, der sich mit der Untersuchung von Verbindungen befasst, 
+                die Kohlenstoff enthalten. Diese Verbindungen können einfach wie Methan (CH₄) oder komplex wie DNA sein.
+            </p>
+        </div>
+        
+        <div class="content">
+            <h2>Kohlenwasserstoffe</h2>
+            <p>
+                Kohlenwasserstoffe sind die einfachsten organischen Verbindungen, die nur aus Kohlenstoff und Wasserstoff bestehen. 
+                Es gibt verschiedene Arten:
+            </p>
+            <ul>
+                <li><strong>Alkane:</strong> Gesättigte Kohlenwasserstoffe (z. B. Methan, Ethan).</li>
+                <li><strong>Alkene:</strong> Ungesättigte Kohlenwasserstoffe mit Doppelbindungen (z. B. Ethen).</li>
+                <li><strong>Alkine:</strong> Ungesättigte Kohlenwasserstoffe mit Dreifachbindungen (z. B. Ethin).</li>
+                <li><strong>Aromaten:</strong> Ringförmige Kohlenwasserstoffe (z. B. Benzol).</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Funktionelle Gruppen</h2>
+            <p>
+                Funktionelle Gruppen bestimmen die chemischen Eigenschaften organischer Verbindungen. 
+                Beispiele sind:
+            </p>
+            <ul>
+                <li><strong>Hydroxylgruppe (-OH):</strong> In Alkoholen wie Ethanol.</li>
+                <li><strong>Carboxylgruppe (-COOH):</strong> In Carbonsäuren wie Essigsäure.</li>
+                <li><strong>Aminogruppe (-NH₂):</strong> In Aminen wie Methylamin.</li>
+                <li><strong>Carbonylgruppe (C=O):</strong> In Ketonen und Aldehyden.</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Polymere</h2>
+            <p>
+                Polymere sind große Moleküle, die aus vielen wiederholten Einheiten (Monomeren) bestehen. 
+                Beispiele sind:
+            </p>
+            <ul>
+                <li><strong>Kunststoffe:</strong> Polyethylen, Polypropylen.</li>
+                <li><strong>Biopolymere:</strong> Proteine, DNA, Zellulose.</li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2>Bedeutung der organischen Chemie</h2>
+            <p>
+                Organische Chemie ist essenziell für die Herstellung von Medikamenten, Kunststoffen, Treibstoffen, Lebensmitteln und vielen anderen Produkten. 
+                Sie spielt eine zentrale Rolle in der modernen Wissenschaft und Technik.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="video-background">
+            <video autoplay loop muted>
+                <source src="Footervid.mp4" type="video/mp4">
+                Dein Browser unterstützt kein HTML5-Video.
+            </video>
+        </div>
+        <div class="footer-content">
+            <p>&copy; 2024 - 2025 Bismarckchemie. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
