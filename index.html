@@ -295,25 +295,28 @@ details p {
   top: 50%;
   display: block;
   transform: translate(-50%, -50%);
-  max-width: 1280px;
-  width: 100%;
   
+  width: 100%;
+  background-color: #1e1e1e;
+    color: #fff;
+    padding: 10px 20px;
   border-radius: 6px;
 }
 .footer .footer-row {
     display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 3.5rem;
+  gap: 3rem;
   padding: 100px;
 }
 .footer-row .footer-col h4 {
-  color: #1e1e1e;
+  color: #fff;
   font-size: 1.2rem;
   font-weight: 400;
 }
 .footer-col .links {
   margin-top: 20px;
+  list-style: none;
 }
 .footer-col .links li {
   list-style: none;
@@ -321,36 +324,39 @@ details p {
 }
 .footer-col .links li a {
   text-decoration: none;
-  color: #652993;
+  color: #b0b0b0;
 }
 .footer-col .links li a:hover {
-  color: #1e1e1e;
+  color: #ffd700;
 }
 .footer-col p {
   margin: 20px 0;
-  color: #111111;
-  max-width: 300px;
+  color: #afafaf;
+  
 }
 .footer-col form {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 .footer-col input {
   height: 40px;
+  padding: 25px;
   border-radius: 6px;
-  background: none;
-  width: 100%;
+  background: #2d2d2d;
+  width: 60%;
   outline: none;
+  font-size: 1.2rem;
   border: 1px solid #7489C6 ;
   caret-color: #fff;
-  color: #1b1b1b;
+  color: #fff;
   padding-left: 10px;
 }
 .footer-col input::placeholder {
-  color: #1a1a1a;
+  color: #ccc;
 }
  .footer-col form button {
-  background: #bb0000;
+  background: #ff5733;
+  color: #fff;
   outline: none;
   border: none;
   padding: 10px 15px;
@@ -360,16 +366,17 @@ details p {
   transition: 0.2s ease;
 }
 .footer-col form button:hover {
-  background: #ae0000;
+  background: #e04e2f;
 }
 .footer-col .icons {
   display: flex;
-  margin-top: 30px;
-  gap: 30px;
+  margin-top: 20px;
+  gap: 20px;
   cursor: pointer;
 }
 .footer-col .icons i {
-  color: #151515;
+  color: #a4a4a4;
+  font-size: 1rem;
   transition: 0.3s ease;
 }
 .footer-col .icons i:hover  {
@@ -492,8 +499,8 @@ details p {
                 width: 60%;
             }
             .footer button{
-                font-size: 0.8rem;
-                width: 35%;
+                font-size: 0.6rem;
+                width: 40%;
             }
         }
 
@@ -651,47 +658,44 @@ details p {
 
     <section class="footer">
         <div class="footer-row">
-          <div class="footer-col">
-            <h4>Info</h4>
-            <ul class="links">
-              <li><a href="about.html">Über Uns</a></li>
-              <li><a href="faraz.html">Über den Entwiekler</a></li>
-              <li><a href="about.html">Unsere Ziele</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Erfahre</h4>
-            <ul class="links">
-              <li><a href="quizauswahl.html">Tests</a></li>
-              <li><a href="trivia.html">Tägliche Fakten</a></li>
-              <li><a href="elektronnegativität.html">Elektronegativität</a></li>
-              <li><a href="thermochemie.html">thermochemie</a></li>
-              <li><a href="SäurenundBasen.html">Säuren und Basen</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Legal</h4>
-            <ul class="links">
-              <li><a href="#">Datenschutz</a></li>
-              <li><a href="#">Impressum</a></li>
-              <li><a href="#">Cookie-Richtlinie</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Newsletter</h4>
-            <p>Melde dich für unseren Newsletter an, um keine neuen Tools, spannende Chemie-Fakten und Updates zu verpassen! Sei immer auf dem neuesten Stand.</p>
-            <form action="#">
-              <input type="text" placeholder="Your email" required>
-              <button type="submit">SUBSCRIBE</button>
-            </form>
-            <div class="icons">
-              <i class="fa-brands fa-facebook"> farazhaghbayan</i>
-              <i class="fa-brands fa-twitter"> gloriousfaraz</i>
-              <i class="fa-brands fa-github"> Faraz-glorious-Haghbayan</i>
+            <div class="footer-col">
+                <h4>Über Uns</h4>
+                <ul class="links">
+                    <li><a href="about.html">Über uns</a></li>
+                    <li><a href="faraz.html">Über den Entwickler</a></li>
+                    <li><a href="goals.html">Unsere Ziele</a></li>
+                </ul>
             </div>
-          </div>
+            <div class="footer-col">
+                <h4>Erfahre mehr</h4>
+                <ul class="links">
+                    <li><a href="quizauswahl.html">Tests</a></li>
+                    <li><a href="trivia.html">Tägliche Fakten</a></li>
+                    <li><a href="elektronegativität.html">Elektronegativität</a></li>
+                    <li><a href="thermochemie.html">Thermochemie</a></li>
+                    <li><a href="saeurenundbasen.html">Säuren und Basen</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Rechtliches</h4>
+                <ul class="links">
+                    <li><a href="datenschütz.html">Datenschutz</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="#">Cookie-Richtlinie</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Sozialen Medien</h4>
+                <p>Folge uns in sozialen Medien um keine Neuigkeiten zu verpassen!</p>
+                <div class="icons">
+                    <a href="https://www.facebook.com/farazhaghbayan" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com/gloriousbrawl" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://github.com/Faraz-glorious-Haghbayan" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
+    
     
 
     <script>
