@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Entdecke Karrieremöglichkeiten in der Chemie. Erfahren Sie mehr über Berufe in der industriellen Chemie, der akademischen Chemie, Umweltwissenschaften, der pharmazeutischen Chemie und der Forensik.">
+    <meta name="keywords" content="Karriere in Chemie, Chemie Berufe, Pharmazeutische Chemie, Umweltwissenschaften, Chemie und Forensik, Akademische Chemie">
+    <meta name="robots" content="index, follow">
+    <title>Karrieremöglichkeiten in der Chemie</title>
+  <style>
+    /* Globale Stile */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #8f00ff;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .section {
+      margin: 50px auto;
+      width: 80%;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1.5s forwards;
+    }
+
+    .section img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .career-title {
+      font-size: 2rem;
+      color: #8f00ff;
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .career-description {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.8;
+      animation: fadeIn 3s ease-out;
+      margin-bottom: 30px;
+    }
+
+    .career-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .career-container div {
+      background-color: #ffd700;
+      width: 80%;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1.5s forwards;
+    }
+
+    .career-container div:nth-child(odd) {
+      animation-delay: 0.5s;
+    }
+
+    .career-container div:nth-child(even) {
+      animation-delay: 1s;
+    }
+
+    .btn {
+      background-color: #8f00ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ffd700;
+      transform: scale(1.1);
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #8f00ff;
+      color: white;
+      margin-top: 50px;
+      font-size: 1rem;
+    }
+
+    /* Animationen */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll-Trigger */
+    .scroll-trigger {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .scroll-trigger.visible {
+      opacity: 1;
+    }
+
+    .back{
+        text-decoration: none;
+        background-color: #ffd700;
+        border: 2px solid #8f00ff;
+        padding: 10px 20px;
+    }
+
+    @media  (max-width: 950px) {
+        h1{
+            font-size: 2rem;
+        }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <h1>Karrieremöglichkeiten in der Chemie</h1>
+
+  <!-- Karriereabschnitt: Industrielle Chemie -->
+  <div class="section scroll-trigger">
+    <div class="career-title">Industrielle Chemie</div>
+   
+    <div class="career-description">
+      In der industriellen Chemie geht es um die Produktion und Verarbeitung von Chemikalien, die in einer Vielzahl von Sektoren wie der Lebensmittel-, Energie- oder Pharmaindustrie verwendet werden. Chemiker in diesem Bereich optimieren Produktionsprozesse, entwickeln neue chemische Produkte und sorgen für die Skalierung von Laborergebnissen auf industrielle Prozesse. Dabei spielen Qualitätssicherung und die Einhaltung von Sicherheitsrichtlinien eine zentrale Rolle. Der Bereich umfasst auch das Management von Rohstoffen und die Entwicklung von nachhaltigen Produktionsmethoden.
+    </div>
+    <a href="https://www.chemie.de/karriere/industrie-chemie/" class="btn" target="_blank">Mehr erfahren</a>
+  </div>
+
+  <!-- Karriereabschnitt: Akademische Laufbahn -->
+  <div class="section scroll-trigger">
+    <div class="career-title">Akademische Laufbahn</div>
+    
+    <div class="career-description">
+      Akademische Chemiker beschäftigen sich mit der Durchführung von Forschungsprojekten in verschiedenen Bereichen der Chemie und lehren Chemie an Universitäten. Sie arbeiten in Laboren, um neue chemische Reaktionen zu entdecken, neue Materialien zu entwickeln oder um die Eigenschaften von bestehenden Stoffen zu untersuchen. Neben der Forschung ist die Lehre ein wesentlicher Bestandteil ihrer Arbeit. Sie unterrichten Chemiekurse für Studierende und betreuen Doktoranden und Masterstudenten in ihren Forschungsprojekten.
+    </div>
+    <a href="https://www.acs.org/content/acs/en/careers.html" class="btn" target="_blank">Mehr erfahren</a>
+  </div>
+
+  <!-- Karriereabschnitt: Umweltwissenschaften -->
+  <div class="section scroll-trigger">
+    <div class="career-title">Umweltwissenschaften</div>
+    
+    <div class="career-description">
+      Umweltchemiker analysieren die Auswirkungen von Chemikalien und anderen industriellen Aktivitäten auf die Umwelt. Sie entwickeln Strategien zur Schadstoffbekämpfung, zur Wiederaufbereitung von Abfällen und zur Reduzierung von Umweltschäden. Sie arbeiten häufig mit Regierungen und Umweltorganisationen zusammen, um politische Maßnahmen zu empfehlen und nachhaltige Lösungen zu entwickeln, die den ökologischen Fußabdruck minimieren.
+    </div>
+    <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/environmental-chemistry" class="btn" target="_blank">Mehr erfahren</a>
+  </div>
+
+  <!-- Karriereabschnitt: Pharmazeutische Chemie -->
+  <div class="section scroll-trigger">
+    <div class="career-title">Pharmazeutische Chemie</div>
+    <div class="career-description">
+      Pharmazeutische Chemiker sind in der Forschung und Entwicklung von Medikamenten tätig. Sie arbeiten an der Synthese von Wirkstoffen, der Optimierung von Formulierungen und der Herstellung von Arzneimitteln. Sie spielen eine entscheidende Rolle bei der Entwicklung von neuen Therapeutika, die zur Behandlung von Krankheiten und der Verbesserung der Lebensqualität von Patienten beitragen. Pharmazeutische Chemiker testen auch die Stabilität, Sicherheit und Wirksamkeit von Medikamenten, bevor diese auf den Markt kommen.
+    </div>
+    <a href="https://www.pharmamanufacturing.com/" class="btn" target="_blank">Mehr erfahren</a>
+  </div>
+
+  <!-- Karriereabschnitt: Chemie und Forensik -->
+  <div class="section scroll-trigger">
+    <div class="career-title">Chemie und Forensik</div>
+    
+    <div class="career-description">
+      Forensische Chemiker verwenden chemische Analysen, um Beweise zu sammeln und Kriminalfälle zu lösen. Sie analysieren Proben wie Blut, Haare, Fasern, Drogen oder Gifte, um zur Aufklärung von Verbrechen beizutragen. Sie arbeiten eng mit Strafverfolgungsbehörden zusammen und ihre Ergebnisse werden häufig als Beweismittel in Gerichtsverfahren verwendet. Forensische Chemiker müssen nicht nur präzise arbeiten, sondern auch ihre Ergebnisse klar und verständlich präsentieren können.
+    </div>
+    <a href="https://www.forensicmag.com/" class="btn" target="_blank">Mehr erfahren</a>
+  </div>
+
+  <a href="index.html" class="back" id="backToHome">Zurück zur Hauptseite</a>
+
+
+  <footer style="background-color: #8f00ff; padding: 20px 0px;">
+    <p style="text-align: center; color: #fff; font-weight: bold;">&copy; 2024-2025 BismarckChemie. Alle Rechte vorbehalten</p>
+  </footer>
+
+  <script>
+    // Scroll-Animation
+    const sections = document.querySelectorAll('.scroll-trigger');
+
+    const scrollHandler = () => {
+      sections.forEach(section => {
+        const position = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (position <= windowHeight * 0.75) {
+          section.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', scrollHandler);
+    scrollHandler(); // Initiales Triggern beim Laden der Seite
+  </script>
+
+</body>
+</html>
