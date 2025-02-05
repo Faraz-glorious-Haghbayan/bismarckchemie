@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Interactive Periodic Table</title>
+  <meta name="description" content="Interaktives Periodensystem wie in einem Chemiebuch – entdecken Sie Siedepunkte, Elektronegativitäten, Atommassen, Ordnungszahlen und mehr. Ideal für Schüler und Lehrer." />
+  <title>Interaktives Periodensystem mit Siedepunkten | Bismarckchemie</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -20,15 +21,15 @@
       margin: auto;
       overflow: hidden;
     }
-    /* Wrap the table in a div that enables horizontal scrolling */
+    /* Wrapper für horizontales Scrollen */
     .scroll-wrapper {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
-    /* Main Periodic Table Grid */
+    /* Haupttabelle – feste Spaltenbreite */
     .table-container {
       display: grid;
-      grid-template-columns: repeat(18, 50px); /* fixed width columns to preserve layout */
+      grid-template-columns: repeat(18, 50px);
       gap: 5px;
       margin-bottom: 30px;
       justify-content: center;
@@ -46,7 +47,7 @@
     .element:hover {
       background-color: #80deea;
     }
-    /* Containers for lanthanides & actinides */
+    /* Subtabellen für Lanthaniden & Actiniden */
     .sub-table {
       display: grid;
       grid-template-columns: repeat(15, 50px);
@@ -58,7 +59,7 @@
       font-size: 13px;
       padding: 4px;
     }
-    /* Info Box */
+    /* Info-Box für Elementdetails */
     #element-info {
       border: 2px solid #333;
       background: #fff;
@@ -68,7 +69,6 @@
       display: none;
       text-align: left;
     }
-    /* Adjust the cell size for smaller screens */
     @media (max-width: 600px) {
       .table-container, .sub-table {
         grid-template-columns: repeat(auto-fit, minmax(40px, 50px));
@@ -77,220 +77,206 @@
   </style>
 </head>
 <body>
-    <div id="rotate-message" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); color: white; font-size: 20px; text-align: center; padding-top: 30%; z-index: 999;">
-        Bitte drehen Sie Ihr Gerät horizontal, um die beste Ansicht zu erhalten.
-      </div>
-      
-  <h1>Interactive Periodic Table</h1>
+  <div id="rotate-message" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); color: white; font-size: 20px; text-align: center; padding-top: 30%; z-index: 999;">
+    Bitte drehen Sie Ihr Gerät horizontal, um die beste Ansicht zu erhalten.
+  </div>
+  
+  <h1>Interaktives Periodensystem</h1>
   <div class="container">
-    <!-- Main Table (periods 1-7, excluding lanthanides & actinides) -->
+    <!-- Haupttabelle (Perioden 1–7, exkl. Lanthaniden und Actiniden) -->
     <div class="scroll-wrapper">
       <div class="table-container" id="mainTable"></div>
     </div>
     
-    <!-- Lanthanides -->
-    <h2>Lanthanides</h2>
+    <!-- Lanthaniden -->
+    <h2>Lanthaniden</h2>
     <div class="scroll-wrapper">
       <div class="sub-table" id="lanthanides"></div>
     </div>
     
-    <!-- Actinides -->
-    <h2>Actinides</h2>
+    <!-- Actiniden -->
+    <h2>Actiniden</h2>
     <div class="scroll-wrapper">
       <div class="sub-table" id="actinides"></div>
     </div>
     
-    <!-- Element Info -->
+    <!-- Detailanzeige -->
     <div id="element-info"></div>
   </div>
   
   <script>
-
-
-  function checkOrientation() {
-    const message = document.getElementById("rotate-message");
-    if (window.innerWidth < window.innerHeight) {
-      message.style.display = "block";
-    } else {
-      message.style.display = "none";
+    function checkOrientation() {
+      const message = document.getElementById("rotate-message");
+      if (window.innerWidth < window.innerHeight) {
+        message.style.display = "block";
+      } else {
+        message.style.display = "none";
+      }
     }
-  }
-
-  window.addEventListener("resize", checkOrientation);
-  window.addEventListener("load", checkOrientation);
-
-
-    // Full element data
-    // The property 'type' distinguishes between the main table, lanthanides, and actinides.
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("load", checkOrientation);
+    
+    // Array mit allen 118 Elementen inklusive Siedepunkt, Elektronegativität und Atommasse
     const elements = [
-      // Main table elements
-      { atomicNumber: 1, symbol: "H", name: "Hydrogen", boilingPoint: "-252.87°C", group: 1, period: 1, type: "main" },
-      { atomicNumber: 2, symbol: "He", name: "Helium", boilingPoint: "-268.93°C", group: 18, period: 1, type: "main" },
-      { atomicNumber: 3, symbol: "Li", name: "Lithium", boilingPoint: "1342°C", group: 1, period: 2, type: "main" },
-      { atomicNumber: 4, symbol: "Be", name: "Beryllium", boilingPoint: "2471°C", group: 2, period: 2, type: "main" },
-      { atomicNumber: 5, symbol: "B", name: "Boron", boilingPoint: "3927°C", group: 13, period: 2, type: "main" },
-      { atomicNumber: 6, symbol: "C", name: "Carbon", boilingPoint: "3642°C", group: 14, period: 2, type: "main" },
-      { atomicNumber: 7, symbol: "N", name: "Nitrogen", boilingPoint: "-195.79°C", group: 15, period: 2, type: "main" },
-      { atomicNumber: 8, symbol: "O", name: "Oxygen", boilingPoint: "-182.96°C", group: 16, period: 2, type: "main" },
-      { atomicNumber: 9, symbol: "F", name: "Fluorine", boilingPoint: "-188.11°C", group: 17, period: 2, type: "main" },
-      { atomicNumber: 10, symbol: "Ne", name: "Neon", boilingPoint: "-246.08°C", group: 18, period: 2, type: "main" },
+      { atomicNumber: 1,  symbol: "H",  name: "Wasserstoff", boilingPoint: "-252.87°C", group: 1, period: 1, type: "main", electronegativity: "2.20", atomicMass: "1.008" },
+      { atomicNumber: 2,  symbol: "He", name: "Helium", boilingPoint: "-268.93°C", group: 18, period: 1, type: "main", electronegativity: "N/A", atomicMass: "4.0026" },
+      { atomicNumber: 3,  symbol: "Li", name: "Lithium", boilingPoint: "1342°C", group: 1, period: 2, type: "main", electronegativity: "0.98", atomicMass: "6.94" },
+      { atomicNumber: 4,  symbol: "Be", name: "Beryllium", boilingPoint: "2471°C", group: 2, period: 2, type: "main", electronegativity: "1.57", atomicMass: "9.0122" },
+      { atomicNumber: 5,  symbol: "B",  name: "Bor", boilingPoint: "3927°C", group: 13, period: 2, type: "main", electronegativity: "2.04", atomicMass: "10.81" },
+      { atomicNumber: 6,  symbol: "C",  name: "Kohlenstoff", boilingPoint: "3642°C", group: 14, period: 2, type: "main", electronegativity: "2.55", atomicMass: "12.011" },
+      { atomicNumber: 7,  symbol: "N",  name: "Stickstoff", boilingPoint: "-195.79°C", group: 15, period: 2, type: "main", electronegativity: "3.04", atomicMass: "14.007" },
+      { atomicNumber: 8,  symbol: "O",  name: "Sauerstoff", boilingPoint: "-182.96°C", group: 16, period: 2, type: "main", electronegativity: "3.44", atomicMass: "15.999" },
+      { atomicNumber: 9,  symbol: "F",  name: "Fluor", boilingPoint: "-188.11°C", group: 17, period: 2, type: "main", electronegativity: "3.98", atomicMass: "18.998" },
+      { atomicNumber: 10, symbol: "Ne", name: "Neon", boilingPoint: "-246.08°C", group: 18, period: 2, type: "main", electronegativity: "N/A", atomicMass: "20.180" },
       
-      { atomicNumber: 11, symbol: "Na", name: "Sodium", boilingPoint: "883°C", group: 1, period: 3, type: "main" },
-      { atomicNumber: 12, symbol: "Mg", name: "Magnesium", boilingPoint: "1090°C", group: 2, period: 3, type: "main" },
-      { atomicNumber: 13, symbol: "Al", name: "Aluminium", boilingPoint: "2519°C", group: 13, period: 3, type: "main" },
-      { atomicNumber: 14, symbol: "Si", name: "Silicon", boilingPoint: "2900°C", group: 14, period: 3, type: "main" },
-      { atomicNumber: 15, symbol: "P", name: "Phosphorus", boilingPoint: "280°C", group: 15, period: 3, type: "main" },
-      { atomicNumber: 16, symbol: "S", name: "Sulfur", boilingPoint: "444.6°C", group: 16, period: 3, type: "main" },
-      { atomicNumber: 17, symbol: "Cl", name: "Chlorine", boilingPoint: "-34.04°C", group: 17, period: 3, type: "main" },
-      { atomicNumber: 18, symbol: "Ar", name: "Argon", boilingPoint: "-185.8°C", group: 18, period: 3, type: "main" },
+      { atomicNumber: 11, symbol: "Na", name: "Natrium", boilingPoint: "883°C", group: 1, period: 3, type: "main", electronegativity: "0.93", atomicMass: "22.990" },
+      { atomicNumber: 12, symbol: "Mg", name: "Magnesium", boilingPoint: "1090°C", group: 2, period: 3, type: "main", electronegativity: "1.31", atomicMass: "24.305" },
+      { atomicNumber: 13, symbol: "Al", name: "Aluminium", boilingPoint: "2519°C", group: 13, period: 3, type: "main", electronegativity: "1.61", atomicMass: "26.982" },
+      { atomicNumber: 14, symbol: "Si", name: "Silicium", boilingPoint: "2900°C", group: 14, period: 3, type: "main", electronegativity: "1.90", atomicMass: "28.085" },
+      { atomicNumber: 15, symbol: "P",  name: "Phosphor", boilingPoint: "280°C", group: 15, period: 3, type: "main", electronegativity: "2.19", atomicMass: "30.974" },
+      { atomicNumber: 16, symbol: "S",  name: "Schwefel", boilingPoint: "444.6°C", group: 16, period: 3, type: "main", electronegativity: "2.58", atomicMass: "32.06" },
+      { atomicNumber: 17, symbol: "Cl", name: "Chlor", boilingPoint: "-34.04°C", group: 17, period: 3, type: "main", electronegativity: "3.16", atomicMass: "35.45" },
+      { atomicNumber: 18, symbol: "Ar", name: "Argon", boilingPoint: "-185.8°C", group: 18, period: 3, type: "main", electronegativity: "N/A", atomicMass: "39.948" },
       
-      { atomicNumber: 19, symbol: "K", name: "Potassium", boilingPoint: "759°C", group: 1, period: 4, type: "main" },
-      { atomicNumber: 20, symbol: "Ca", name: "Calcium", boilingPoint: "1484°C", group: 2, period: 4, type: "main" },
-      { atomicNumber: 21, symbol: "Sc", name: "Scandium", boilingPoint: "2836°C", group: 3, period: 4, type: "main" },
-      { atomicNumber: 22, symbol: "Ti", name: "Titanium", boilingPoint: "3287°C", group: 4, period: 4, type: "main" },
-      { atomicNumber: 23, symbol: "V", name: "Vanadium", boilingPoint: "3407°C", group: 5, period: 4, type: "main" },
-      { atomicNumber: 24, symbol: "Cr", name: "Chromium", boilingPoint: "2671°C", group: 6, period: 4, type: "main" },
-      { atomicNumber: 25, symbol: "Mn", name: "Manganese", boilingPoint: "2095°C", group: 7, period: 4, type: "main" },
-      { atomicNumber: 26, symbol: "Fe", name: "Iron", boilingPoint: "2862°C", group: 8, period: 4, type: "main" },
-      { atomicNumber: 27, symbol: "Co", name: "Cobalt", boilingPoint: "2927°C", group: 9, period: 4, type: "main" },
-      { atomicNumber: 28, symbol: "Ni", name: "Nickel", boilingPoint: "2730°C", group: 10, period: 4, type: "main" },
-      { atomicNumber: 29, symbol: "Cu", name: "Copper", boilingPoint: "2562°C", group: 11, period: 4, type: "main" },
-      { atomicNumber: 30, symbol: "Zn", name: "Zinc", boilingPoint: "907°C", group: 12, period: 4, type: "main" },
-      { atomicNumber: 31, symbol: "Ga", name: "Gallium", boilingPoint: "2204°C", group: 13, period: 4, type: "main" },
-      { atomicNumber: 32, symbol: "Ge", name: "Germanium", boilingPoint: "2833°C", group: 14, period: 4, type: "main" },
-      { atomicNumber: 33, symbol: "As", name: "Arsenic", boilingPoint: "613°C", group: 15, period: 4, type: "main" },
-      { atomicNumber: 34, symbol: "Se", name: "Selenium", boilingPoint: "685°C", group: 16, period: 4, type: "main" },
-      { atomicNumber: 35, symbol: "Br", name: "Bromine", boilingPoint: "58.8°C", group: 17, period: 4, type: "main" },
-      { atomicNumber: 36, symbol: "Kr", name: "Krypton", boilingPoint: "-153.22°C", group: 18, period: 4, type: "main" },
+      { atomicNumber: 19, symbol: "K",  name: "Kalium", boilingPoint: "759°C", group: 1, period: 4, type: "main", electronegativity: "0.82", atomicMass: "39.098" },
+      { atomicNumber: 20, symbol: "Ca", name: "Calcium", boilingPoint: "1484°C", group: 2, period: 4, type: "main", electronegativity: "1.00", atomicMass: "40.078" },
+      { atomicNumber: 21, symbol: "Sc", name: "Scandium", boilingPoint: "2836°C", group: 3, period: 4, type: "main", electronegativity: "1.36", atomicMass: "44.956" },
+      { atomicNumber: 22, symbol: "Ti", name: "Titan", boilingPoint: "3287°C", group: 4, period: 4, type: "main", electronegativity: "1.54", atomicMass: "47.867" },
+      { atomicNumber: 23, symbol: "V",  name: "Vanadium", boilingPoint: "3407°C", group: 5, period: 4, type: "main", electronegativity: "1.63", atomicMass: "50.942" },
+      { atomicNumber: 24, symbol: "Cr", name: "Chrom", boilingPoint: "2671°C", group: 6, period: 4, type: "main", electronegativity: "1.66", atomicMass: "51.996" },
+      { atomicNumber: 25, symbol: "Mn", name: "Mangan", boilingPoint: "2095°C", group: 7, period: 4, type: "main", electronegativity: "1.55", atomicMass: "54.938" },
+      { atomicNumber: 26, symbol: "Fe", name: "Eisen", boilingPoint: "2862°C", group: 8, period: 4, type: "main", electronegativity: "1.83", atomicMass: "55.845" },
+      { atomicNumber: 27, symbol: "Co", name: "Kobalt", boilingPoint: "2927°C", group: 9, period: 4, type: "main", electronegativity: "1.88", atomicMass: "58.933" },
+      { atomicNumber: 28, symbol: "Ni", name: "Nickel", boilingPoint: "2730°C", group: 10, period: 4, type: "main", electronegativity: "1.91", atomicMass: "58.693" },
+      { atomicNumber: 29, symbol: "Cu", name: "Kupfer", boilingPoint: "2562°C", group: 11, period: 4, type: "main", electronegativity: "1.90", atomicMass: "63.546" },
+      { atomicNumber: 30, symbol: "Zn", name: "Zink", boilingPoint: "907°C", group: 12, period: 4, type: "main", electronegativity: "1.65", atomicMass: "65.38" },
+      { atomicNumber: 31, symbol: "Ga", name: "Gallium", boilingPoint: "2204°C", group: 13, period: 4, type: "main", electronegativity: "1.81", atomicMass: "69.723" },
+      { atomicNumber: 32, symbol: "Ge", name: "Germanium", boilingPoint: "2833°C", group: 14, period: 4, type: "main", electronegativity: "2.01", atomicMass: "72.630" },
+      { atomicNumber: 33, symbol: "As", name: "Arsen", boilingPoint: "613°C", group: 15, period: 4, type: "main", electronegativity: "2.18", atomicMass: "74.922" },
+      { atomicNumber: 34, symbol: "Se", name: "Selen", boilingPoint: "685°C", group: 16, period: 4, type: "main", electronegativity: "2.55", atomicMass: "78.971" },
+      { atomicNumber: 35, symbol: "Br", name: "Brom", boilingPoint: "58.8°C", group: 17, period: 4, type: "main", electronegativity: "2.96", atomicMass: "79.904" },
+      { atomicNumber: 36, symbol: "Kr", name: "Krypton", boilingPoint: "-153.22°C", group: 18, period: 4, type: "main", electronegativity: "3.00", atomicMass: "83.798" },
       
-      { atomicNumber: 37, symbol: "Rb", name: "Rubidium", boilingPoint: "688°C", group: 1, period: 5, type: "main" },
-      { atomicNumber: 38, symbol: "Sr", name: "Strontium", boilingPoint: "1382°C", group: 2, period: 5, type: "main" },
-      { atomicNumber: 39, symbol: "Y", name: "Yttrium", boilingPoint: "3336°C", group: 3, period: 5, type: "main" },
-      { atomicNumber: 40, symbol: "Zr", name: "Zirconium", boilingPoint: "4409°C", group: 4, period: 5, type: "main" },
-      { atomicNumber: 41, symbol: "Nb", name: "Niobium", boilingPoint: "4927°C", group: 5, period: 5, type: "main" },
-      { atomicNumber: 42, symbol: "Mo", name: "Molybdenum", boilingPoint: "4639°C", group: 6, period: 5, type: "main" },
-      { atomicNumber: 43, symbol: "Tc", name: "Technetium", boilingPoint: "N/A", group: 7, period: 5, type: "main" },
-      { atomicNumber: 44, symbol: "Ru", name: "Ruthenium", boilingPoint: "4150°C", group: 8, period: 5, type: "main" },
-      { atomicNumber: 45, symbol: "Rh", name: "Rhodium", boilingPoint: "3968°C", group: 9, period: 5, type: "main" },
-      { atomicNumber: 46, symbol: "Pd", name: "Palladium", boilingPoint: "2963°C", group: 10, period: 5, type: "main" },
-      { atomicNumber: 47, symbol: "Ag", name: "Silver", boilingPoint: "2162°C", group: 11, period: 5, type: "main" },
-      { atomicNumber: 48, symbol: "Cd", name: "Cadmium", boilingPoint: "767°C", group: 12, period: 5, type: "main" },
-      { atomicNumber: 49, symbol: "In", name: "Indium", boilingPoint: "2072°C", group: 13, period: 5, type: "main" },
-      { atomicNumber: 50, symbol: "Sn", name: "Tin", boilingPoint: "2602°C", group: 14, period: 5, type: "main" },
-      { atomicNumber: 51, symbol: "Sb", name: "Antimony", boilingPoint: "1587°C", group: 15, period: 5, type: "main" },
-      { atomicNumber: 52, symbol: "Te", name: "Tellurium", boilingPoint: "988°C", group: 16, period: 5, type: "main" },
-      { atomicNumber: 53, symbol: "I", name: "Iodine", boilingPoint: "184.3°C", group: 17, period: 5, type: "main" },
-      { atomicNumber: 54, symbol: "Xe", name: "Xenon", boilingPoint: "-108.1°C", group: 18, period: 5, type: "main" },
+      { atomicNumber: 37, symbol: "Rb", name: "Rubidium", boilingPoint: "688°C", group: 1, period: 5, type: "main", electronegativity: "0.82", atomicMass: "85.468" },
+      { atomicNumber: 38, symbol: "Sr", name: "Strontium", boilingPoint: "1382°C", group: 2, period: 5, type: "main", electronegativity: "0.95", atomicMass: "87.62" },
+      { atomicNumber: 39, symbol: "Y",  name: "Yttrium", boilingPoint: "3336°C", group: 3, period: 5, type: "main", electronegativity: "1.22", atomicMass: "88.906" },
+      { atomicNumber: 40, symbol: "Zr", name: "Zirkonium", boilingPoint: "4409°C", group: 4, period: 5, type: "main", electronegativity: "1.33", atomicMass: "91.224" },
+      { atomicNumber: 41, symbol: "Nb", name: "Niobium", boilingPoint: "4927°C", group: 5, period: 5, type: "main", electronegativity: "1.60", atomicMass: "92.906" },
+      { atomicNumber: 42, symbol: "Mo", name: "Molybdän", boilingPoint: "4639°C", group: 6, period: 5, type: "main", electronegativity: "2.16", atomicMass: "95.95" },
+      { atomicNumber: 43, symbol: "Tc", name: "Technetium", boilingPoint: "N/A", group: 7, period: 5, type: "main", electronegativity: "1.90", atomicMass: "98" },
+      { atomicNumber: 44, symbol: "Ru", name: "Ruthenium", boilingPoint: "4150°C", group: 8, period: 5, type: "main", electronegativity: "2.20", atomicMass: "101.07" },
+      { atomicNumber: 45, symbol: "Rh", name: "Rhodium", boilingPoint: "3968°C", group: 9, period: 5, type: "main", electronegativity: "2.28", atomicMass: "102.91" },
+      { atomicNumber: 46, symbol: "Pd", name: "Palladium", boilingPoint: "2963°C", group: 10, period: 5, type: "main", electronegativity: "2.20", atomicMass: "106.42" },
+      { atomicNumber: 47, symbol: "Ag", name: "Silber", boilingPoint: "2162°C", group: 11, period: 5, type: "main", electronegativity: "1.93", atomicMass: "107.87" },
+      { atomicNumber: 48, symbol: "Cd", name: "Cadmium", boilingPoint: "767°C", group: 12, period: 5, type: "main", electronegativity: "1.69", atomicMass: "112.41" },
+      { atomicNumber: 49, symbol: "In", name: "Indium", boilingPoint: "2072°C", group: 13, period: 5, type: "main", electronegativity: "1.78", atomicMass: "114.82" },
+      { atomicNumber: 50, symbol: "Sn", name: "Zinn", boilingPoint: "2602°C", group: 14, period: 5, type: "main", electronegativity: "1.96", atomicMass: "118.71" },
+      { atomicNumber: 51, symbol: "Sb", name: "Antimon", boilingPoint: "1587°C", group: 15, period: 5, type: "main", electronegativity: "2.05", atomicMass: "121.76" },
+      { atomicNumber: 52, symbol: "Te", name: "Tellurium", boilingPoint: "988°C", group: 16, period: 5, type: "main", electronegativity: "2.10", atomicMass: "127.60" },
+      { atomicNumber: 53, symbol: "I", name: "Iod", boilingPoint: "184.3°C", group: 17, period: 5, type: "main", electronegativity: "2.66", atomicMass: "126.90" },
+      { atomicNumber: 54, symbol: "Xe", name: "Xenon", boilingPoint: "-108.1°C", group: 18, period: 5, type: "main", electronegativity: "2.60", atomicMass: "131.29" },
       
-      { atomicNumber: 55, symbol: "Cs", name: "Cesium", boilingPoint: "685°C", group: 1, period: 6, type: "main" },
-      { atomicNumber: 56, symbol: "Ba", name: "Barium", boilingPoint: "1140°C", group: 2, period: 6, type: "main" },
+      { atomicNumber: 55, symbol: "Cs", name: "Cäsium", boilingPoint: "685°C", group: 1, period: 6, type: "main", electronegativity: "0.79", atomicMass: "132.91" },
+      { atomicNumber: 56, symbol: "Ba", name: "Barium", boilingPoint: "1140°C", group: 2, period: 6, type: "main", electronegativity: "0.89", atomicMass: "137.33" },
       
-      // Lanthanides (typically shown separately)
-      { atomicNumber: 57, symbol: "La", name: "Lanthanum", boilingPoint: "3464°C", type: "lanthanide" },
-      { atomicNumber: 58, symbol: "Ce", name: "Cerium", boilingPoint: "3443°C", type: "lanthanide" },
-      { atomicNumber: 59, symbol: "Pr", name: "Praseodymium", boilingPoint: "3523°C", type: "lanthanide" },
-      { atomicNumber: 60, symbol: "Nd", name: "Neodymium", boilingPoint: "3074°C", type: "lanthanide" },
-      { atomicNumber: 61, symbol: "Pm", name: "Promethium", boilingPoint: "N/A", type: "lanthanide" },
-      { atomicNumber: 62, symbol: "Sm", name: "Samarium", boilingPoint: "1794°C", type: "lanthanide" },
-      { atomicNumber: 63, symbol: "Eu", name: "Europium", boilingPoint: "1529°C", type: "lanthanide" },
-      { atomicNumber: 64, symbol: "Gd", name: "Gadolinium", boilingPoint: "3273°C", type: "lanthanide" },
-      { atomicNumber: 65, symbol: "Tb", name: "Terbium", boilingPoint: "3230°C", type: "lanthanide" },
-      { atomicNumber: 66, symbol: "Dy", name: "Dysprosium", boilingPoint: "2567°C", type: "lanthanide" },
-      { atomicNumber: 67, symbol: "Ho", name: "Holmium", boilingPoint: "2700°C", type: "lanthanide" },
-      { atomicNumber: 68, symbol: "Er", name: "Erbium", boilingPoint: "2500°C", type: "lanthanide" },
-      { atomicNumber: 69, symbol: "Tm", name: "Thulium", boilingPoint: "1750°C", type: "lanthanide" },
-      { atomicNumber: 70, symbol: "Yb", name: "Ytterbium", boilingPoint: "1196°C", type: "lanthanide" },
-      { atomicNumber: 71, symbol: "Lu", name: "Lutetium", boilingPoint: "3402°C", type: "lanthanide" },
+      // Lanthaniden
+      { atomicNumber: 57, symbol: "La", name: "Lanthanum", boilingPoint: "3464°C", type: "lanthanide", electronegativity: "1.10", atomicMass: "138.91" },
+      { atomicNumber: 58, symbol: "Ce", name: "Cerium", boilingPoint: "3443°C", type: "lanthanide", electronegativity: "1.12", atomicMass: "140.12" },
+      { atomicNumber: 59, symbol: "Pr", name: "Praseodym", boilingPoint: "3523°C", type: "lanthanide", electronegativity: "1.13", atomicMass: "140.91" },
+      { atomicNumber: 60, symbol: "Nd", name: "Neodym", boilingPoint: "3074°C", type: "lanthanide", electronegativity: "1.14", atomicMass: "144.24" },
+      { atomicNumber: 61, symbol: "Pm", name: "Promethium", boilingPoint: "N/A", type: "lanthanide", electronegativity: "N/A", atomicMass: "N/A" },
+      { atomicNumber: 62, symbol: "Sm", name: "Samarium", boilingPoint: "1794°C", type: "lanthanide", electronegativity: "1.17", atomicMass: "150.36" },
+      { atomicNumber: 63, symbol: "Eu", name: "Europium", boilingPoint: "1529°C", type: "lanthanide", electronegativity: "1.20", atomicMass: "151.96" },
+      { atomicNumber: 64, symbol: "Gd", name: "Gadolinium", boilingPoint: "3273°C", type: "lanthanide", electronegativity: "1.20", atomicMass: "157.25" },
+      { atomicNumber: 65, symbol: "Tb", name: "Terbium", boilingPoint: "3230°C", type: "lanthanide", electronegativity: "1.10", atomicMass: "158.93" },
+      { atomicNumber: 66, symbol: "Dy", name: "Dysprosium", boilingPoint: "2567°C", type: "lanthanide", electronegativity: "1.22", atomicMass: "162.50" },
+      { atomicNumber: 67, symbol: "Ho", name: "Holmium", boilingPoint: "2700°C", type: "lanthanide", electronegativity: "1.23", atomicMass: "164.93" },
+      { atomicNumber: 68, symbol: "Er", name: "Erbium", boilingPoint: "2500°C", type: "lanthanide", electronegativity: "1.24", atomicMass: "167.26" },
+      { atomicNumber: 69, symbol: "Tm", name: "Thulium", boilingPoint: "1750°C", type: "lanthanide", electronegativity: "1.25", atomicMass: "168.93" },
+      { atomicNumber: 70, symbol: "Yb", name: "Ytterbium", boilingPoint: "1196°C", type: "lanthanide", electronegativity: "1.10", atomicMass: "173.05" },
+      { atomicNumber: 71, symbol: "Lu", name: "Lutetium", boilingPoint: "3402°C", type: "lanthanide", electronegativity: "1.27", atomicMass: "174.97" },
       
-      // Back to Main Table (Period 6 continued)
-      { atomicNumber: 72, symbol: "Hf", name: "Hafnium", boilingPoint: "4876°C", group: 4, period: 6, type: "main" },
-      { atomicNumber: 73, symbol: "Ta", name: "Tantalum", boilingPoint: "5458°C", group: 5, period: 6, type: "main" },
-      { atomicNumber: 74, symbol: "W", name: "Tungsten", boilingPoint: "5555°C", group: 6, period: 6, type: "main" },
-      { atomicNumber: 75, symbol: "Re", name: "Rhenium", boilingPoint: "5596°C", group: 7, period: 6, type: "main" },
-      { atomicNumber: 76, symbol: "Os", name: "Osmium", boilingPoint: "5012°C", group: 8, period: 6, type: "main" },
-      { atomicNumber: 77, symbol: "Ir", name: "Iridium", boilingPoint: "4428°C", group: 9, period: 6, type: "main" },
-      { atomicNumber: 78, symbol: "Pt", name: "Platinum", boilingPoint: "4098°C", group: 10, period: 6, type: "main" },
-      { atomicNumber: 79, symbol: "Au", name: "Gold", boilingPoint: "2856°C", group: 11, period: 6, type: "main" },
-      { atomicNumber: 80, symbol: "Hg", name: "Mercury", boilingPoint: "356.73°C", group: 12, period: 6, type: "main" },
-      { atomicNumber: 81, symbol: "Tl", name: "Thallium", boilingPoint: "1473°C", group: 13, period: 6, type: "main" },
-      { atomicNumber: 82, symbol: "Pb", name: "Lead", boilingPoint: "1749°C", group: 14, period: 6, type: "main" },
-      { atomicNumber: 83, symbol: "Bi", name: "Bismuth", boilingPoint: "1564°C", group: 15, period: 6, type: "main" },
-      { atomicNumber: 84, symbol: "Po", name: "Polonium", boilingPoint: "962°C", group: 16, period: 6, type: "main" },
-      { atomicNumber: 85, symbol: "At", name: "Astatine", boilingPoint: "N/A", group: 17, period: 6, type: "main" },
-      { atomicNumber: 86, symbol: "Rn", name: "Radon", boilingPoint: "-61.7°C", group: 18, period: 6, type: "main" },
+      // Rückkehr zur Haupttabelle (Periode 7)
+      { atomicNumber: 72, symbol: "Hf", name: "Hafnium", boilingPoint: "4876°C", group: 4, period: 6, type: "main", electronegativity: "1.30", atomicMass: "178.49" },
+      { atomicNumber: 73, symbol: "Ta", name: "Tantal", boilingPoint: "5458°C", group: 5, period: 6, type: "main", electronegativity: "1.50", atomicMass: "180.95" },
+      { atomicNumber: 74, symbol: "W", name: "Tungsten", boilingPoint: "5555°C", group: 6, period: 6, type: "main", electronegativity: "2.36", atomicMass: "183.84" },
+      { atomicNumber: 75, symbol: "Re", name: "Rhenium", boilingPoint: "5596°C", group: 7, period: 6, type: "main", electronegativity: "1.90", atomicMass: "186.21" },
+      { atomicNumber: 76, symbol: "Os", name: "Osmium", boilingPoint: "5012°C", group: 8, period: 6, type: "main", electronegativity: "2.20", atomicMass: "190.23" },
+      { atomicNumber: 77, symbol: "Ir", name: "Iridium", boilingPoint: "4428°C", group: 9, period: 6, type: "main", electronegativity: "2.20", atomicMass: "192.22" },
+      { atomicNumber: 78, symbol: "Pt", name: "Platin", boilingPoint: "4098°C", group: 10, period: 6, type: "main", electronegativity: "2.28", atomicMass: "195.08" },
+      { atomicNumber: 79, symbol: "Au", name: "Gold", boilingPoint: "2856°C", group: 11, period: 6, type: "main", electronegativity: "2.54", atomicMass: "196.97" },
+      { atomicNumber: 80, symbol: "Hg", name: "Mercury", boilingPoint: "356.73°C", group: 12, period: 6, type: "main", electronegativity: "2.00", atomicMass: "200.59" },
+      { atomicNumber: 81, symbol: "Tl", name: "Thallium", boilingPoint: "1473°C", group: 13, period: 6, type: "main", electronegativity: "1.62", atomicMass: "204.38" },
+      { atomicNumber: 82, symbol: "Pb", name: "Lead", boilingPoint: "1749°C", group: 14, period: 6, type: "main", electronegativity: "2.33", atomicMass: "207.2" },
+      { atomicNumber: 83, symbol: "Bi", name: "Bismuth", boilingPoint: "1564°C", group: 15, period: 6, type: "main", electronegativity: "2.02", atomicMass: "208.98" },
+      { atomicNumber: 84, symbol: "Po", name: "Polonium", boilingPoint: "962°C", group: 16, period: 6, type: "main", electronegativity: "2.00", atomicMass: "209" },
+      { atomicNumber: 85, symbol: "At", name: "Astatine", boilingPoint: "N/A", group: 17, period: 6, type: "main", electronegativity: "2.20", atomicMass: "210" },
+      { atomicNumber: 86, symbol: "Rn", name: "Radon", boilingPoint: "-61.7°C", group: 18, period: 6, type: "main", electronegativity: "N/A", atomicMass: "222" },
       
-      { atomicNumber: 87, symbol: "Fr", name: "Francium", boilingPoint: "677°C", group: 1, period: 7, type: "main" },
-      { atomicNumber: 88, symbol: "Ra", name: "Radium", boilingPoint: "1413°C", group: 2, period: 7, type: "main" },
+      { atomicNumber: 87, symbol: "Fr", name: "Francium", boilingPoint: "677°C", group: 1, period: 7, type: "main", electronegativity: "0.70", atomicMass: "223" },
+      { atomicNumber: 88, symbol: "Ra", name: "Radium", boilingPoint: "1413°C", group: 2, period: 7, type: "main", electronegativity: "0.90", atomicMass: "226" },
       
-      // Actinides (shown separately)
-      { atomicNumber: 89, symbol: "Ac", name: "Actinium", boilingPoint: "3200°C", type: "actinide" },
-      { atomicNumber: 90, symbol: "Th", name: "Thorium", boilingPoint: "4788°C", type: "actinide" },
-      { atomicNumber: 91, symbol: "Pa", name: "Protactinium", boilingPoint: "4000°C", type: "actinide" },
-      { atomicNumber: 92, symbol: "U", name: "Uranium", boilingPoint: "4404°C", type: "actinide" },
-      { atomicNumber: 93, symbol: "Np", name: "Neptunium", boilingPoint: "4175°C", type: "actinide" },
-      { atomicNumber: 94, symbol: "Pu", name: "Plutonium", boilingPoint: "3228°C", type: "actinide" },
-      { atomicNumber: 95, symbol: "Am", name: "Americium", boilingPoint: "2880°C", type: "actinide" },
-      { atomicNumber: 96, symbol: "Cm", name: "Curium", boilingPoint: "3110°C", type: "actinide" },
-      { atomicNumber: 97, symbol: "Bk", name: "Berkelium", boilingPoint: "2627°C", type: "actinide" },
-      { atomicNumber: 98, symbol: "Cf", name: "Californium", boilingPoint: "1743°C", type: "actinide" },
-      { atomicNumber: 99, symbol: "Es", name: "Einsteinium", boilingPoint: "N/A", type: "actinide" },
-      { atomicNumber: 100, symbol: "Fm", name: "Fermium", boilingPoint: "N/A", type: "actinide" },
-      { atomicNumber: 101, symbol: "Md", name: "Mendelevium", boilingPoint: "N/A", type: "actinide" },
-      { atomicNumber: 102, symbol: "No", name: "Nobelium", boilingPoint: "N/A", type: "actinide" },
-      { atomicNumber: 103, symbol: "Lr", name: "Lawrencium", boilingPoint: "N/A", type: "actinide" },
+      // Actiniden (hier exemplarisch; vollständige Daten sind oft lückenhaft und werden als N/A angezeigt)
+      { atomicNumber: 89, symbol: "Ac", name: "Actinium", boilingPoint: "3200°C", type: "actinide", electronegativity: "1.10", atomicMass: "227" },
+      { atomicNumber: 90, symbol: "Th", name: "Thorium", boilingPoint: "4788°C", type: "actinide", electronegativity: "1.30", atomicMass: "232.04" },
+      { atomicNumber: 91, symbol: "Pa", name: "Protactinium", boilingPoint: "4000°C", type: "actinide", electronegativity: "1.50", atomicMass: "231.04" },
+      { atomicNumber: 92, symbol: "U",  name: "Uran", boilingPoint: "4404°C", type: "actinide", electronegativity: "1.38", atomicMass: "238.03" },
+      { atomicNumber: 93, symbol: "Np", name: "Neptunium", boilingPoint: "4175°C", type: "actinide", electronegativity: "1.36", atomicMass: "237" },
+      { atomicNumber: 94, symbol: "Pu", name: "Pluton", boilingPoint: "3228°C", type: "actinide", electronegativity: "1.28", atomicMass: "244" },
+      { atomicNumber: 95, symbol: "Am", name: "Americium", boilingPoint: "2880°C", type: "actinide", electronegativity: "1.30", atomicMass: "243" },
+      { atomicNumber: 96, symbol: "Cm", name: "Curium", boilingPoint: "3110°C", type: "actinide", electronegativity: "1.30", atomicMass: "247" },
+      { atomicNumber: 97, symbol: "Bk", name: "Berkelium", boilingPoint: "2627°C", type: "actinide", electronegativity: "1.30", atomicMass: "247" },
+      { atomicNumber: 98, symbol: "Cf", name: "Californium", boilingPoint: "1743°C", type: "actinide", electronegativity: "1.30", atomicMass: "251" },
+      { atomicNumber: 99, symbol: "Es", name: "Einsteinium", boilingPoint: "N/A", type: "actinide", electronegativity: "N/A", atomicMass: "252" },
+      { atomicNumber: 100, symbol: "Fm", name: "Fermium", boilingPoint: "N/A", type: "actinide", electronegativity: "N/A", atomicMass: "257" },
+      { atomicNumber: 101, symbol: "Md", name: "Mendelevium", boilingPoint: "N/A", type: "actinide", electronegativity: "N/A", atomicMass: "258" },
+      { atomicNumber: 102, symbol: "No", name: "Nobelium", boilingPoint: "N/A", type: "actinide", electronegativity: "N/A", atomicMass: "259" },
+      { atomicNumber: 103, symbol: "Lr", name: "Lawrencium", boilingPoint: "N/A", type: "actinide", electronegativity: "N/A", atomicMass: "266" },
       
-      // Back to Main Table (Period 7 continued)
-      { atomicNumber: 104, symbol: "Rf", name: "Rutherfordium", boilingPoint: "5500°C", group: 4, period: 7, type: "main" },
-      { atomicNumber: 105, symbol: "Db", name: "Dubnium", boilingPoint: "N/A", group: 5, period: 7, type: "main" },
-      { atomicNumber: 106, symbol: "Sg", name: "Seaborgium", boilingPoint: "N/A", group: 6, period: 7, type: "main" },
-      { atomicNumber: 107, symbol: "Bh", name: "Bohrium", boilingPoint: "N/A", group: 7, period: 7, type: "main" },
-      { atomicNumber: 108, symbol: "Hs", name: "Hassium", boilingPoint: "N/A", group: 8, period: 7, type: "main" },
-      { atomicNumber: 109, symbol: "Mt", name: "Meitnerium", boilingPoint: "N/A", group: 9, period: 7, type: "main" },
-      { atomicNumber: 110, symbol: "Ds", name: "Darmstadtium", boilingPoint: "N/A", group: 10, period: 7, type: "main" },
-      { atomicNumber: 111, symbol: "Rg", name: "Roentgenium", boilingPoint: "N/A", group: 11, period: 7, type: "main" },
-      { atomicNumber: 112, symbol: "Cn", name: "Copernicium", boilingPoint: "N/A", group: 12, period: 7, type: "main" },
-      { atomicNumber: 113, symbol: "Nh", name: "Nihonium", boilingPoint: "N/A", group: 13, period: 7, type: "main" },
-      { atomicNumber: 114, symbol: "Fl", name: "Flerovium", boilingPoint: "N/A", group: 14, period: 7, type: "main" },
-      { atomicNumber: 115, symbol: "Mc", name: "Moscovium", boilingPoint: "N/A", group: 15, period: 7, type: "main" },
-      { atomicNumber: 116, symbol: "Lv", name: "Livermorium", boilingPoint: "N/A", group: 16, period: 7, type: "main" },
-      { atomicNumber: 117, symbol: "Ts", name: "Tennessine", boilingPoint: "N/A", group: 17, period: 7, type: "main" },
-      { atomicNumber: 118, symbol: "Og", name: "Oganesson", boilingPoint: "N/A", group: 18, period: 7, type: "main" },
+      // Rückkehr zur Haupttabelle (Periode 7, Elemente 104-118)
+      { atomicNumber: 104, symbol: "Rf", name: "Rutherfordium", boilingPoint: "5500°C", group: 4, period: 7, type: "main", electronegativity: "N/A", atomicMass: "267" },
+      { atomicNumber: 105, symbol: "Db", name: "Dubnium", boilingPoint: "N/A", group: 5, period: 7, type: "main", electronegativity: "N/A", atomicMass: "268" },
+      { atomicNumber: 106, symbol: "Sg", name: "Seaborgium", boilingPoint: "N/A", group: 6, period: 7, type: "main", electronegativity: "N/A", atomicMass: "269" },
+      { atomicNumber: 107, symbol: "Bh", name: "Bohrium", boilingPoint: "N/A", group: 7, period: 7, type: "main", electronegativity: "N/A", atomicMass: "270" },
+      { atomicNumber: 108, symbol: "Hs", name: "Hassium", boilingPoint: "N/A", group: 8, period: 7, type: "main", electronegativity: "N/A", atomicMass: "277" },
+      { atomicNumber: 109, symbol: "Mt", name: "Meitnerium", boilingPoint: "N/A", group: 9, period: 7, type: "main", electronegativity: "N/A", atomicMass: "278" },
+      { atomicNumber: 110, symbol: "Ds", name: "Darmstadtium", boilingPoint: "N/A", group: 10, period: 7, type: "main", electronegativity: "N/A", atomicMass: "281" },
+      { atomicNumber: 111, symbol: "Rg", name: "Roentgenium", boilingPoint: "N/A", group: 11, period: 7, type: "main", electronegativity: "N/A", atomicMass: "282" },
+      { atomicNumber: 112, symbol: "Cn", name: "Copernicium", boilingPoint: "N/A", group: 12, period: 7, type: "main", electronegativity: "N/A", atomicMass: "285" },
+      { atomicNumber: 113, symbol: "Nh", name: "Nihonium", boilingPoint: "N/A", group: 13, period: 7, type: "main", electronegativity: "N/A", atomicMass: "286" },
+      { atomicNumber: 114, symbol: "Fl", name: "Flerovium", boilingPoint: "N/A", group: 14, period: 7, type: "main", electronegativity: "N/A", atomicMass: "289" },
+      { atomicNumber: 115, symbol: "Mc", name: "Moscovium", boilingPoint: "N/A", group: 15, period: 7, type: "main", electronegativity: "N/A", atomicMass: "290" },
+      { atomicNumber: 116, symbol: "Lv", name: "Livermorium", boilingPoint: "N/A", group: 16, period: 7, type: "main", electronegativity: "N/A", atomicMass: "293" },
+      { atomicNumber: 117, symbol: "Ts", name: "Tennessine", boilingPoint: "N/A", group: 17, period: 7, type: "main", electronegativity: "N/A", atomicMass: "294" },
+      { atomicNumber: 118, symbol: "Og", name: "Oganesson", boilingPoint: "N/A", group: 18, period: 7, type: "main", electronegativity: "N/A", atomicMass: "294" }
     ];
-
-    // Split the elements into three arrays
+    
+    // Aufteilen in Arrays für Haupttabelle, Lanthaniden und Actiniden
     const mainElements = elements.filter(el => el.type === "main");
     const lanthanides = elements.filter(el => el.type === "lanthanide");
     const actinides = elements.filter(el => el.type === "actinide");
-
-    // Function to create an element div
+    
+    // Funktion, um ein Element-Div zu erstellen
     function createElementDiv(element) {
       const div = document.createElement("div");
       div.className = "element";
+      div.setAttribute("data-search", `${element.name} ${element.symbol} ${element.atomicNumber}`.toLowerCase());
       div.innerHTML = `<strong>${element.symbol}</strong><br><small>${element.atomicNumber}</small>`;
       div.addEventListener("click", () => showInfo(element));
       return div;
     }
-
-    // Render main table
+    
+    // Haupttabelle rendern
     const mainTable = document.getElementById("mainTable");
-    // Create a grid with 7 rows (periods 1-7) and 18 columns (groups 1-18)
-    // We fill in the grid cell by cell so that each element goes in its proper group/period.
-    // First, create an empty 2D array for periods 1-7.
     const grid = Array.from({ length: 7 }, () => Array(18).fill(""));
-
-    // Place each main element in its grid cell
     mainElements.forEach(el => {
       if (el.period && el.group) {
-        // Adjust indexes (period-1, group-1)
         grid[el.period - 1][el.group - 1] = createElementDiv(el);
       }
     });
-
-    // Now render the grid cells (even empty ones)
     grid.forEach(row => {
       row.forEach(cell => {
         if (cell === "") {
-          // Empty placeholder
           const placeholder = document.createElement("div");
           placeholder.className = "element";
           placeholder.style.backgroundColor = "transparent";
@@ -301,8 +287,8 @@
         }
       });
     });
-
-    // Render lanthanides and actinides
+    
+    // Lanthaniden und Actiniden rendern
     const lanthanideContainer = document.getElementById("lanthanides");
     lanthanides.forEach(el => {
       lanthanideContainer.appendChild(createElementDiv(el));
@@ -311,21 +297,33 @@
     actinides.forEach(el => {
       actinideContainer.appendChild(createElementDiv(el));
     });
-
-    // Function to display element information
+    
+    // Funktion, um Elementdetails anzuzeigen – inklusive Elektronegativität und Atommasse
     function showInfo(el) {
       const infoBox = document.getElementById("element-info");
       infoBox.style.display = "block";
       infoBox.innerHTML = `
         <h2>${el.name} (${el.symbol})</h2>
-        <p><strong>Atomic Number:</strong> ${el.atomicNumber}</p>
-        <p><strong>Boiling Point:</strong> ${el.boilingPoint}</p>
-        ${el.group ? `<p><strong>Group:</strong> ${el.group}</p>` : ""}
-        ${el.period ? `<p><strong>Period:</strong> ${el.period}</p>` : ""}
-      `;
-      // Scroll into view if necessary
-      infoBox.scrollIntoView({ behavior: "smooth" });
+        <p><strong>Ordnungszahl:</strong> ${el.atomicNumber}</p>
+        <p><strong>Siedepunkt:</strong> ${el.boilingPoint}</p>
+        <p><strong>Elektronegativität:</strong> ${el.electronegativity || "N/A"}</p>
+        <p><strong>Atommasse (u):</strong> ${el.atomicMass || "N/A"}</p>
+        ${el.group ? `<p><strong>Gruppe:</strong> ${el.group}</p>` : ""}\n        ${el.period ? `<p><strong>Periode:</strong> ${el.period}</p>` : ""}\n      `;
+      document.getElementById("element-info").scrollIntoView({ behavior: "smooth" });
     }
+    
+    // Suchfunktion
+    document.getElementById("search-input").addEventListener("input", function() {
+      const query = this.value.toLowerCase();
+      const allDivs = document.querySelectorAll(".element");
+      allDivs.forEach(div => {
+        if(div.getAttribute("data-search").includes(query)) {
+          div.classList.add("highlight");
+        } else {
+          div.classList.remove("highlight");
+        }
+      });
+    });
   </script>
 </body>
 </html>
