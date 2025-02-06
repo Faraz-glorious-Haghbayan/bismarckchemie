@@ -29,7 +29,7 @@
     /* Haupttabelle – feste Spaltenbreite */
     .table-container {
       display: grid;
-      grid-template-columns: repeat(20, 50px);
+      grid-template-columns: repeat(18, 40px);
       gap: 5px;
       margin-bottom: 30px;
       justify-content: center;
@@ -69,10 +69,15 @@
       display: none;
       text-align: left;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 950px) {
       .table-container, .sub-table {
-        grid-template-columns: repeat(auto-fit, minmax(40px, 50px));
+        grid-template-columns: repeat(18, 39px);
       }
+    }
+    @media (max-width: 700px) {
+      .table-container {
+      grid-template-columns: repeat(18, 30px);
+    }
     }
   </style>
 </head>
