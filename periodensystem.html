@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
- <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="Interaktives Periodensystem wie in einem Chemiebuch – entdecken Sie Siedepunkte, Elektronegativitäten, Atommassen, Ordnungszahlen und mehr. Ideal für Schüler, Lehrer und Chemie-Enthusiasten." />
 <meta name="keywords" content="Periodensystem, interaktiv, Chemiebuch, Siedepunkt, Elektronegativität, Atommasse, Ordnungszahl, Chemie, Schule, Bismarckchemie" />
@@ -17,6 +17,26 @@
       text-align: center;
       background: #f4f4f4;
     }
+
+    .back-to-home {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* Damit der Button immer sichtbar bleibt */
+}
+
+.back-button {
+  width: 50px; /* Größe nach Bedarf anpassen */
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+}
+
+
     h1 {
       margin: 20px 0;
     }
@@ -96,6 +116,14 @@
   </div>
   
   <h1>Interaktives Periodensystem</h1>
+
+  <a href="index.html" class="back-to-home">
+    <img src="back-button.png" alt="Zurück zur Startseite" class="back-button">
+  </a>
+  
+  
+  
+
   <div class="container">
     <!-- Haupttabelle (Perioden 1–7, exkl. Lanthaniden und Actiniden) -->
     <div class="scroll-wrapper">
