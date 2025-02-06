@@ -74,6 +74,11 @@
         grid-template-columns: repeat(18, 39px);
       }
     }
+    @media (max-width: 850px) {
+      .table-container, .sub-table {
+        grid-template-columns: repeat(18, 37px);
+      }
+    }
     @media (max-width: 700px) {
       .table-container {
       grid-template-columns: repeat(18, 30px);
@@ -111,15 +116,21 @@
   
   <script>
     function checkOrientation() {
-      const message = document.getElementById("rotate-message");
-      if (window.innerWidth < window.innerHeight) {
-        message.style.display = "block";
-      } else {
-        message.style.display = "none";
-      }
+  const message = document.getElementById("rotate-message");
+  // Alert nur anzeigen, wenn es sich um ein mobiles Gerät handelt
+  if (/Mobi/i.test(navigator.userAgent)) {
+    if (window.innerWidth < window.innerHeight) {
+      message.style.display = "block";
+    } else {
+      message.style.display = "none";
     }
-    window.addEventListener("resize", checkOrientation);
-    window.addEventListener("load", checkOrientation);
+  } else {
+    message.style.display = "none";
+  }
+}
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("load", checkOrientation);
+
     
     // Array mit allen 118 Elementen inklusive Siedepunkt, Elektronegativität und Atommasse
     const elements = [
