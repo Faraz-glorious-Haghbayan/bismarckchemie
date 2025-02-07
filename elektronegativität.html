@@ -1,523 +1,628 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Erfahren Sie alles über Elektronegativität – Definition, Trends im Periodensystem und ihre Bedeutung in der Chemie. Lernen Sie, wie Elektronegativität chemische Bindungen beeinflusst.">
-  <meta name="keywords" content="Elektronegativität, Chemie, Periodensystem, chemische Bindungen, Elektronen, Trends, Pauling-Skala, Freie Elektronen, Elektronen, neutronen, protonen, chemie Hilfe, Bismarckschule, Bismarckschule Hannover, BismarckChemie, Bismarckschule Chemie, bismarckschule Fächer, Bismarckschule Gallerie, bismarckschule Physik, Naturwissenschaft, Naturwissenschaftliche Schwerpunkt">
+  <meta name="keywords" content="Elektronegativität, Chemie, Periodensystem, chemische Bindungen, Bindungselektronen, Pauling-Skala, Linus Pauling, unpolare Bindungen, polare Bindungen, ionische Bindungen, organische Chemie, Materialwissenschaft, Biochemie, chemische Reaktionen, interaktives Tool, Elektronegativität Erklärung, Elektronegativität Vergleich, Bismarck Chemie">
   <meta name="author" content="Faraz Haghbayan">
-  <title>Elektronegativität</title>
-  <link rel="canonical" href="https://bismarckchemie.com/elektronegativität">
-    
-
-
+  <link rel="canonical" href="https://bismarckchemie.com/elektronegativität.html">
+  <title>Elektronegativität – Definition, Trends und Bedeutung</title>
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Elektronegativität: Definition, Trends & Bedeutung in der Chemie",
+      "description": "Erfahren Sie alles über Elektronegativität – von der grundlegenden Definition über Trends im Periodensystem bis zu ihrem Einfluss auf chemische Bindungen.",
+      "author": {
+        "@type": "Person",
+        "name": "Faraz Haghbayan"
+      },
+      "datePublished": "2025-02-07",
+      "image": "https://bismarckchemie.com/BismarckChemie-logo.png",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BismarckChemie",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bismarckchemie.com/elektronegativität.html",
+        }
+      }
+    }
+</script>
+  
+  
   <style>
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #7f06dc;
-    color: #333;
-    margin: 20px;
-    line-height: 1.6;
-}
-
-/* Tutorial Styles */
-#tutorial {
-    
-    margin-left: 0%;
-    margin-right: 0%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-    width: 80%;
-    max-width: fit-content;
-    animation: fadeInAnimation ease 1.5s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-}
-
-#tutorial img {
-    margin-top: 10px;
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
+    /* --- Allgemeiner Reset --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    100% {
-        opacity: 1;
-    }
-}
-
-
-
-
-h1 {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-}
-
-#label {
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#search {
-    display: block;
-    margin: 0 auto 20px auto;
-    padding: 10px;
-    font-size: 16px;
-    width: 60%;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
-}
-
-#search:focus {
-    border-color: #8f00ff;
-    outline: none;
-}
-
-#elementList {
-    list-style: none;
-    padding: 0;
-    margin: 20px auto;
-    width: 80%;
-    text-align: center;
-}
-
-#elementList li {
-    padding: 15px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    background-color: #ac42ff;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    color: #fff;
-    box-shadow: 0 4px 6px rgba(255, 215, 0, 0.4); /* Gelblicher Schatten */
-}
-
-#elementList li:hover {
-    background-color: #8f00ff;
-    transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(255, 215, 0, 0.6); /* Intensiverer Schatten bei Hover */
-}
-
-
-/* Result Boxes */
-#result, #compareResult {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5); /* Gelblicher Schatten */
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 800px;
-}
-
-#result.active, #compareResult.active {
-    opacity: 1;
-    transform: translateY(0);
-    box-shadow: 0 6px 10px rgba(255, 215, 0, 0.7); /* Intensiverer Schatten bei Aktivierung */
-}
-
-
-#result h2, #compareResult h3 {
-    color: #333;
-    font-size: 1.5rem;
-    margin: 10px 0px;
-}
-
-/* Buttons */
-button {
-    display: block;
-    background-color: #7400a6;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin: 20px auto;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #43025f;
-}
-
-/* Image Links */
-a img {
-    transition: transform 0.5s ease;
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: transparent;
-}
-
-a:hover img {
-    transform: rotate(360deg);
-}
-
-/* Animations */
-.element {
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Styles */
-@media (max-width: 950px) {
     body {
-        margin: 0;
-        padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #7f06dc;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
     }
 
-    #result, #compareResult {
-        width: 90%;
-        padding: 15px;
-        font-size: 1rem;
+    .back-to-home {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000; /* Damit der Button immer sichtbar bleibt */
     }
 
-    #search {
-        width: 80%;
-        font-size: 14px;
+    .back-button {
+    width: 50px; /* Größe nach Bedarf anpassen */
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
     }
 
-    #elementList li {
-        font-size: 0.9rem;
-        padding: 10px;
+    .back-button:hover {
+    transform: scale(1.1);
     }
 
-    h1 {
-        font-size: 1.5rem;
-    }
 
-    a img {
-        width: 30px;
-        height: 30px;
-    }
+    /* CSS für den Button */
+.periodensystem-btn {
+  display: inline-block;
+  background-color: #7400a6;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-@media (min-width: 900px) and (max-width: 1370px) {
-    h1 {
-        font-size: 2rem;
+.periodensystem-btn:hover {
+  background-color: #43025f;
+  transform: scale(1.05);
+}
+
+
+
+    /* --- Header & Tutorial --- */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
-    #result, #compareResult {
-        width: 75%;
-        padding: 20px;
+    #tutorial {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      animation: fadeInAnimation 1.5s ease forwards;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #tutorial img {
+      margin-top: 10px;
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    @keyframes fadeInAnimation {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    h1 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    #search-container {
+      margin-bottom: 20px;
+    }
+
+    #search-container label {
+      font-weight: bold;
+      color: #fff;
+      margin-right: 10px;
     }
 
     #search {
-        width: 70%;
-        font-size: 1.2rem;
+      padding: 10px;
+      font-size: 16px;
+      width: 60%;
+      max-width: 400px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    #search:focus {
+      border-color: #8f00ff;
+      outline: none;
+    }
+
+    /* --- Hauptinhalt --- */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    #elementList {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto;
+      width: 80%;
+      text-align: center;
     }
 
     #elementList li {
-        font-size: 1.2rem;
-        padding: 12px;
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      background-color: #ac42ff;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      color: #fff;
+      box-shadow: 0 4px 6px rgba(255, 215, 0, 0.4);
     }
+
+    #elementList li:hover {
+      background-color: #8f00ff;
+      transform: scale(1.05);
+      box-shadow: 0 6px 10px rgba(255, 215, 0, 0.6);
+    }
+
+    /* --- Ergebnisboxen --- */
+    #result, #compareResult {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    #result.active, #compareResult.active {
+      opacity: 1;
+      transform: translateY(0);
+      box-shadow: 0 6px 10px rgba(255, 215, 0, 0.7);
+    }
+
+    #result h2, #compareResult h3 {
+      color: #333;
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      margin: 20px auto;
+      display: block;
+    }
+    
 
     button {
-        width: 20%;
-        padding: 10px;
+      background-color: #ac42ff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
     }
-}
 
+    button:hover {
+      background-color: #43025f;
+    }
+
+    #content{
+        background-color: #fff;
+        padding: 20px 30px;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 950px) {
+      body { padding: 10px; }
+      #result, #compareResult { width: 90%; padding: 15px; font-size: 1rem; }
+      #search { width: 80%; font-size: 14px; }
+      #elementList li { font-size: 0.9rem; padding: 10px; }
+      h1 { font-size: 1.7rem; }
+      header{
+        padding-top: 20%;
+      }
+      #content{
+        margin: 0 10%;
+      }
+    }
+
+    
   </style>
+
+
 </head>
 <body>
-
+  <!-- Header-Bereich inklusive Tutorial und Suche -->
+  <header>
     <div id="tutorial">
-        <h2>Willkommen zur interaktiven Suche</h2>
-        <p>1. Gib den Namen eines Elements in das Suchfeld ein.</p>
-        <p>2. Wähle ein Element aus der Liste aus, um Details anzuzeigen.</p>
-        <p>3. Wähle zwei Elemente aus, um die Elektronegativitätsdifferenz zu vergleichen.</p>
-        <img src="Screenshot 2024-12-21 224912.png" alt="">
+      <h2>Willkommen zur interaktiven Suche</h2>
+      <p>1. Gib den Namen eines Elements in das Suchfeld ein.</p>
+      <p>2. Wähle ein Element aus der Liste aus, um Details anzuzeigen.</p>
+      <p>3. Wähle zwei Elemente aus, um die Elektronegativitätsdifferenz zu vergleichen.</p>
+      <img src="Screenshot 2024-12-21 224912.png" alt="Anleitung zur interaktiven Suche">
     </div>
-
+    <a href="index.html" class="back-to-home">
+        <img src="back-button.png" alt="Zurück zur Startseite" class="back-button">        
+      </a>
     <h1>Elektronegativität und Elektronegativitätsdifferenz</h1>
-    <div id="label">
-        <label for="search">Element suchen: </label>
-        <input type="text" id="search" oninput="filterElements()" placeholder="Gib ein Element ein...">
+    <div id="search-container">
+      <label for="search">Element suchen:</label>
+      <input type="text" id="search" oninput="filterElements()" placeholder="Gib ein Element ein..." aria-label="Element suchen">
     </div>
+  </header>
 
+  <!-- Hauptinhalt -->
+  <main>
     <ul id="elementList">
-        <!-- Listenelemente werden hier durch JavaScript dynamisch eingefügt -->
+      <!-- Listenelemente werden hier dynamisch durch JavaScript eingefügt -->
     </ul>
-
-    <div id="result"></div>
-    <div id="compareResult"></div>
-
-    <a href="#" onclick="resetComparison()" title="Vergleich zurücksetzen">
-        <img src="reset.png" alt="Reset Button">
-    </a>
+    <section id="resultContainer">
+      <div id="result"></div>
+      <div id="compareResult"></div>
+    </section>
     
-    
-    
+    <!-- Footer mit Reset-Button -->
+  <footer>
+    <button onclick="resetComparison()" title="Vergleich zurücksetzen">Vergleich zurücksetzen</button>
+    <!-- HTML: Button als Link -->
+<a href="periodensystem.html" class="periodensystem-btn">Zum Periodensystem</a>
 
-<script>
+  </footer>
+    
+    <section id="content">
+        <article>
+            <h2>Was ist Elektronegativität?</h2>
+            <p>Elektronegativität beschreibt die Fähigkeit eines Atoms, Bindungselektronen in einer chemischen Verbindung anzuziehen. Sie ist eine zentrale Eigenschaft der Elemente und beeinflusst maßgeblich die Art und Stärke chemischer Bindungen. Die Skala zur Messung der Elektronegativität wurde von Linus Pauling entwickelt und reicht von 0,7 (wie bei Cäsium) bis 4,0 (Fluor).</p>
+            
+            <h2>Wie verändert sich die Elektronegativität im Periodensystem?</h2>
+            <p>Die Elektronegativität nimmt innerhalb einer Periode von links nach rechts zu, da die Kernladung steigt und die Anziehung auf die Elektronen stärker wird. Innerhalb einer Gruppe hingegen nimmt sie von oben nach unten ab, weil mit zunehmender Atomgröße die Valenzelektronen weiter vom Kern entfernt sind und weniger stark angezogen werden.</p>
+    
+            <h2>Bedeutung der Elektronegativität in der Chemie</h2>
+            <p>Die Elektronegativität ist ein entscheidender Faktor für die Art der chemischen Bindung:</p>
+            <ul>
+                <li><strong>Unpolare kovalente Bindungen:</strong> Treten auf, wenn zwei Atome mit ähnlicher Elektronegativität Elektronen gleichmäßig teilen (z. B. O₂, N₂).</li>
+                <li><strong>Polare kovalente Bindungen:</strong> Entstehen, wenn ein Atom Elektronen stärker anzieht als das andere (z. B. H₂O, NH₃).</li>
+                <li><strong>Ionische Bindungen:</strong> Bilden sich, wenn ein Atom Elektronen vollständig vom anderen aufnimmt, z. B. NaCl.</li>
+            </ul>
+    
+            <h2>Praktische Anwendungen der Elektronegativität</h2>
+            <p>Elektronegativität spielt eine entscheidende Rolle in vielen Bereichen der Chemie, z. B.:</p>
+            <ul>
+                <li><strong>Organische Chemie:</strong> Bestimmt die Polarität von Molekülen und beeinflusst deren Löslichkeit.</li>
+                <li><strong>Materialwissenschaft:</strong> Hilft bei der Entwicklung von Halbleitern und Katalysatoren.</li>
+                <li><strong>Biochemie:</strong> Erklärt Wechselwirkungen zwischen Proteinen und DNA.</li>
+            </ul>
+    
+            <h2>Interaktives Tool zur Elektronegativität</h2>
+            <p>Nutzen Sie unser interaktives Tool, um die Elektronegativitätswerte verschiedener Elemente zu vergleichen. Dieses Tool ermöglicht eine einfache Analyse und unterstützt Sie dabei, chemische Reaktionen und Bindungsarten besser zu verstehen.</p>
+        </article>
+    </section>
+    
+  </main>
+
+
+  <!-- JavaScript: defer sorgt dafür, dass das Skript erst nach dem Laden des HTML ausgeführt wird -->
+  <script defer>
+    // Datenbank der Elemente mit Elektronegativität und weiteren Eigenschaften
     const electronegativity = {
-    H: { en: 2.20, atomicNumber: 1, atomicMass: 1.008, symbol: 'H', name: 'Wasserstoff', properties: ['Nichtmetall'] },
-    He: { en: 0.00, atomicNumber: 2, atomicMass: 4.0026, symbol: 'He', name: 'Helium', properties: ['Edelgas'] },
-    Li: { en: 0.98, atomicNumber: 3, atomicMass: 6.94, symbol: 'Li', name: 'Lithium', properties: ['Alkalimetall'] },
-    Be: { en: 1.57, atomicNumber: 4, atomicMass: 9.0122, symbol: 'Be', name: 'Beryllium', properties: ['Erdalkalimetall'] },
-    B: { en: 2.04, atomicNumber: 5, atomicMass: 10.81, symbol: 'B', name: 'Bor', properties: ['Halbmetall'] },
-    C: { en: 2.55, atomicNumber: 6, atomicMass: 12.01, symbol: 'C', name: 'Kohlenstoff', properties: ['Nichtmetall'] },
-    N: { en: 3.04, atomicNumber: 7, atomicMass: 14.01, symbol: 'N', name: 'Stickstoff', properties: ['Nichtmetall'] },
-    O: { en: 3.44, atomicNumber: 8, atomicMass: 16.00, symbol: 'O', name: 'Sauerstoff', properties: ['Nichtmetall'] },
-    F: { en: 3.98, atomicNumber: 9, atomicMass: 19.00, symbol: 'F', name: 'Fluor', properties: ['Halogen'] },
-    Ne: { en: 0.00, atomicNumber: 10, atomicMass: 20.18, symbol: 'Ne', name: 'Neon', properties: ['Edelgas'] },
-    Na: { en: 0.93, atomicNumber: 11, atomicMass: 22.99, symbol: 'Na', name: 'Natrium', properties: ['Alkalimetall'] },
-    Mg: { en: 1.31, atomicNumber: 12, atomicMass: 24.31, symbol: 'Mg', name: 'Magnesium', properties: ['Erdalkalimetall'] },
-    Al: { en: 1.61, atomicNumber: 13, atomicMass: 26.98, symbol: 'Al', name: 'Aluminium', properties: ['Metall'] },
-    Si: { en: 1.90, atomicNumber: 14, atomicMass: 28.09, symbol: 'Si', name: 'Silicium', properties: ['Halbmetall'] },
-    P: { en: 2.19, atomicNumber: 15, atomicMass: 30.97, symbol: 'P', name: 'Phosphor', properties: ['Nichtmetall'] },
-    S: { en: 2.58, atomicNumber: 16, atomicMass: 32.07, symbol: 'S', name: 'Schwefel', properties: ['Nichtmetall'] },
-    Cl: { en: 3.16, atomicNumber: 17, atomicMass: 35.45, symbol: 'Cl', name: 'Chlor', properties: ['Halogen'] },
-    Ar: { en: 0.00, atomicNumber: 18, atomicMass: 39.95, symbol: 'Ar', name: 'Argon', properties: ['Edelgas'] },
-    K: { en: 0.82, atomicNumber: 19, atomicMass: 39.10, symbol: 'K', name: 'Kalium', properties: ['Alkalimetall'] },
-    Ca: { en: 1.00, atomicNumber: 20, atomicMass: 40.08, symbol: 'Ca', name: 'Calcium', properties: ['Erdalkalimetall'] },
-    Sc: { en: 1.36, atomicNumber: 21, atomicMass: 44.96, symbol: 'Sc', name: 'Scandium', properties: ['Übergangsmetall'] },
-    Ti: { en: 1.54, atomicNumber: 22, atomicMass: 47.87, symbol: 'Ti', name: 'Titan', properties: ['Übergangsmetall'] },
-    V: { en: 1.63, atomicNumber: 23, atomicMass: 50.94, symbol: 'V', name: 'Vanadium', properties: ['Übergangsmetall'] },
-    Cr: { en: 1.66, atomicNumber: 24, atomicMass: 51.99, symbol: 'Cr', name: 'Chrom', properties: ['Übergangsmetall'] },
-    Mn: { en: 1.55, atomicNumber: 25, atomicMass: 54.94, symbol: 'Mn', name: 'Mangan', properties: ['Übergangsmetall'] },
-    Fe: { en: 1.83, atomicNumber: 26, atomicMass: 55.85, symbol: 'Fe', name: 'Eisen', properties: ['Übergangsmetall'] },
-    Co: { en: 1.88, atomicNumber: 27, atomicMass: 58.93, symbol: 'Co', name: 'Cobalt', properties: ['Übergangsmetall'] },
-    Ni: { en: 1.91, atomicNumber: 28, atomicMass: 58.69, symbol: 'Ni', name: 'Nickel', properties: ['Übergangsmetall'] },
-    Cu: { en: 1.90, atomicNumber: 29, atomicMass: 63.55, symbol: 'Cu', name: 'Kupfer', properties: ['Übergangsmetall'] },
-    Zn: { en: 1.65, atomicNumber: 30, atomicMass: 65.38, symbol: 'Zn', name: 'Zink', properties: ['Übergangsmetall'] },
-    Ga: { en: 1.81, atomicNumber: 31, atomicMass: 69.72, symbol: 'Ga', name: 'Gallium', properties: ['Metall'] },
-    Ge: { en: 2.01, atomicNumber: 32, atomicMass: 72.63, symbol: 'Ge', name: 'Germanium', properties: ['Halbmetall'] },
-    As: { en: 2.18, atomicNumber: 33, atomicMass: 74.92, symbol: 'As', name: 'Arsen', properties: ['Halbmetall'] },
-    Se: { en: 2.55, atomicNumber: 34, atomicMass: 78.96, symbol: 'Se', name: 'Selen', properties: ['Nichtmetall'] },
-    Br: { en: 2.96, atomicNumber: 35, atomicMass: 79.90, symbol: 'Br', name: 'Brom', properties: ['Halogen'] },
-    Kr: { en: 3.00, atomicNumber: 36, atomicMass: 83.80, symbol: 'Kr', name: 'Krypton', properties: ['Edelgas'] },
-        Rb: { en: 0.82, atomicNumber: 37, atomicMass: 85.47, symbol: 'Rb', name: 'Rubidium', properties: ['Alkalimetall'] },
-        Sr: { en: 0.95, atomicNumber: 38, atomicMass: 87.62, symbol: 'Sr', name: 'Strontium', properties: ['Erdalkalimetall'] },
-        Y: { en: 1.22, atomicNumber: 39, atomicMass: 88.91, symbol: 'Y', name: 'Yttrium', properties: ['Übergangsmetall'] },
-        Zr: { en: 1.33, atomicNumber: 40, atomicMass: 91.22, symbol: 'Zr', name: 'Zirkonium', properties: ['Übergangsmetall'] },
-        Nb: { en: 1.60, atomicNumber: 41, atomicMass: 92.91, symbol: 'Nb', name: 'Niob', properties: ['Übergangsmetall'] },
-        Mo: { en: 2.16, atomicNumber: 42, atomicMass: 95.95, symbol: 'Mo', name: 'Molybdän', properties: ['Übergangsmetall'] },
-        Tc: { en: 1.90, atomicNumber: 43, atomicMass: 98, symbol: 'Tc', name: 'Technetium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-        Ru: { en: 2.20, atomicNumber: 44, atomicMass: 101.07, symbol: 'Ru', name: 'Ruthenium', properties: ['Übergangsmetall'] },
-        Rh: { en: 2.28, atomicNumber: 45, atomicMass: 102.91, symbol: 'Rh', name: 'Rhodium', properties: ['Übergangsmetall'] },
-        Pd: { en: 2.20, atomicNumber: 46, atomicMass: 106.42, symbol: 'Pd', name: 'Palladium', properties: ['Übergangsmetall'] },
-        Ag: { en: 1.93, atomicNumber: 47, atomicMass: 107.87, symbol: 'Ag', name: 'Silber', properties: ['Übergangsmetall'] },
-        Cd: { en: 1.69, atomicNumber: 48, atomicMass: 112.41, symbol: 'Cd', name: 'Cadmium', properties: ['Übergangsmetall'] },
-        In: { en: 1.78, atomicNumber: 49, atomicMass: 114.82, symbol: 'In', name: 'Indium', properties: ['Metall'] },
-        Sn: { en: 1.96, atomicNumber: 50, atomicMass: 118.71, symbol: 'Sn', name: 'Zinn', properties: ['Metall'] },
-        Sb: { en: 2.05, atomicNumber: 51, atomicMass: 121.76, symbol: 'Sb', name: 'Antimon', properties: ['Halbmetall'] },
-        Te: { en: 2.10, atomicNumber: 52, atomicMass: 127.60, symbol: 'Te', name: 'Tellur', properties: ['Halbmetall'] },
-        I: { en: 2.66, atomicNumber: 53, atomicMass: 126.90, symbol: 'I', name: 'Iod', properties: ['Halogen'] },
-        Xe: { en: 2.60, atomicNumber: 54, atomicMass: 131.29, symbol: 'Xe', name: 'Xenon', properties: ['Edelgas'] },
-        Cs: { en: 0.79, atomicNumber: 55, atomicMass: 132.91, symbol: 'Cs', name: 'Cäsium', properties: ['Alkalimetall'] },
-        Ba: { en: 0.89, atomicNumber: 56, atomicMass: 137.33, symbol: 'Ba', name: 'Barium', properties: ['Erdalkalimetall'] },
-        La: { en: 1.10, atomicNumber: 57, atomicMass: 138.91, symbol: 'La', name: 'Lanthan', properties: ['Lanthanoid'] },
-        Ce: { en: 1.12, atomicNumber: 58, atomicMass: 140.12, symbol: 'Ce', name: 'Cer', properties: ['Lanthanoid'] },
-        Pr: { en: 1.13, atomicNumber: 59, atomicMass: 140.91, symbol: 'Pr', name: 'Praseodym', properties: ['Lanthanoid'] },
-        Nd: { en: 1.14, atomicNumber: 60, atomicMass: 144.24, symbol: 'Nd', name: 'Neodym', properties: ['Lanthanoid'] },
-        Pm: { en: 1.13, atomicNumber: 61, atomicMass: 145, symbol: 'Pm', name: 'Promethium', properties: ['Lanthanoid', 'Radioaktiv'] },
-        Sm: { en: 1.17, atomicNumber: 62, atomicMass: 150.36, symbol: 'Sm', name: 'Samarium', properties: ['Lanthanoid'] },
-        Eu: { en: 1.20, atomicNumber: 63, atomicMass: 151.96, symbol: 'Eu', name: 'Europium', properties: ['Lanthanoid'] },
-        Gd: { en: 1.20, atomicNumber: 64, atomicMass: 157.25, symbol: 'Gd', name: 'Gadolinium', properties: ['Lanthanoid'] },
-        Tb: { en: 1.10, atomicNumber: 65, atomicMass: 158.93, symbol: 'Tb', name: 'Terbium', properties: ['Lanthanoid'] },
-        Dy: { en: 1.22, atomicNumber: 66, atomicMass: 162.50, symbol: 'Dy', name: 'Dysprosium', properties: ['Lanthanoid'] },
-        Ho: { en: 1.23, atomicNumber: 67, atomicMass: 164.93, symbol: 'Ho', name: 'Holmium', properties: ['Lanthanoid'] },
-        Er: { en: 1.24, atomicNumber: 68, atomicMass: 167.26, symbol: 'Er', name: 'Erbium', properties: ['Lanthanoid'] },
-        Tm: { en: 1.25, atomicNumber: 69, atomicMass: 168.93, symbol: 'Tm', name: 'Thulium', properties: ['Lanthanoid'] },
-        Yb: { en: 1.10, atomicNumber: 70, atomicMass: 173.04, symbol: 'Yb', name: 'Ytterbium', properties: ['Lanthanoid'] },
-        Lu: { en: 1.27, atomicNumber: 71, atomicMass: 174.97, symbol: 'Lu', name: 'Lutetium', properties: ['Lanthanoid'] },
-        Hf: { en: 1.30, atomicNumber: 72, atomicMass: 178.49, symbol: 'Hf', name: 'Hafnium', properties: ['Übergangsmetall'] },
-        Ta: { en: 1.50, atomicNumber: 73, atomicMass: 180.95, symbol: 'Ta', name: 'Tantal', properties: ['Übergangsmetall'] },
-        W: { en: 2.36, atomicNumber: 74, atomicMass: 183.84, symbol: 'W', name: 'Wolfram', properties: ['Übergangsmetall'] },
-        Re: { en: 1.90, atomicNumber: 75, atomicMass: 186.21, symbol: 'Re', name: 'Rhenium', properties: ['Übergangsmetall'] },
-        Os: { en: 2.20, atomicNumber: 76, atomicMass: 190.23, symbol: 'Os', name: 'Osmium', properties: ['Übergangsmetall'] },
-        Ir: { en: 2.20, atomicNumber: 77, atomicMass: 192.22, symbol: 'Ir', name: 'Iridium', properties: ['Übergangsmetall'] },
-        Pt: { en: 2.28, atomicNumber: 78, atomicMass: 195.08, symbol: 'Pt', name: 'Platin', properties: ['Übergangsmetall'] },
-        Au: { en: 2.54, atomicNumber: 79, atomicMass: 196.97, symbol: 'Au', name: 'Gold', properties: ['Übergangsmetall'] },
-        Hg: { en: 2.00, atomicNumber: 80, atomicMass: 200.59, symbol: 'Hg', name: 'Quecksilber', properties: ['Übergangsmetall'] },
-        Tl: { en: 1.62, atomicNumber: 81, atomicMass: 204.38, symbol: 'Tl', name: 'Thallium', properties: ['Metall'] },
-        Pb: { en: 2.33, atomicNumber: 82, atomicMass: 207.2, symbol: 'Pb', name: 'Blei', properties: ['Metall'] },
-        Bi: { en: 2.02, atomicNumber: 83, atomicMass: 208.98, symbol: 'Bi', name: 'Bismut', properties: ['Metall'] },
-        Po: { en: 2.00, atomicNumber: 84, atomicMass: 209, symbol: 'Po', name: 'Polonium', properties: ['Halbmetall', 'Radioaktiv'] },
-        At: { en: 2.20, atomicNumber: 85, atomicMass: 210, symbol: 'At', name: 'Astat', properties: ['Halogen', 'Radioaktiv'] },
-        Rn: { en: 0.00, atomicNumber: 86, atomicMass: 222, symbol: 'Rn', name: 'Radon', properties: ['Edelgas', 'Radioaktiv'] },
-            Fr: { en: 0.70, atomicNumber: 87, atomicMass: 223, symbol: 'Fr', name: 'Francium', properties: ['Alkalimetall', 'Radioaktiv'] },
-            Ra: { en: 0.90, atomicNumber: 88, atomicMass: 226, symbol: 'Ra', name: 'Radium', properties: ['Erdalkalimetall', 'Radioaktiv'] },
-            Ac: { en: 1.10, atomicNumber: 89, atomicMass: 227, symbol: 'Ac', name: 'Actinium', properties: ['Actinoid', 'Radioaktiv'] },
-            Th: { en: 1.30, atomicNumber: 90, atomicMass: 232.04, symbol: 'Th', name: 'Thorium', properties: ['Actinoid', 'Radioaktiv'] },
-            Pa: { en: 1.50, atomicNumber: 91, atomicMass: 231.04, symbol: 'Pa', name: 'Protactinium', properties: ['Actinoid', 'Radioaktiv'] },
-            U: { en: 1.38, atomicNumber: 92, atomicMass: 238.03, symbol: 'U', name: 'Uran', properties: ['Actinoid', 'Radioaktiv'] },
-            Np: { en: 1.36, atomicNumber: 93, atomicMass: 237, symbol: 'Np', name: 'Neptunium', properties: ['Actinoid', 'Radioaktiv'] },
-            Pu: { en: 1.28, atomicNumber: 94, atomicMass: 244, symbol: 'Pu', name: 'Plutonium', properties: ['Actinoid', 'Radioaktiv'] },
-            Am: { en: 1.13, atomicNumber: 95, atomicMass: 243, symbol: 'Am', name: 'Americium', properties: ['Actinoid', 'Radioaktiv'] },
-            Cm: { en: 1.28, atomicNumber: 96, atomicMass: 247, symbol: 'Cm', name: 'Curium', properties: ['Actinoid', 'Radioaktiv'] },
-            Bk: { en: 1.30, atomicNumber: 97, atomicMass: 247, symbol: 'Bk', name: 'Berkelium', properties: ['Actinoid', 'Radioaktiv'] },
-            Cf: { en: 1.30, atomicNumber: 98, atomicMass: 251, symbol: 'Cf', name: 'Californium', properties: ['Actinoid', 'Radioaktiv'] },
-            Es: { en: 1.30, atomicNumber: 99, atomicMass: 252, symbol: 'Es', name: 'Einsteinium', properties: ['Actinoid', 'Radioaktiv'] },
-            Fm: { en: 1.30, atomicNumber: 100, atomicMass: 257, symbol: 'Fm', name: 'Fermium', properties: ['Actinoid', 'Radioaktiv'] },
-            Md: { en: 1.30, atomicNumber: 101, atomicMass: 258, symbol: 'Md', name: 'Mendelevium', properties: ['Actinoid', 'Radioaktiv'] },
-            No: { en: 1.30, atomicNumber: 102, atomicMass: 259, symbol: 'No', name: 'Nobelium', properties: ['Actinoid', 'Radioaktiv'] },
-            Lr: { en: 1.30, atomicNumber: 103, atomicMass: 262, symbol: 'Lr', name: 'Lawrencium', properties: ['Actinoid', 'Radioaktiv'] },
-            Rf: { en: null, atomicNumber: 104, atomicMass: 267, symbol: 'Rf', name: 'Rutherfordium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Db: { en: null, atomicNumber: 105, atomicMass: 270, symbol: 'Db', name: 'Dubnium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Sg: { en: null, atomicNumber: 106, atomicMass: 271, symbol: 'Sg', name: 'Seaborgium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Bh: { en: null, atomicNumber: 107, atomicMass: 270, symbol: 'Bh', name: 'Bohrium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Hs: { en: null, atomicNumber: 108, atomicMass: 277, symbol: 'Hs', name: 'Hassium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Mt: { en: null, atomicNumber: 109, atomicMass: 278, symbol: 'Mt', name: 'Meitnerium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Ds: { en: null, atomicNumber: 110, atomicMass: 281, symbol: 'Ds', name: 'Darmstadtium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Rg: { en: null, atomicNumber: 111, atomicMass: 282, symbol: 'Rg', name: 'Roentgenium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Cn: { en: null, atomicNumber: 112, atomicMass: 285, symbol: 'Cn', name: 'Copernicium', properties: ['Übergangsmetall', 'Radioaktiv'] },
-            Nh: { en: null, atomicNumber: 113, atomicMass: 286, symbol: 'Nh', name: 'Nihonium', properties: ['Metall', 'Radioaktiv'] },
-            Fl: { en: null, atomicNumber: 114, atomicMass: 289, symbol: 'Fl', name: 'Flerovium', properties: ['Metall', 'Radioaktiv'] },
-            Mc: { en: null, atomicNumber: 115, atomicMass: 290, symbol: 'Mc', name: 'Moscovium', properties: ['Metall', 'Radioaktiv'] },
-            Lv: { en: null, atomicNumber: 116, atomicMass: 293, symbol: 'Lv', name: 'Livermorium', properties: ['Metall', 'Radioaktiv'] },
-            Ts: { en: null, atomicNumber: 117, atomicMass: 294, symbol: 'Ts', name: 'Tenness', properties: ['Halogen', 'Radioaktiv'] },
-            Og: { en: null, atomicNumber: 118, atomicMass: 294, symbol: 'Og', name: 'Oganesson', properties: ['Edelgas', 'Radioaktiv'] }
-        };
-        
-    
+  // A
+  Ac: { en: 1.10, atomicNumber: 89, atomicMass: 227, symbol: 'Ac', name: 'Actinium', properties: ['Actinoid', 'Radioaktiv'] },
+  Al: { en: 1.61, atomicNumber: 13, atomicMass: 26.98, symbol: 'Al', name: 'Aluminium', properties: ['Metall'] },
+  Am: { en: 1.13, atomicNumber: 95, atomicMass: 243, symbol: 'Am', name: 'Americium', properties: ['Actinoid', 'Radioaktiv'] },
+  Sb: { en: 2.05, atomicNumber: 51, atomicMass: 121.76, symbol: 'Sb', name: 'Antimon', properties: ['Halbmetall'] },
+  Ar: { en: 0.00, atomicNumber: 18, atomicMass: 39.95, symbol: 'Ar', name: 'Argon', properties: ['Edelgas'] },
+  As: { en: 2.18, atomicNumber: 33, atomicMass: 74.92, symbol: 'As', name: 'Arsen', properties: ['Halbmetall'] },
+  At: { en: 2.20, atomicNumber: 85, atomicMass: 210, symbol: 'At', name: 'Astat', properties: ['Halogen', 'Radioaktiv'] },
 
-    
+  // B
+  Ba: { en: 0.89, atomicNumber: 56, atomicMass: 137.33, symbol: 'Ba', name: 'Barium', properties: ['Erdalkalimetall'] },
+  Be: { en: 1.57, atomicNumber: 4, atomicMass: 9.0122, symbol: 'Be', name: 'Beryllium', properties: ['Erdalkalimetall'] },
+  Bk: { en: 1.30, atomicNumber: 97, atomicMass: 247, symbol: 'Bk', name: 'Berkelium', properties: ['Actinoid', 'Radioaktiv'] },
+  Bi: { en: 2.02, atomicNumber: 83, atomicMass: 208.98, symbol: 'Bi', name: 'Bismut', properties: ['Metall'] },
+  Pb: { en: 2.33, atomicNumber: 82, atomicMass: 207.2, symbol: 'Pb', name: 'Blei', properties: ['Metall'] },
+  Bh: { en: 0, atomicNumber: 107, atomicMass: 270, symbol: 'Bh', name: 'Bohrium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  B:  { en: 2.04, atomicNumber: 5, atomicMass: 10.81, symbol: 'B', name: 'Bor', properties: ['Halbmetall'] },
+  Br: { en: 2.96, atomicNumber: 35, atomicMass: 79.90, symbol: 'Br', name: 'Brom', properties: ['Halogen'] },
+
+  // C
+  Cd: { en: 1.69, atomicNumber: 48, atomicMass: 112.41, symbol: 'Cd', name: 'Cadmium', properties: ['Übergangsmetall'] },
+  Ca: { en: 1.00, atomicNumber: 20, atomicMass: 40.08, symbol: 'Ca', name: 'Calcium', properties: ['Erdalkalimetall'] },
+  Cf: { en: 1.30, atomicNumber: 98, atomicMass: 251, symbol: 'Cf', name: 'Californium', properties: ['Actinoid', 'Radioaktiv'] },
+  Ce: { en: 1.12, atomicNumber: 58, atomicMass: 140.12, symbol: 'Ce', name: 'Cer', properties: ['Lanthanoid'] },
+  Cl: { en: 3.16, atomicNumber: 17, atomicMass: 35.45, symbol: 'Cl', name: 'Chlor', properties: ['Halogen'] },
+  Cr: { en: 1.66, atomicNumber: 24, atomicMass: 51.99, symbol: 'Cr', name: 'Chrom', properties: ['Übergangsmetall'] },
+  Cs: { en: 0.79, atomicNumber: 55, atomicMass: 132.91, symbol: 'Cs', name: 'Cäsium', properties: ['Alkalimetall'] },
+  Co: { en: 1.88, atomicNumber: 27, atomicMass: 58.93, symbol: 'Co', name: 'Cobalt', properties: ['Übergangsmetall'] },
+  Cn: { en: 0, atomicNumber: 112, atomicMass: 285, symbol: 'Cn', name: 'Copernicium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  Cm: { en: 1.28, atomicNumber: 96, atomicMass: 247, symbol: 'Cm', name: 'Curium', properties: ['Actinoid', 'Radioaktiv'] },
+
+  // D
+  Ds: { en: 0, atomicNumber: 110, atomicMass: 281, symbol: 'Ds', name: 'Darmstadtium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  Db: { en: 0, atomicNumber: 105, atomicMass: 270, symbol: 'Db', name: 'Dubnium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  Dy: { en: 1.22, atomicNumber: 66, atomicMass: 162.50, symbol: 'Dy', name: 'Dysprosium', properties: ['Lanthanoid'] },
+
+  // E
+  Fe: { en: 1.83, atomicNumber: 26, atomicMass: 55.85, symbol: 'Fe', name: 'Eisen', properties: ['Übergangsmetall'] },
+  Er: { en: 1.24, atomicNumber: 68, atomicMass: 167.26, symbol: 'Er', name: 'Erbium', properties: ['Lanthanoid'] },
+  Es: { en: 1.30, atomicNumber: 99, atomicMass: 252, symbol: 'Es', name: 'Einsteinium', properties: ['Actinoid', 'Radioaktiv'] },
+  Eu: { en: 1.20, atomicNumber: 63, atomicMass: 151.96, symbol: 'Eu', name: 'Europium', properties: ['Lanthanoid'] },
+
+  // F
+  F:  { en: 3.98, atomicNumber: 9, atomicMass: 19.00, symbol: 'F', name: 'Fluor', properties: ['Halogen'] },
+  Fm: { en: 1.30, atomicNumber: 100, atomicMass: 257, symbol: 'Fm', name: 'Fermium', properties: ['Actinoid', 'Radioaktiv'] },
+  Fl: { en: 0, atomicNumber: 114, atomicMass: 289, symbol: 'Fl', name: 'Flerovium', properties: ['Metall', 'Radioaktiv'] },
+  Fr: { en: 0.70, atomicNumber: 87, atomicMass: 223, symbol: 'Fr', name: 'Francium', properties: ['Alkalimetall', 'Radioaktiv'] },
+
+  // G
+  Ga: { en: 1.81, atomicNumber: 31, atomicMass: 69.72, symbol: 'Ga', name: 'Gallium', properties: ['Metall'] },
+  Gd: { en: 1.20, atomicNumber: 64, atomicMass: 157.25, symbol: 'Gd', name: 'Gadolinium', properties: ['Lanthanoid'] },
+  Ge: { en: 2.01, atomicNumber: 32, atomicMass: 72.63, symbol: 'Ge', name: 'Germanium', properties: ['Halbmetall'] },
+  Au: { en: 2.54, atomicNumber: 79, atomicMass: 196.97, symbol: 'Au', name: 'Gold', properties: ['Übergangsmetall'] },
+
+  // H
+  Hf: { en: 1.30, atomicNumber: 72, atomicMass: 178.49, symbol: 'Hf', name: 'Hafnium', properties: ['Übergangsmetall'] },
+  Hs: { en: 0, atomicNumber: 108, atomicMass: 277, symbol: 'Hs', name: 'Hassium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  He: { en: 0.00, atomicNumber: 2, atomicMass: 4.0026, symbol: 'He', name: 'Helium', properties: ['Edelgas'] },
+  Ho: { en: 1.23, atomicNumber: 67, atomicMass: 164.93, symbol: 'Ho', name: 'Holmium', properties: ['Lanthanoid'] },
+
+  // I
+  I:  { en: 2.66, atomicNumber: 53, atomicMass: 126.90, symbol: 'I', name: 'Iod', properties: ['Halogen'] },
+  In: { en: 1.78, atomicNumber: 49, atomicMass: 114.82, symbol: 'In', name: 'Indium', properties: ['Metall'] },
+  Ir: { en: 2.20, atomicNumber: 77, atomicMass: 192.22, symbol: 'Ir', name: 'Iridium', properties: ['Übergangsmetall'] },
+
+  // K (nach Namen sortiert!)
+  K:  { en: 0.82, atomicNumber: 19, atomicMass: 39.10, symbol: 'K', name: 'Kalium', properties: ['Alkalimetall'] },
+  C:  { en: 2.55, atomicNumber: 6, atomicMass: 12.01, symbol: 'C', name: 'Kohlenstoff', properties: ['Nichtmetall'] },
+  Cu: { en: 1.90, atomicNumber: 29, atomicMass: 63.55, symbol: 'Cu', name: 'Kupfer', properties: ['Übergangsmetall'] },
+  Kr: { en: 3.00, atomicNumber: 36, atomicMass: 83.80, symbol: 'Kr', name: 'Krypton', properties: ['Edelgas'] },
+
+  // L
+  La: { en: 1.10, atomicNumber: 57, atomicMass: 138.91, symbol: 'La', name: 'Lanthan', properties: ['Lanthanoid'] },
+  Lr: { en: 1.30, atomicNumber: 103, atomicMass: 262, symbol: 'Lr', name: 'Lawrencium', properties: ['Actinoid', 'Radioaktiv'] },
+  Li: { en: 0.98, atomicNumber: 3, atomicMass: 6.94, symbol: 'Li', name: 'Lithium', properties: ['Alkalimetall'] },
+  Lv: { en: 0, atomicNumber: 116, atomicMass: 293, symbol: 'Lv', name: 'Livermorium', properties: ['Metall', 'Radioaktiv'] },
+  Lu: { en: 1.27, atomicNumber: 71, atomicMass: 174.97, symbol: 'Lu', name: 'Lutetium', properties: ['Lanthanoid'] },
+
+  // M
+  Mg: { en: 1.31, atomicNumber: 12, atomicMass: 24.31, symbol: 'Mg', name: 'Magnesium', properties: ['Erdalkalimetall'] },
+  Mn: { en: 1.55, atomicNumber: 25, atomicMass: 54.94, symbol: 'Mn', name: 'Mangan', properties: ['Übergangsmetall'] },
+  Md: { en: 1.30, atomicNumber: 101, atomicMass: 258, symbol: 'Md', name: 'Mendelevium', properties: ['Actinoid', 'Radioaktiv'] },
+  Mt: { en: 0, atomicNumber: 109, atomicMass: 278, symbol: 'Mt', name: 'Meitnerium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  Mo: { en: 2.16, atomicNumber: 42, atomicMass: 95.95, symbol: 'Mo', name: 'Molybdän', properties: ['Übergangsmetall'] },
+  Mc: { en: 0, atomicNumber: 115, atomicMass: 290, symbol: 'Mc', name: 'Moscovium', properties: ['Metall', 'Radioaktiv'] },
+
+  // N
+  Na: { en: 0.93, atomicNumber: 11, atomicMass: 22.99, symbol: 'Na', name: 'Natrium', properties: ['Alkalimetall'] },
+  Ne: { en: 0.00, atomicNumber: 10, atomicMass: 20.18, symbol: 'Ne', name: 'Neon', properties: ['Edelgas'] },
+  Nd: { en: 1.14, atomicNumber: 60, atomicMass: 144.24, symbol: 'Nd', name: 'Neodym', properties: ['Lanthanoid'] },
+  Np: { en: 1.36, atomicNumber: 93, atomicMass: 237, symbol: 'Np', name: 'Neptunium', properties: ['Actinoid', 'Radioaktiv'] },
+  Ni: { en: 1.91, atomicNumber: 28, atomicMass: 58.69, symbol: 'Ni', name: 'Nickel', properties: ['Übergangsmetall'] },
+  Nb: { en: 1.60, atomicNumber: 41, atomicMass: 92.91, symbol: 'Nb', name: 'Niob', properties: ['Übergangsmetall'] },
+  Nh: { en: 0, atomicNumber: 113, atomicMass: 286, symbol: 'Nh', name: 'Nihonium', properties: ['Metall', 'Radioaktiv'] },
+  No: { en: 1.30, atomicNumber: 102, atomicMass: 259, symbol: 'No', name: 'Nobelium', properties: ['Actinoid', 'Radioaktiv'] },
+
+  // O
+  Og: { en: 0, atomicNumber: 118, atomicMass: 294, symbol: 'Og', name: 'Oganesson', properties: ['Edelgas', 'Radioaktiv'] },
+  Os: { en: 2.20, atomicNumber: 76, atomicMass: 190.23, symbol: 'Os', name: 'Osmium', properties: ['Übergangsmetall'] },
+
+  // P
+  P:  { en: 2.19, atomicNumber: 15, atomicMass: 30.97, symbol: 'P', name: 'Phosphor', properties: ['Nichtmetall'] },
+  Pd: { en: 2.20, atomicNumber: 46, atomicMass: 106.42, symbol: 'Pd', name: 'Palladium', properties: ['Übergangsmetall'] },
+  Pt: { en: 2.28, atomicNumber: 78, atomicMass: 195.08, symbol: 'Pt', name: 'Platin', properties: ['Übergangsmetall'] },
+  Pu: { en: 1.28, atomicNumber: 94, atomicMass: 244, symbol: 'Pu', name: 'Plutonium', properties: ['Actinoid', 'Radioaktiv'] },
+  Po: { en: 2.00, atomicNumber: 84, atomicMass: 209, symbol: 'Po', name: 'Polonium', properties: ['Halbmetall', 'Radioaktiv'] },
+  Pr: { en: 1.13, atomicNumber: 59, atomicMass: 140.91, symbol: 'Pr', name: 'Praseodym', properties: ['Lanthanoid'] },
+  Pm: { en: 1.13, atomicNumber: 61, atomicMass: 145, symbol: 'Pm', name: 'Promethium', properties: ['Lanthanoid', 'Radioaktiv'] },
+  Pa: { en: 1.50, atomicNumber: 91, atomicMass: 231.04, symbol: 'Pa', name: 'Protactinium', properties: ['Actinoid', 'Radioaktiv'] },
+
+  // Q
+  Hg: { en: 2.00, atomicNumber: 80, atomicMass: 200.59, symbol: 'Hg', name: 'Quecksilber', properties: ['Übergangsmetall'] },
+
+  // R
+  Ra: { en: 0.90, atomicNumber: 88, atomicMass: 226, symbol: 'Ra', name: 'Radium', properties: ['Erdalkalimetall', 'Radioaktiv'] },
+  Rn: { en: 0.00, atomicNumber: 86, atomicMass: 222, symbol: 'Rn', name: 'Radon', properties: ['Edelgas', 'Radioaktiv'] },
+  Re: { en: 1.90, atomicNumber: 75, atomicMass: 186.21, symbol: 'Re', name: 'Rhenium', properties: ['Übergangsmetall'] },
+  Rh: { en: 2.28, atomicNumber: 45, atomicMass: 102.91, symbol: 'Rh', name: 'Rhodium', properties: ['Übergangsmetall'] },
+  Rg: { en: 0, atomicNumber: 111, atomicMass: 282, symbol: 'Rg', name: 'Roentgenium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  Rb: { en: 0.82, atomicNumber: 37, atomicMass: 85.47, symbol: 'Rb', name: 'Rubidium', properties: ['Alkalimetall'] },
+  Rf: { en: 0, atomicNumber: 104, atomicMass: 267, symbol: 'Rf', name: 'Rutherfordium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  Ru: { en: 2.20, atomicNumber: 44, atomicMass: 101.07, symbol: 'Ru', name: 'Ruthenium', properties: ['Übergangsmetall'] },
+
+  // S
+  Sm: { en: 1.17, atomicNumber: 62, atomicMass: 150.36, symbol: 'Sm', name: 'Samarium', properties: ['Lanthanoid'] },
+  O:  { en: 3.44, atomicNumber: 8, atomicMass: 16.00, symbol: 'O', name: 'Sauerstoff', properties: ['Nichtmetall'] },
+  Sc: { en: 1.36, atomicNumber: 21, atomicMass: 44.96, symbol: 'Sc', name: 'Scandium', properties: ['Übergangsmetall'] },
+  S:  { en: 2.58, atomicNumber: 16, atomicMass: 32.07, symbol: 'S', name: 'Schwefel', properties: ['Nichtmetall'] },
+  Se: { en: 2.55, atomicNumber: 34, atomicMass: 78.96, symbol: 'Se', name: 'Selen', properties: ['Nichtmetall'] },
+  Sg: { en: 0, atomicNumber: 106, atomicMass: 271, symbol: 'Sg', name: 'Seaborgium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  Ag: { en: 1.93, atomicNumber: 47, atomicMass: 107.87, symbol: 'Ag', name: 'Silber', properties: ['Übergangsmetall'] },
+  Si: { en: 1.90, atomicNumber: 14, atomicMass: 28.09, symbol: 'Si', name: 'Silicium', properties: ['Halbmetall'] },
+  N:  { en: 3.04, atomicNumber: 7, atomicMass: 14.01, symbol: 'N', name: 'Stickstoff', properties: ['Nichtmetall'] },
+  Sr: { en: 0.95, atomicNumber: 38, atomicMass: 87.62, symbol: 'Sr', name: 'Strontium', properties: ['Erdalkalimetall'] },
+
+  // T
+  Ta: { en: 1.50, atomicNumber: 73, atomicMass: 180.95, symbol: 'Ta', name: 'Tantal', properties: ['Übergangsmetall'] },
+  Tc: { en: 1.90, atomicNumber: 43, atomicMass: 98, symbol: 'Tc', name: 'Technetium', properties: ['Übergangsmetall', 'Radioaktiv'] },
+  Te: { en: 2.10, atomicNumber: 52, atomicMass: 127.60, symbol: 'Te', name: 'Tellur', properties: ['Halbmetall'] },
+  Ts: { en: 0, atomicNumber: 117, atomicMass: 294, symbol: 'Ts', name: 'Tenness', properties: ['Halogen', 'Radioaktiv'] },
+  Tb: { en: 1.10, atomicNumber: 65, atomicMass: 158.93, symbol: 'Tb', name: 'Terbium', properties: ['Lanthanoid'] },
+  Tl: { en: 1.62, atomicNumber: 81, atomicMass: 204.38, symbol: 'Tl', name: 'Thallium', properties: ['Metall'] },
+  Th: { en: 1.30, atomicNumber: 90, atomicMass: 232.04, symbol: 'Th', name: 'Thorium', properties: ['Actinoid', 'Radioaktiv'] },
+  Tm: { en: 1.25, atomicNumber: 69, atomicMass: 168.93, symbol: 'Tm', name: 'Thulium', properties: ['Lanthanoid'] },
+  Ti: { en: 1.54, atomicNumber: 22, atomicMass: 47.87, symbol: 'Ti', name: 'Titan', properties: ['Übergangsmetall'] },
+
+  // U
+  U:  { en: 1.38, atomicNumber: 92, atomicMass: 238.03, symbol: 'U', name: 'Uran', properties: ['Actinoid', 'Radioaktiv'] },
+
+  // V
+  V:  { en: 1.63, atomicNumber: 23, atomicMass: 50.94, symbol: 'V', name: 'Vanadium', properties: ['Übergangsmetall'] },
+
+  // W
+  H:  { en: 2.20, atomicNumber: 1, atomicMass: 1.008, symbol: 'H', name: 'Wasserstoff', properties: ['Nichtmetall'] },
+  W:  { en: 2.36, atomicNumber: 74, atomicMass: 183.84, symbol: 'W', name: 'Wolfram', properties: ['Übergangsmetall'] },
+
+  // X
+  Xe: { en: 2.60, atomicNumber: 54, atomicMass: 131.29, symbol: 'Xe', name: 'Xenon', properties: ['Edelgas'] },
+
+  // Y
+  Y:  { en: 1.22, atomicNumber: 39, atomicMass: 88.91, symbol: 'Y', name: 'Yttrium', properties: ['Übergangsmetall'] },
+  Yb: { en: 1.10, atomicNumber: 70, atomicMass: 173.04, symbol: 'Yb', name: 'Ytterbium', properties: ['Lanthanoid'] },
+
+  // Z
+  Zn: { en: 1.65, atomicNumber: 30, atomicMass: 65.38, symbol: 'Zn', name: 'Zink', properties: ['Übergangsmetall'] },
+  Sn: { en: 1.96, atomicNumber: 50, atomicMass: 118.71, symbol: 'Sn', name: 'Zinn', properties: ['Metall'] },
+  Zr: { en: 1.33, atomicNumber: 40, atomicMass: 91.22, symbol: 'Zr', name: 'Zirkonium', properties: ['Übergangsmetall'] }
+};
 
 
 
-let selectedElements = [];
 
-function filterElements() {
-    const searchQuery = document.getElementById('search').value.toLowerCase();
-    const elementList = document.getElementById('elementList');
-    elementList.innerHTML = '';
+    // Array, in dem aktuell ausgewählte Elemente gespeichert werden
+    let selectedElements = [];
 
-    const filteredElements = Object.keys(electronegativity).filter(element =>
+    /**
+     * Filtert die Elemente anhand der Eingabe im Suchfeld und erstellt dynamisch Listeneinträge.
+     */
+    function filterElements() {
+      const searchQuery = document.getElementById('search').value.toLowerCase();
+      const elementList = document.getElementById('elementList');
+      elementList.innerHTML = '';
+
+      // Filtere nach Schlüsseln (z. B. "H", "He" …)
+      const filteredElements = Object.keys(electronegativity).filter(element =>
         element.toLowerCase().includes(searchQuery)
-    );
+      );
 
-    filteredElements.forEach(element => {
+      // Erstelle für jedes gefilterte Element ein Listenelement
+      filteredElements.forEach(element => {
         const li = document.createElement('li');
         li.textContent = element;
         li.addEventListener('click', () => displayElementInfo(element));
         elementList.appendChild(li);
-    });
-}
-
-function displayElementInfo(element) {
-    if (selectedElements.includes(element)) return;
-
-    const { en, atomicNumber, atomicMass, symbol, name, properties } = electronegativity[element];
-
-    if (selectedElements.length < 2) {
-        selectedElements.push(element);
+      });
     }
 
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = ''; // Alte Ergebnisse löschen
+    /**
+     * Zeigt Informationen zum ausgewählten Element an und führt bei zwei ausgewählten
+     * Elementen einen Vergleich der Elektronegativitätsdifferenz durch.
+     */
+    function displayElementInfo(element) {
+      // Verhindere, dass dasselbe Element mehrfach ausgewählt wird
+      if (selectedElements.includes(element)) return;
 
-    selectedElements.forEach(selected => {
+      // Bei weniger als 2 ausgewählten Elementen wird das Element hinzugefügt
+      if (selectedElements.length < 2) {
+        selectedElements.push(element);
+      }
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = ''; // Vorherige Ergebnisse löschen
+
+      // Zeige für jedes ausgewählte Element dessen Informationen an
+      selectedElements.forEach(selected => {
         const { en, atomicNumber, atomicMass, symbol, name, properties } = electronegativity[selected];
         const elementDiv = document.createElement('div');
         elementDiv.classList.add('element');
         elementDiv.innerHTML = `
-            <h2>${name} (${symbol})</h2>
-            <p><strong>Elektronegativität:</strong> ${en ?? 'Nicht definiert'}</p>
-            <p><strong>Ordnungszahl:</strong> ${atomicNumber}</p>
-            <p><strong>Atommasse:</strong> ${atomicMass} u</p>
-            <p><strong>Eigenschaften:</strong> ${properties.join(', ')}</p>
+          <h2>${name} (${symbol})</h2>
+          <p><strong>Elektronegativität:</strong> ${en !== null ? en : 'Nicht definiert'}</p>
+          <p><strong>Ordnungszahl:</strong> ${atomicNumber}</p>
+          <p><strong>Atommasse:</strong> ${atomicMass} u</p>
+          <p><strong>Eigenschaften:</strong> ${properties.join(', ')}</p>
         `;
         resultDiv.appendChild(elementDiv);
-    });
+      });
 
-    resultDiv.classList.add('active'); // Smooth transition for result div
+      resultDiv.classList.add('active'); // Sichtbare Anzeige mit Transition
 
-    // Vergleich nur, wenn zwei Elemente ausgewählt sind
-    if (selectedElements.length === 2) {
+      // Wenn zwei Elemente ausgewählt sind, führe den Vergleich durch
+      if (selectedElements.length === 2) {
         const en1 = electronegativity[selectedElements[0]].en;
         const en2 = electronegativity[selectedElements[1]].en;
 
         if (en1 !== null && en2 !== null) {
-            const deltaEN = Math.abs(en1 - en2);
+          const deltaEN = Math.abs(en1 - en2).toFixed(2);
 
-            let bondType;
-            if (deltaEN < 0.5) {
-                bondType = 'Unpolar';
-            } else if (deltaEN < 1.7) {
-                bondType = 'Polar';
-            } else {
-                bondType = 'Ionisch';
-            }
+          let bondType;
+          if (deltaEN < 0.5) {
+            bondType = 'Unpolar';
+          } else if (deltaEN < 1.7) {
+            bondType = 'Polar';
+          } else {
+            bondType = 'Ionisch';
+          }
 
-            let color = 'green';
-            if (bondType === 'Polar') color = 'yellow';
-            if (bondType === 'Ionisch') color = 'red';
+          let color = 'lightgreen';
+          if (bondType === 'Polar') color = 'yellow';
+          if (bondType === 'Ionisch') color = 'red';
 
-            const compareResultDiv = document.getElementById('compareResult');
-            compareResultDiv.innerHTML = `
-                <div>
-                    <h3>Elektronegativitätsdifferenz von ${selectedElements[0]} und ${selectedElements[1]}</h3>
-                    <p>ΔEN: ${deltaEN}</p>
-                    <p>Bindungstyp: <strong>${bondType}</strong></p>
-                </div>
-            `;
-            compareResultDiv.style.backgroundColor = color;
-            compareResultDiv.classList.add('active'); // Smooth transition for comparison
+          const compareResultDiv = document.getElementById('compareResult');
+          compareResultDiv.innerHTML = `
+            <div>
+              <h3>Vergleich: ${selectedElements[0]} und ${selectedElements[1]}</h3>
+              <p>ΔEN: ${deltaEN}</p>
+              <p>Bindungstyp: <strong>${bondType}</strong></p>
+            </div>
+          `;
+          compareResultDiv.style.backgroundColor = color;
+          compareResultDiv.classList.add('active');
         } else {
-            alert('Elektronegativität für dieses Elemente nicht definiert.');
+          alert('Elektronegativität für mindestens eines der ausgewählten Elemente ist nicht definiert.');
         }
+      }
     }
-}
 
+    /**
+     * Setzt die Vergleichsauswahl und die angezeigten Ergebnisse zurück.
+     */
+    function resetComparison() {
+      selectedElements = [];
+      document.getElementById('compareResult').innerHTML = '';
+      document.getElementById('result').innerHTML = '';
+      document.getElementById('result').classList.remove('active');
+      document.getElementById('compareResult').classList.remove('active');
+      // Optional: Suchfeld zurücksetzen
+      document.getElementById('search').value = '';
+      filterElements();
+    }
 
-function resetComparison() {
-    selectedElements = [];
-    document.getElementById('compareResult').innerHTML = '';
-    document.getElementById('result').innerHTML = '';
-    document.getElementById('result').classList.remove('active');
-    document.getElementById('compareResult').classList.remove('active');
-}
-
-window.onload = () => {
-    setTimeout(() => {
+    // Blende das Tutorial nach 6 Sekunden mit einer Fade-Out-Animation aus
+    window.addEventListener('load', () => {
+      setTimeout(() => {
         const tutorial = document.getElementById('tutorial');
+        tutorial.style.transition = 'opacity 1s ease';
         tutorial.style.opacity = '0';
-        setTimeout(() => tutorial.style.display = 'none', 1000);
-    }, 6000); // Nach 6 Sekunden ausblenden
-};
-</script>
+        setTimeout(() => {
+          tutorial.style.display = 'none';
+        }, 1000);
+      }, 6000);
+    });
+  </script>
 </body>
 </html>
