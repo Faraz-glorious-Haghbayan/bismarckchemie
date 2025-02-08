@@ -1,218 +1,327 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="description" content="Säuren und Basen, lewis säure und base, säure base reaktion, Säure, Basen, säuren basen chemie, definition säure und base nach brönsted">
-    <title>Säuren und Basen</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background: linear-gradient(to right, #43025f, #a300e9);
-            color: #ffd700;
-            font-weight: bold;
-            text-transform: uppercase;
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            gap: 10px;
-        }
-
-        #back {
-            width: 50px;
-            height: 50px;
-            background-color: #ffc700;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-content {
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        #logo {
-            width: 80px;
-            display: block;
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            margin: 0;
-            text-shadow: 2px 2px 2px black;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #ff0000;
-            font-size: 2rem;
-            -webkit-text-stroke: 1px black;
-        }
-
-        .content {
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            margin: 10px 0;
-        }
-
-        footer {
-        position: relative;
-        text-align: center;
-        color: #ffffff;
-        font-size: 1.1rem;
-        font-weight: bold;
-        overflow: hidden; /* Wichtig, damit das Video den Footer nicht verlässt */
-        height: 200px; /* Festgelegte Höhe für den Footer */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Säuren und Basen – Grundlagen, Definition und Anwendungen in der Chemie</title>
+  <meta name="description" content="Erfahren Sie alles über Säuren und Basen: Grundlagen, Definition nach Brønsted & Lowry, die pH-Skala, Neutralisationsreaktionen, Geschichte, chemische Eigenschaften und Anwendungen in Industrie, Medizin und Lebensmittel.">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Bismarckchemie">
+  <link rel="canonical" href="https://www.deine-seite.de/saeuren-und-basen">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Säuren und Basen – Grundlagen, Definition & Anwendungen in der Chemie">
+  <meta property="og:description" content="Erfahren Sie alles über Säuren und Basen: Grundlagen, Definition nach Brønsted & Lowry, pH-Skala, Neutralisationsreaktionen, Geschichte, chemische Eigenschaften und Anwendungen in Industrie, Medizin und Lebensmittel.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.deine-seite.de/saeuren-und-basen">
+  <meta property="og:image" content="https://www.deine-seite.de/images/saeuren-und-basen.jpg">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Säuren und Basen – Grundlagen, Definition & Anwendungen in der Chemie">
+  <meta name="twitter:description" content="Erfahren Sie alles über Säuren und Basen: Grundlagen, Definition nach Brønsted & Lowry, pH-Skala, Neutralisationsreaktionen, Geschichte, chemische Eigenschaften und Anwendungen in Industrie, Medizin und Lebensmittel.">
+  <meta name="twitter:image" content="https://www.deine-seite.de/images/saeuren-und-basen.jpg">
+  
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Säuren und Basen – Grundlagen, Definition & Anwendungen in der Chemie",
+    "description": "Erfahren Sie alles über Säuren und Basen: Grundlagen, Definition nach Brønsted & Lowry, pH-Skala, Neutralisationsreaktionen, Geschichte, chemische Eigenschaften und Anwendungen in Industrie, Medizin und Lebensmittel.",
+    "author": {
+      "@type": "Organization",
+      "name": "Bismarckchemie"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": "2024-01-01",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.deine-seite.de/saeuren-und-basen"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bismarckchemie",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.deine-seite.de/images/BismarckChemie-logo.png"
+      }
+    },
+    "image": "https://www.deine-seite.de/images/saeuren-und-basen.jpg"
+  }
+  </script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
     }
-
+    header {
+      background: linear-gradient(to right, #43025f, #a300e9);
+      color: #ffd700;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      gap: 10px;
+    }
+    #back {
+      width: 50px;
+      height: 50px;
+      background-color: #ffc700;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .header-content {
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    #logo {
+      width: 80px;
+      display: block;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      text-shadow: 2px 2px 2px black;
+    }
+    main {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+    .container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #ff0000;
+      font-size: 1.6rem;
+      -webkit-text-stroke: 1px black;
+    }
+    .content {
+      margin-bottom: 20px;
+    }
+    .content p, .content ul {
+      margin: 10px 0;
+    }
+    .content ul li {
+      margin-bottom: 5px;
+    }
+    footer {
+      position: relative;
+      text-align: center;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      overflow: hidden;
+      height: 200px;
+    }
     .video-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0; /* Video im Hintergrund */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
     }
-
     .video-background video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Das Video passt sich dem Container an */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-
     .footer-content {
-        position: relative;
-        z-index: 1; /* Inhalt über dem Video */
-        background: rgba(0, 0, 0, 0.5); /* Halbtransparenter Hintergrund für bessere Lesbarkeit */
-        padding: 10px 0;
-        height: 100%; /* Der Text bleibt innerhalb des Footers */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      position: relative;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    </style>
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <a href="index.html" class="back-link">
-                <img id="back" src="left-arrow-in-circular-button-black-symbol.png" alt="Zurück zur Startseite">
-            </a>
-            <div class="header-content">
-                <img src="Bismarckchemie-logo.png" alt="Bismarckchemie Logo" id="logo">
-                <h1>Säuren und Basen</h1>
-            </div>
-        </div>
-    </header>
-    
-    <div class="container">
-        <div class="content">
-            <h2>Was sind Säuren und Basen?</h2>
-            <p>
-                Säuren und Basen sind zentrale Konzepte in der Chemie, die eine Vielzahl chemischer Reaktionen beeinflussen. Eine Säure ist eine Substanz, 
-                die Protonen (H⁺-Ionen) abgeben kann, während eine Base Protonen aufnehmen kann. Diese Definition wurde ursprünglich von Brønsted und Lowry vorgeschlagen.
-            </p>
-            <p>
-                Beispiele für Säuren sind Schwefelsäure (H₂SO₄), Salzsäure (HCl) und Essigsäure (CH₃COOH). Beispiele für Basen sind Natriumhydroxid (NaOH), Ammoniak (NH₃) und Calciumhydroxid (Ca(OH)₂).
-            </p>
-        </div>
-        
-        <div class="content">
-            <h2>Die pH-Skala</h2>
-            <p>
-                Der pH-Wert ist ein Maß für die Konzentration von H⁺-Ionen in einer Lösung. Die pH-Skala reicht von 0 bis 14:
-            </p>
-            <ul>
-                <li><strong>pH 0-6:</strong> sauer (z. B. Zitronensaft, Magensäure)</li>
-                <li><strong>pH 7:</strong> neutral (z. B. reines Wasser)</li>
-                <li><strong>pH 8-14:</strong> basisch (z. B. Seifenlauge, Ammoniaklösung)</li>
-            </ul>
-            <p>
-                Der pH-Wert wird oft mit einem Indikator wie Lackmuspapier oder pH-Metern gemessen.
-            </p>
-        </div>
-        
-        <div class="content">
-            <h2>Neutralisationsreaktionen</h2>
-            <p>
-                Eine Neutralisationsreaktion tritt auf, wenn eine Säure und eine Base miteinander reagieren, um Wasser und ein Salz zu bilden. 
-                Zum Beispiel:
-            </p>
-            <p>
-                HCl (aq) + NaOH (aq) → NaCl (aq) + H₂O (l)
-            </p>
-            <p>
-                Diese Reaktionen sind exotherm, d. h., sie setzen Wärme frei. Neutralisationsreaktionen finden in vielen alltäglichen Anwendungen statt, 
-                wie z. B. bei der Behandlung von saurem Boden in der Landwirtschaft oder bei der Herstellung von Medikamenten gegen Sodbrennen.
-            </p>
-        </div>
-        
-        <div class="content">
-            <h2>Anwendungen von Säuren und Basen</h2>
-            <p>
-                Säuren und Basen spielen eine wichtige Rolle in verschiedenen Bereichen der Wissenschaft und Technik:
-            </p>
-            <ul>
-                <li><strong>Lebensmittelindustrie:</strong> Essigsäure wird als Konservierungsmittel verwendet, während Natronlauge zur Reinigung eingesetzt wird.</li>
-                <li><strong>Medizin:</strong> Magensäure besteht hauptsächlich aus HCl, das bei der Verdauung hilft. Basen wie Natriumhydrogencarbonat werden verwendet, um überschüssige Säure im Magen zu neutralisieren.</li>
-                <li><strong>Industrie:</strong> Schwefelsäure wird in der Herstellung von Düngemitteln, Batterien und Farbstoffen verwendet.</li>
-            </ul>
-        </div>
-        
-        <div class="content">
-            <h2>Fazit</h2>
-            <p>
-                Säuren und Basen sind unverzichtbare Bestandteile der Chemie. Sie beeinflussen unser tägliches Leben auf vielfältige Weise, 
-                von der Ernährung über die Medizin bis hin zur Industrie. Ein Verständnis ihrer Eigenschaften und Anwendungen ist der Schlüssel, 
-                um chemische Prozesse besser zu verstehen und zu kontrollieren.
-            </p>
-        </div>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="back-link">
+        <img id="back" src="left-arrow-in-circular-button-black-symbol.png" alt="Zurück zur Startseite">
+      </a>
+      <div class="header-content">
+        <img src="Bismarckchemie-logo.png" alt="Bismarckchemie Logo" id="logo">
+        <h1>Säuren und Basen</h1>
+      </div>
     </div>
-    <footer>
-        <div class="video-background">
-            <video autoplay loop muted>
-                <source src="Footervid.mp4" type="video/mp4">
-                Dein Browser unterstützt kein HTML5-Video.
-            </video>
-        </div>
-        <div class="footer-content">
-            <p>&copy; 2024 - 2025 Bismarckchemie. Alle Rechte vorbehalten.</p>
-        </div>
-    </footer>
+  </header>
+  <main>
+    <!-- Einführung -->
+    <article class="container">
+      <section class="content">
+        <h2>Einführung in Säuren und Basen</h2>
+        <p>
+          Säuren und Basen sind grundlegende chemische Substanzen, die in nahezu allen Bereichen der Natur und Technik vorkommen. Sie bestimmen den Charakter vieler chemischer Reaktionen und haben enorme Bedeutung in der Industrie, Medizin und im Alltag.
+        </p>
+      </section>
+    </article>
+    
+    <!-- Grundlegende Definitionen -->
+    <article class="container">
+      <section class="content">
+        <h2>Was sind Säuren und Basen?</h2>
+        <p>
+          In der Chemie bezeichnet man als <strong>Säure</strong> eine Substanz, die Protonen (H⁺-Ionen) abgeben kann, während eine <strong>Base</strong> in der Lage ist, Protonen aufzunehmen. Diese Definition, bekannt als Brønsted-Lowry-Theorie, ist ein zentraler Ansatz in der modernen Chemie.
+        </p>
+        <p>
+          Zu den klassischen Beispielen gehören:
+        </p>
+        <ul>
+          <li><strong>Säuren:</strong> Schwefelsäure (H₂SO₄), Salzsäure (HCl), Essigsäure (CH₃COOH)</li>
+          <li><strong>Basen:</strong> Natriumhydroxid (NaOH), Ammoniak (NH₃), Calciumhydroxid (Ca(OH)₂)</li>
+        </ul>
+      </section>
+    </article>
+    
+    <!-- Die pH-Skala -->
+    <article class="container">
+      <section class="content">
+        <h2>Die pH-Skala und ihre Bedeutung</h2>
+        <p>
+          Der pH-Wert misst die Konzentration von Wasserstoffionen in einer Lösung und reicht von 0 bis 14. Eine pH-Skala hilft dabei, den Säure- oder Basengehalt einer Lösung zu bestimmen:
+        </p>
+        <ul>
+          <li><strong>pH 0-6:</strong> Sauere Lösungen (z. B. Zitronensaft, Magensäure)</li>
+          <li><strong>pH 7:</strong> Neutrale Lösungen (z. B. reines Wasser)</li>
+          <li><strong>pH 8-14:</strong> Basische Lösungen (z. B. Seifenlauge, Ammoniaklösung)</li>
+        </ul>
+        <p>
+          Der pH-Wert ist nicht nur in Laboren von Bedeutung, sondern auch in der Umwelt, in der Lebensmittelproduktion und in der Medizin.
+        </p>
+      </section>
+    </article>
+    
+    <!-- Neutralisationsreaktionen -->
+    <article class="container">
+      <section class="content">
+        <h2>Neutralisationsreaktionen – Chemische Grundlagen</h2>
+        <p>
+          Eine Neutralisationsreaktion tritt auf, wenn eine Säure und eine Base reagieren, um Wasser und ein Salz zu bilden. Dies ist eine exotherme Reaktion, bei der Wärme freigesetzt wird. Ein typisches Beispiel lautet:
+        </p>
+        <p>
+          HCl (aq) + NaOH (aq) → NaCl (aq) + H₂O (l)
+        </p>
+        <p>
+          Solche Reaktionen sind in der Industrie und im Alltag von großer Bedeutung – etwa bei der Behandlung von saurem Boden oder in der Medizin zur Neutralisierung von Magensäure.
+        </p>
+      </section>
+    </article>
+    
+    <!-- Anwendungen -->
+    <article class="container">
+      <section class="content">
+        <h2>Anwendungen von Säuren und Basen</h2>
+        <p>
+          Säuren und Basen finden in zahlreichen Bereichen Anwendung. Hier einige Beispiele:
+        </p>
+        <ul>
+          <li><strong>Lebensmittelindustrie:</strong> Essigsäure wird als Konservierungsmittel eingesetzt, während Natronlauge in der Lebensmittelreinigung verwendet wird.</li>
+          <li><strong>Medizin:</strong> Magensäure unterstützt die Verdauung; Basen helfen, überschüssige Säure zu neutralisieren.</li>
+          <li><strong>Industrie:</strong> Schwefelsäure ist ein zentraler Bestandteil bei der Herstellung von Düngemitteln, Batterien und Farbstoffen.</li>
+          <li><strong>Umweltschutz:</strong> Neutralisationsreaktionen werden zur Behandlung von sauren Abwässern eingesetzt.</li>
+        </ul>
+      </section>
+    </article>
+    
+    <!-- Geschichte und Entwicklung -->
+    <article class="container">
+      <section class="content">
+        <h2>Geschichte und Entwicklung der Säure-Base-Theorie</h2>
+        <p>
+          Die Konzepte von Säuren und Basen haben sich im Laufe der Jahrhunderte entwickelt. Bereits im 17. Jahrhundert wurden erste Beobachtungen zu sauren Eigenschaften gemacht. 
+          Die systematische Theorie entwickelte sich im 20. Jahrhundert mit den Arbeiten von Brønsted und Lowry, die eine deutliche Definition der Protonendonatoren und -akzeptoren lieferten.
+        </p>
+        <p>
+          Diese theoretischen Fortschritte haben nicht nur das Verständnis chemischer Reaktionen verbessert, sondern auch den Weg für zahlreiche praktische Anwendungen in der modernen Chemie geebnet.
+        </p>
+      </section>
+    </article>
+    
+    <!-- Chemische Eigenschaften -->
+    <article class="container">
+      <section class="content">
+        <h2>Wichtige chemische Eigenschaften von Säuren und Basen</h2>
+        <p>
+          Neben der Fähigkeit, Protonen zu übertragen, besitzen Säuren und Basen weitere charakteristische Eigenschaften:
+        </p>
+        <ul>
+          <li><strong>Leitfähigkeit:</strong> In wässriger Lösung leiten starke Säuren und Basen elektrischen Strom.</li>
+          <li><strong>Reaktivität:</strong> Sie reagieren mit Metallen, Carbonaten und anderen Substanzen, was zu vielfältigen chemischen Produkten führt.</li>
+          <li><strong>Farbveränderung mit Indikatoren:</strong> Natürliche Indikatoren wie Lackmuspapier verändern ihre Farbe, je nachdem, ob sie in einer sauren oder basischen Umgebung eingesetzt werden.</li>
+        </ul>
+      </section>
+    </article>
+    
+    <!-- FAQ -->
+    <article class="container">
+      <section class="content">
+        <h2>Häufig gestellte Fragen (FAQ)</h2>
+        <p><strong>Was unterscheidet eine starke von einer schwachen Säure?</strong><br>
+           Eine starke Säure dissoziiert vollständig in Wasser, während eine schwache Säure nur teilweise in Ionen zerfällt.</p>
+        <p><strong>Wie wird der pH-Wert gemessen?</strong><br>
+           Der pH-Wert wird mithilfe von pH-Messgeräten, Indikatorpapier oder digitalen Sensoren bestimmt.</p>
+        <p><strong>Welche Rolle spielen Säuren und Basen in der Umwelt?</strong><br>
+           Sie sind entscheidend bei Prozessen wie der Bodenneutralisation, der Wasseraufbereitung und in natürlichen Kreisläufen.</p>
+      </section>
+    </article>
+    
+    <!-- Weiterführende Links und Ressourcen -->
+    <article class="container">
+      <section class="content">
+        <h2>Weiterführende Links und Ressourcen</h2>
+        <p>Für alle, die tiefer in das Thema eintauchen möchten, empfehlen wir folgende Ressourcen:</p>
+        <ul>
+          <li><a href="https://de.wikipedia.org/wiki/S%C3%A4ure" target="_blank">Wikipedia: Säure</a></li>
+          <li><a href="https://de.wikipedia.org/wiki/Base_(Chemie)" target="_blank">Wikipedia: Base (Chemie)</a></li>
+          <li><a href="https://www.chemie.de/lexikon/saeuren_und_basen.html" target="_blank">Chemie.de: Säuren und Basen</a></li>
+          <li><a href="https://www.bpb.de/nachschlagen/lexika/lexikon-der-chemie/21497/saeuren-und-basen" target="_blank">Bundeszentrale für politische Bildung: Lexikon Chemie</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <div class="video-background">
+      <video autoplay loop muted>
+        <source src="greenman.mp4" type="video/mp4">
+        Dein Browser unterstützt kein HTML5-Video.
+      </video>
+    </div>
+    <div class="footer-content">
+      <p>&copy; 2024 - 2025 Bismarckchemie. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
 </body>
 </html>
