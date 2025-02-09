@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalysatoren – Funktionsweise, Typen und Anwendungen in der Chemie</title>
+  <meta name="description" content="Erfahren Sie alles über Katalysatoren: Definition, Funktionsweise, Typen (homogen, heterogen, enzymatisch) und ihre vielfältigen Anwendungen in der Industrie, Umwelttechnik und Biochemie.">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="BismarckChemie">
+  <link rel="canonical" href="https://bismarckchemie.com/katalysatoren">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Katalysatoren – Funktionsweise, Typen & Anwendungen in der Chemie">
+  <meta property="og:description" content="Erfahren Sie alles über Katalysatoren: Definition, Mechanismen zur Senkung der Aktivierungsenergie, Unterschiede zwischen homogenen, heterogenen und enzymatischen Katalysatoren sowie ihre Anwendungen in der Industrie.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bismarckchemie.com/katalysatoren">
+  <meta property="og:image" content="https://bismarckchemie.com/assets/images/katalysatoren.jpg">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Katalysatoren – Funktionsweise, Typen & Anwendungen in der Chemie">
+  <meta name="twitter:description" content="Erfahren Sie alles über Katalysatoren: Wie sie die Aktivierungsenergie senken, welche Typen es gibt und wie sie in der Industrie und Biochemie eingesetzt werden.">
+  <meta name="twitter:image" content="https://bismarckchemie.com/assets/images/katalysatoren.jpg">
+  
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Katalysatoren – Funktionsweise, Typen & Anwendungen in der Chemie",
+    "description": "Erfahren Sie alles über Katalysatoren: Definition, Mechanismen zur Senkung der Aktivierungsenergie, Unterschiede zwischen homogenen, heterogenen und enzymatischen Katalysatoren sowie ihre Anwendungen in der Industrie, Umwelttechnik und Biochemie.",
+    "author": {
+      "@type": "Organization",
+      "name": "BismarckChemie"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": "2024-01-01",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bismarckchemie.com/katalysatoren"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "BismarckChemie",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bismarckchemie.com/assets/images/BismarckChemie-logo.png"
+      }
+    },
+    "image": "https://bismarckchemie.com/assets/images/katalysatoren.jpg"
+  }
+  </script>
+  
+  <style>
+    /* Global Reset & Basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    html, body {
+      height: 100%;
+    }
+    #bis{
+        text-decoration: none;
+        background-color: #8f00ff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Header */
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .header-video {
+      position: absolute;
+      filter: brightness(80%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      position: sticky;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(5px);
+    }
+    .logo {
+      width: 5%;
+    }
+    .web-name {
+      font-size: 2rem;
+      color: #ffd700;
+      font-family: "Pacifico", serif;
+      text-shadow: 2px 2px 2px #8f00ff;
+      font-weight: lighter;
+      text-align: center;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 30px;
+      height: 4px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #8f00ff;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+    #header-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    }
+    #header-content h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    #header-content p {
+      font-size: 1.5rem;
+    }
+    #gelb {
+      color: #ffd700;
+      font-size: 3rem;
+    }
+    #lila {
+      color: #8f00ff;
+    }
+    
+    /* Content Container */
+    .container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #ff0000;
+      font-size: 2rem;
+      -webkit-text-stroke: 1px black;
+      margin-bottom: 15px;
+    }
+    .content {
+      margin-bottom: 20px;
+    }
+    .content p, .content ul {
+      margin: 10px 0;
+    }
+    .content ul li {
+      margin-bottom: 5px;
+    }
+    /* Footer */
+    footer {
+      position: relative;
+      text-align: center;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      overflow: hidden;
+      height: 200px;
+    }
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .footer-content {
+      position: relative;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Responsive Styles (ähnlich wie zuvor) */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .logo{
+        width: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <video autoplay muted loop playsinline class="header-video" preload="auto">
+      <source src="headervid.mp4" type="video/mp4">
+      Dein Browser unterstützt kein HTML5-Video.
+    </video>
+    <nav>
+      <img src="Bismarckchemie-logo.png" alt="BismarckChemie Logo" class="logo">
+      <h1 class="web-name">BismarckChemie</h1>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-links">
+        <a href="#katalysatoren">Katalysatoren</a>
+        <a href="#thermochemie">Thermochemie</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about-us">Über uns</a>
+      </div>
+    </nav>
+    <div id="header-content">
+      <h1>Willkommen bei <span id="gelb">Bismarck</span><span id="lila">Chemie</span></h1>
+      <p>Dein Chemie-Begleiter für die Schule</p>
+    </div>
+  </header>
+  
+  <main>
+    <!-- Detaillierter Artikel zu Katalysatoren (Beispiel) -->
+    <article class="container" id="katalysatoren">
+      <section class="content">
+        <h2>Katalysatoren – Einleitung</h2>
+        <p>
+          Katalysatoren sind Stoffe, die chemische Reaktionen beschleunigen, ohne selbst dauerhaft verändert zu werden. Sie senken die Aktivierungsenergie, die benötigt wird, um eine Reaktion in Gang zu setzen, und ermöglichen so effizientere und schnellere Reaktionen. Dieser Artikel bietet einen detaillierten Einblick in die Funktionsweise, Typen und Anwendungen von Katalysatoren in der Chemie.
+        </p>
+      </section>
+      
+      <section class="content">
+        <h2>Definition und Funktionsweise</h2>
+        <p>
+          <strong>Definition:</strong> Ein Katalysator ist ein Stoff, der eine chemische Reaktion beschleunigt, ohne dabei selbst verbraucht zu werden. Er verändert das Reaktionsgleichgewicht nicht, sondern ermöglicht einen alternativen Reaktionsweg mit einer niedrigeren Aktivierungsenergie.
+        </p>
+        <p>
+          <strong>Funktionsweise:</strong> 
+          <br>• <em>Adsorption:</em> Die Edukte lagern sich an der Oberfläche des Katalysators an.
+          <br>• <em>Reaktionsweg:</em> Durch die Wechselwirkung mit dem Katalysator sinkt die Aktivierungsenergie, sodass die Reaktion leichter ablaufen kann.
+          <br>• <em>Desorption:</em> Nach der Reaktion werden die Produkte von der Oberfläche freigesetzt, während der Katalysator unverändert bleibt.
+        </p>
+      </section>
+      
+      <section class="content">
+        <h2>Typen von Katalysatoren</h2>
+        <p>
+          Es gibt verschiedene Arten von Katalysatoren, die in der Chemie eingesetzt werden:
+        </p>
+        <ul>
+          <li><strong>Homogene Katalysatoren:</strong> Sie befinden sich in der gleichen Phase wie die Edukte (meist in Lösung). Beispiel: Säurekatalysierte Esterifikationen.</li>
+          <li><strong>Heterogene Katalysatoren:</strong> Sie liegen in einer anderen Phase vor als die Edukte, beispielsweise als Feststoff in einer Gas- oder Flüssigphase. Beispiel: Abgaskatalysatoren in Fahrzeugen.</li>
+          <li><strong>Enzymatische Katalysatoren:</strong> Biokatalysatoren, die in lebenden Organismen vorkommen und hochspezifisch arbeiten. Beispiel: Enzyme wie Amylase in der Verdauung.</li>
+        </ul>
+      </section>
+      
+      <section class="content">
+        <h2>Anwendungen in der Industrie und Umwelt</h2>
+        <p>
+          Katalysatoren finden breite Anwendung:
+        </p>
+        <ul>
+          <li><strong>Industrielle Synthesen:</strong> Beispielsweise wird der Haber-Bosch-Prozess zur Ammoniaksynthese durch Eisenkatalysatoren beschleunigt.</li>
+          <li><strong>Automobilindustrie:</strong> Drei-Wege-Katalysatoren reduzieren Schadstoffemissionen in Fahrzeugen, indem sie Kohlenmonoxid, Stickoxide und unverbrannte Kohlenwasserstoffe in ungefährliche Stoffe umwandeln.</li>
+          <li><strong>Umweltschutz:</strong> Katalysatoren unterstützen die Behandlung von Abwässern und helfen, Schadstoffe abzubauen.</li>
+          <li><strong>Biochemische Prozesse:</strong> Enzyme katalysieren essenzielle Reaktionen in lebenden Organismen, wie die Verdauung von Nahrung und den Zellstoffwechsel.</li>
+        </ul>
+      </section>
+      
+      <section class="content">
+        <h2>Zukunftsperspektiven in der Katalyse</h2>
+        <p>
+          Die Forschung an Katalysatoren entwickelt sich ständig weiter. Zu den spannenden Bereichen gehören:
+        </p>
+        <ul>
+          <li><strong>Nano-Katalysatoren:</strong> Durch den Einsatz von Nanomaterialien können Katalysatoren noch effizienter und selektiver gestaltet werden.</li>
+          <li><strong>Grüne Katalyse:</strong> Entwicklung von umweltfreundlichen Katalysatoren, die weniger energieintensiv sind und nachhaltige Prozesse unterstützen.</li>
+          <li><strong>Biokatalyse:</strong> Fortschritte in der Enzymtechnik ermöglichen neue Anwendungen in der Pharmazie und Lebensmittelproduktion.</li>
+        </ul>
+      </section>
+    </article>
+    
+    <!-- Erweiterter Artikel zu Thermochemie als zweiter Beispielartikel -->
+    <article class="container" id="thermochemie">
+      <section class="content">
+        <h2>Thermochemie – Energie in chemischen Reaktionen</h2>
+        <p>
+          Thermochemie beschäftigt sich mit den Energieänderungen, die bei chemischen Reaktionen auftreten. Dabei werden exotherme und endotherme Prozesse unterschieden, die jeweils charakteristische Energieprofile aufweisen.
+        </p>
+      </section>
+      
+      <section class="content">
+        <h2>Exotherme Reaktionen</h2>
+        <p>
+          <strong>Definition:</strong> Bei exothermen Reaktionen wird Energie, meist in Form von Wärme, freigesetzt. Die Produkte besitzen ein niedrigeres Energieniveau als die Edukte.
+        </p>
+        <p>
+          <strong>Energieprofil:</strong> Ein Diagramm einer exothermen Reaktion zeigt einen deutlichen Energieabfall. Die Differenz zwischen den Energieniveaus wird als freigesetzte Energie (ΔE) bezeichnet.
+        </p>
+        <p>
+          <strong>Beispiele:</strong>
+          <br>• Verbrennung von Methan: CH₄ + 2O₂ → CO₂ + 2H₂O + Energie
+          <br>• Neutralisation von Säure und Base: HCl + NaOH → NaCl + H₂O + Energie
+        </p>
+        <p>
+          <strong>Anwendungen:</strong> Exotherme Prozesse werden in der Energieerzeugung und in industriellen Prozessen genutzt. Auch in biologischen Systemen, wie der Zellatmung, spielt die exotherme Reaktion eine wesentliche Rolle.
+        </p>
+      </section>
+      
+      <section class="content">
+        <h2>Endotherme Reaktionen</h2>
+        <p>
+          <strong>Definition:</strong> Endotherme Reaktionen benötigen Energiezufuhr, da die Produkte ein höheres Energieniveau aufweisen als die Edukte. Energie wird dabei aus der Umgebung aufgenommen.
+        </p>
+        <p>
+          <strong>Energieprofil:</strong> Im Diagramm einer endothermen Reaktion ist ein Energieanstieg zu erkennen. Die zugeführte Energie (ΔE) muss bereitgestellt werden, z. B. durch Licht oder Wärme.
+        </p>
+        <p>
+          <strong>Beispiele:</strong>
+          <br>• Photosynthese: 6CO₂ + 6H₂O + Lichtenergie → C₆H₁₂O₆ + 6O₂
+          <br>• Das Lösen von Ammoniumnitrat in Wasser, das eine kühlende Wirkung hat.
+        </p>
+        <p>
+          <strong>Anwendungen:</strong> Endotherme Prozesse sind in der Natur und Technik wichtig, z. B. in Kühlsystemen und bei der Umwandlung von Lichtenergie in chemische Energie.
+        </p>
+      </section>
+    </article>
+    
+    <!-- FAQ Abschnitt (Bereits vorhanden, kann erweitert werden) -->
+    <article class="container" id="faq">
+      <section class="content">
+        <h2>Häufige Fragen</h2>
+        <details>
+          <summary>Was ist der Unterschied zwischen homogenen und heterogenen Katalysatoren?</summary>
+          <p>Homogene Katalysatoren befinden sich in derselben Phase wie die Edukte, während heterogene Katalysatoren in einer anderen Phase vorliegen.</p>
+        </details>
+        <details>
+          <summary>Wie beeinflussen Katalysatoren die Aktivierungsenergie?</summary>
+          <p>Katalysatoren bieten einen alternativen Reaktionsweg mit niedrigerer Aktivierungsenergie, wodurch die Reaktionsgeschwindigkeit steigt.</p>
+        </details>
+        <details>
+          <summary>Welche Rolle spielen Enzyme als Katalysatoren?</summary>
+          <p>Enzyme sind biologische Katalysatoren, die in lebenden Organismen hochspezifische Reaktionen beschleunigen, ohne dabei verbraucht zu werden.</p>
+        </details>
+      </section>
+    </article>
+    
+    <!-- Über uns -->
+    <article class="container" id="about-us">
+      <section class="content">
+        <h2>Über uns</h2>
+        <p>Erfahre mehr über BismarckChemie, unsere Mission und wie wir Chemie verständlich machen – für Schüler und Chemiebegeisterte.</p>
+        <a href="http://bismarckchemie.com" id="bis" target="_blank" rel="noopener noreferrer">Hauptwebsite</a>
+      </section>
+    </article>
+    
+  </main>
+  
+  <footer>
+    <div class="video-background">
+      <video autoplay loop muted>
+        <source src="greenman.mp4" type="video/mp4">
+        Dein Browser unterstützt kein HTML5-Video.
+      </video>
+    </div>
+    <div class="footer-content">
+      <p>&copy; 2024 - 2025 BismarckChemie. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+  
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
